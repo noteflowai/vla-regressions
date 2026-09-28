@@ -46,8 +46,9 @@ define a state as a LIBERO initial state together with its scene seed, roll out 
 times per policy with common random numbers, and test each state for regression under
 false-discovery control. On X-VLA in LIBERO-10, this old-versus-old floor falls to 2--3 flips per
 100 states; 4-bit weights leave every state intact, while 3-bit weights break seven states
-outright and concentrate a 20-point drop on a few tasks. \todo{update with the step and BF16
-variants.}
+outright and concentrate a 20-point drop on a few tasks. Fewer denoising steps raise success
+and regress no state; BF16 leaves the aggregate flat but loses one state, which 20 further
+rollouts confirm (18 of 20 successes against 4).
 \end{abstract}
 
 \keywords{Vision-language-action models, quantization, evaluation, regression testing}
@@ -86,8 +87,9 @@ We make three contributions.
     (Section~\ref{sec:method}). The harness is built on LeRobot~\citep{cadene2026lerobot}.
   \item \textbf{Per-state regressions of X-VLA}~\citep{zheng2025xvla} under weight
     quantization on LIBERO-10 (Section~\ref{sec:xvla}): at precisely defined states a rerun is
-    close to a replay, W4 changes no state significantly, and W3's losses sit in seven states
-    that go from always to never succeeding.
+    close to a replay, W4 changes no state significantly, W3's losses sit in seven states
+    that go from always to never succeeding, and BF16 loses a single state that the aggregate
+    hides.
 \end{itemize}
 
 \section{Method}
@@ -169,7 +171,8 @@ per-state reading of such a comparison needs repeated rollouts.
   \includegraphics[width=0.55\linewidth]{fig_noise_floor.pdf}
   \caption{Fraction of states that change outcome between two runs, against their mean success
   rate. Crosses: the same configuration with a new seed. Dots: baseline against every other
-  configuration in VLAQuantBench. The dashed curve is $2p(1-p)$, the flip rate if every state had
+  configuration in VLAQuantBench. Circles: X-VLA in this work (Section~\ref{sec:xvla}), FP32
+and W3 against themselves at fixed states, first rollout only. The dashed curve is $2p(1-p)$, the flip rate if every state had
   success rate $p$; repeats fall below it because states differ in difficulty.}
   \label{fig:floor}
 \end{figure}
@@ -213,8 +216,10 @@ scene seeds; no state's success count moves by more than two, and neither run ha
 state. 88 of the 100 states succeed in all five FP32 rollouts and 5 fail in all five: once a
 state is defined precisely, a rerun at this success rate is close to a replay. Changing the scene
 seed moves outcomes no more than changing the policy seed, so fixture placement is not the main
-source of rerun noise here. The floor grows as success falls (Section~\ref{sec:floor});
-\todo{W3 against itself.}
+source of rerun noise here. The floor grows as success falls (Section~\ref{sec:floor}): W3
+against itself, at 72\% success, changes 73 of 500 rollouts and shows 12 naive flips (3 to
+failure, 9 to success), but again no significant state, and 4 states with posterior probability
+above 0.9 of having become worse.
 
 \paragraph{W4 is safe per state as well as on average.} Its six naive flips are twice the floor,
 but none survives the test; the most affected state drops from 5/5 to 1/5 ($p=0.024$, not
@@ -222,8 +227,9 @@ significant after correction).
 
 \paragraph{W3 fails in specific places.} The 20-point drop is concentrated: tasks 5, 8 and 9 keep
 96--100\% while tasks 0, 4 and 7 lose 40--52 points. Seven states go from 5/5 to 0/5 and are
-flagged; 26 have posterior probability above 0.9 of having become worse. The single-rollout
-protocol would report 23 new failures and 2 new successes, and cannot say which of them are real.
+flagged; 26 have posterior probability above 0.9 of having become worse, against 4 when W3 is
+rerun. The single-rollout protocol would report 23 new failures and 2 new successes, and cannot
+say which of them are real.
 Every W3 failure is a timeout, while its successes take as long as FP32's (265 against 256 steps
 on average). VLAQuantBench's own W3 variant of the same model loses only 3.2 points under its
 quantizer and 900-step limit, so the size of a W3 drop depends on both; what we show is where
@@ -238,7 +244,11 @@ expected, and the test does not flag it.
 trajectory of 422 of 500 episodes and the aggregate by $-1.0$ points, within the interval of no
 change. One state, however, goes from 5/5 to 0/5 ($p=0.004$). BH cannot flag a lone state of this
 kind: with 100 states the smallest threshold is $0.1/100$, below the smallest $p$-value five
-rollouts can give. \todo{20-rollout follow-up of this state.}
+rollouts can give. We therefore rolled this state out 20 more times per variant with fresh
+policy seeds; since the state was picked from the first run, only the new rollouts enter the
+test. FP32 succeeds in 18 of them and BF16 in 4 (one-sided Fisher $p=8\times10^{-6}$), and all 16
+BF16 failures are timeouts. A regression of a single state, invisible in the aggregate, needs a
+second, targeted round of rollouts to be confirmed.
 
 \section{Discussion}
 

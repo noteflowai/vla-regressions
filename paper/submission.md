@@ -29,8 +29,7 @@ Upload `paper/latex/main.pdf` (anonymous build). Do not upload `main-preprint.pd
 - **TL;DR:** One rollout per initial state cannot tell which states a VLA update breaks: rerunning
   an unchanged policy flips up to a quarter of LIBERO states. We give a repeated-rollout,
   FDR-controlled per-state test and apply it to quantized X-VLA.
-- **Abstract:** copy from `main.tex` once the TODO sentence is filled (the X-VLA results are
-  still running).
+- **Abstract:** copy from `main.tex` (all results are in; no TODO left).
 
 ## 3. arXiv
 
@@ -38,7 +37,7 @@ Register: https://arxiv.org/user/register (the author chooses the username and p
 
 - **Primary category:** cs.RO. **Cross-list:** cs.LG.
 - **Title:** as above. **Authors:** Qiang Guo
-- **Comments:** 5 pages, 1 figure, 1 table. Workshop paper.
+- **Comments:** 6 pages (4 plus references), 1 figure, 2 tables. Workshop paper.
   (Name the workshop only if its call for papers allows it during review.)
 - **License:** the author's choice; CC BY 4.0 is the most common for open preprints.
 - **Source:** `make arxiv.tar.gz` in `paper/latex/` (flat directory with main.tex, main.bbl,
