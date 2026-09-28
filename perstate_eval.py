@@ -88,7 +88,8 @@ def run_batch(env, policy, env_pre, env_post, pre, post, n, seeds):
         obs = pre(env_pre(obs))
         with torch.inference_mode():
             action = policy.select_action(obs)
-        action = env_post({ACTION: post(action)})[ACTION].to("cpu").numpy()
+        # X-VLA's postprocessor calls .numpy(), which has no bfloat16; a no-op for float32 policies
+        action = env_post({ACTION: post(action.float())})[ACTION].to("cpu").numpy()
         observation, _, terminated, truncated, info = env.step(action)
         t += 1
         ended = (terminated | truncated) & ~done
