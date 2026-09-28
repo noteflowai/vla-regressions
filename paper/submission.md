@@ -1,7 +1,7 @@
 # Submission kit
 
-Everything the account and submission forms ask for, ready to paste. The accounts are Qiang Guo's
-own: registration, the terms of service and the final "Submit" are done by him.
+Everything the account and submission forms ask for, ready to paste. The accounts belong to Qiang Guo:
+the author registers, accepts the terms of service and clicks the final "Submit".
 
 ## 1. OpenReview profile (do this first: moderation of non-institutional emails takes up to 2 weeks)
 
