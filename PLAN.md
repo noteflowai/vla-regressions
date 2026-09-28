@@ -41,11 +41,13 @@ than the old one, with a test that accounts for rollout randomness, and show tha
 
 | Update | Model | Status |
 |---|---|---|
-| FP32 → W8 / W4 (group 128) weight-only, simulated | X-VLA (`lerobot/xvla-libero`) | pilot running: fp32, w4 |
-| FP32 → BF16 | X-VLA | planned |
-| 10 → 5 flow-matching steps | X-VLA | planned |
-| execute 1 → 10 → 50 actions per chunk | SmolVLA (`HuggingFaceVLA/smolvla_libero`) | planned |
-| noise floor, old vs old | both | queued after the pilot |
+| FP32 → W4 (group 128) weight-only, simulated | X-VLA (`lerobot/xvla-libero`) | done: 0.926 → 0.918, 4+2 naive flips, 0 BH regressions |
+| FP32 → W3 (group 128) | X-VLA | queue2 |
+| FP32 → BF16 | X-VLA | queue2 |
+| 10 → 2 flow-matching steps | X-VLA | queue2 |
+| execute 1 → 10 → 50 actions per chunk | SmolVLA (`HuggingFaceVLA/smolvla_libero`) | deferred: smoke test 0/5 on LIBERO-10 task 0 with relative control, 436 s per batch of 5 (about 12 h per variant) |
+| noise floor, old vs old (new policy seeds, same scenes) | X-VLA | done: 0.926 → 0.928, 0+3 naive flips, 0 BH regressions |
+| scene noise: same policy seeds, new scene seeds | X-VLA | queue2 |
 | reanalysis of VLAQuantBench episode records (single rollout per state) | X-VLA, π0.5, π0, OpenVLA-OFT | done: `reanalyze_vqb.py`, `results/vqb/` |
 | π0.5 (`lerobot/pi05_libero_finetuned_v044`) | licence accepted; peak RAM too high to run beside the pilot | after the pilot, alone |
 

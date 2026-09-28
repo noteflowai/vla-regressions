@@ -8,7 +8,7 @@ Reports:
     Benjamini-Hochberg across states, and the posterior probability of being worse under
     uniform Beta priors.
 
-Usage: analyze.py OLD.jsonl NEW.jsonl [--alpha 0.1] [--json out.json]
+Usage: analyze.py OLD.jsonl NEW.jsonl [--alpha 0.1] [--json out.json] [--ignore-scene]
 """
 
 from __future__ import annotations
@@ -20,11 +20,11 @@ from collections import defaultdict
 from math import comb
 
 
-def load(path):
+def load(path, match_scene=True):
     states = defaultdict(list)
     for line in open(path):
         r = json.loads(line)
-        states[(r["task"], r["init_state"], r.get("scene_seed"))].append(r)
+        states[(r["task"], r["init_state"], r.get("scene_seed") if match_scene else None)].append(r)
     for rows in states.values():
         rows.sort(key=lambda r: r["repeat"])
     return states
@@ -62,9 +62,11 @@ def main():
     p.add_argument("new")
     p.add_argument("--alpha", type=float, default=0.1, help="FDR level for per-state regressions")
     p.add_argument("--json")
+    p.add_argument("--ignore-scene", action="store_true",
+                   help="pair on (task, init_state) only, to compare runs with different scene seeds")
     args = p.parse_args()
 
-    old, new = load(args.old), load(args.new)
+    old, new = load(args.old, not args.ignore_scene), load(args.new, not args.ignore_scene)
     keys = sorted(set(old) & set(new))
     if not keys:
         raise SystemExit("no states in common")
