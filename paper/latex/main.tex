@@ -190,7 +190,9 @@ floor next to any per-state flip count.
 
 \paragraph{Limitations.} Simulation only; LIBERO offers few initial states per task; our
 quantization is simulated weight-only rounding. Fixed designs with $n=5$ detect only large
-per-state drops; allocating rollouts sequentially to uncertain
+per-state drops: a state at 95\% success that falls to 20\% is flagged with probability 0.64 by
+a single-state test at level 0.05, one that falls to 50\% with probability 0.15 (0.94 with
+$n=20$). Allocating rollouts sequentially to uncertain
 states~\citep{snyder2025step} is the natural next step. Related paired tests on suite
 level~\citep{islam2026onnx} and update-admission gates~\citep{ma2026admission} address the
 aggregate or a synthetic setting; we target states of a real VLA benchmark.
