@@ -210,9 +210,11 @@ scale per group of 128 inputs.
 \paragraph{The floor is low at fixed states.} With states that fix the scene seed, FP32 against
 itself changes the outcome of 13 of 500 rollouts under new policy seeds and 8 of 500 under new
 scene seeds; no state's success count moves by more than two, and neither run has a significant
-state. 88 of the 100 states succeed in all five FP32 rollouts and 5 fail in all five. The large
-seed-to-seed flip counts of Section~\ref{sec:floor} are therefore not intrinsic to the policy:
-once a state is defined precisely, a rerun is close to a replay.
+state. 88 of the 100 states succeed in all five FP32 rollouts and 5 fail in all five: once a
+state is defined precisely, a rerun at this success rate is close to a replay. Changing the scene
+seed moves outcomes no more than changing the policy seed, so fixture placement is not the main
+source of rerun noise here. The floor grows as success falls (Section~\ref{sec:floor});
+\todo{W3 against itself.}
 
 \paragraph{W4 is safe per state as well as on average.} Its six naive flips are twice the floor,
 but none survives the test; the most affected state drops from 5/5 to 1/5 ($p=0.024$, not
@@ -222,6 +224,10 @@ significant after correction).
 96--100\% while tasks 0, 4 and 7 lose 40--52 points. Seven states go from 5/5 to 0/5 and are
 flagged; 26 have posterior probability above 0.9 of having become worse. The single-rollout
 protocol would report 23 new failures and 2 new successes, and cannot say which of them are real.
+Every W3 failure is a timeout, while its successes take as long as FP32's (265 against 256 steps
+on average). VLAQuantBench's own W3 variant of the same model loses only 3.2 points under its
+quantizer and 900-step limit, so the size of a W3 drop depends on both; what we show is where
+the drop lands.
 
 \paragraph{Fewer denoising steps: higher success, one new failure, no regression.} Running the
 flow-matching head with 2 instead of 10 steps raises success slightly (92.6 to 93.2\%). The single
