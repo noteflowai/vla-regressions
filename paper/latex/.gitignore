@@ -1,0 +1,6 @@
+*.aux
+*.bbl
+*.blg
+*.out
+*.pdf
+!../fig_noise_floor.pdf
