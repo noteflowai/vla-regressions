@@ -201,7 +201,7 @@ scale per group of 128 inputs.
     FP32, new scene seeds & .930 & $+0.4$ [$-0.4$, $+1.2$] & 0 / 2 & 0 / 0 & 0 \\
     W4, group 128 & .918 & $-0.8$ [$-3.2$, $+1.2$] & 4 / 2 & 0 / 0 & 1 \\
     W3, group 128 & .726 & $-20.0$ [$-26.8$, $-13.4$] & 23 / 2 & 7 / 0 & 26 \\
-    \todo{2 denoising steps} & & & & & \\
+    2 denoising steps (of 10) & .932 & $+0.6$ [$-0.6$, $+2.0$] & 1 / 3 & 0 / 0 & 0 \\
     \todo{BF16} & & & & & \\
     \bottomrule
   \end{tabular}
@@ -222,6 +222,11 @@ significant after correction).
 96--100\% while tasks 0, 4 and 7 lose 40--52 points. Seven states go from 5/5 to 0/5 and are
 flagged; 26 have posterior probability above 0.9 of having become worse. The single-rollout
 protocol would report 23 new failures and 2 new successes, and cannot say which of them are real.
+
+\paragraph{Fewer denoising steps: higher success, one new failure, no regression.} Running the
+flow-matching head with 2 instead of 10 steps raises success slightly (92.6 to 93.2\%). The single
+rollout still shows a new failure, a state that drops from 5/5 to 4/5; at the floor's rate this is
+expected, and the test does not flag it.
 
 \section{Discussion}
 

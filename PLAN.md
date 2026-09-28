@@ -44,7 +44,7 @@ than the old one, with a test that accounts for rollout randomness, and show tha
 | FP32 → W4 (group 128) weight-only, simulated | X-VLA (`lerobot/xvla-libero`) | done: 0.926 → 0.918, 4+2 naive flips, 0 BH regressions |
 | FP32 → W3 (group 128) | X-VLA | done: 0.926 → 0.726, 23+2 naive flips, 7 BH regressions (5/5 → 0/5), 26 with P(worse) > 0.9 |
 | FP32 → BF16 | X-VLA | queue2 |
-| 10 → 2 flow-matching steps | X-VLA | queue2 |
+| 10 → 2 flow-matching steps | X-VLA | done: 0.926 → 0.932, 1+3 naive flips, 0 BH; 144/500 episodes identical to FP32 |
 | execute 1 → 10 → 50 actions per chunk | SmolVLA (`HuggingFaceVLA/smolvla_libero`) | deferred: smoke test 0/5 on LIBERO-10 task 0 with relative control, 436 s per batch of 5 (about 12 h per variant) |
 | noise floor, old vs old (new policy seeds, same scenes) | X-VLA | done: 0.926 → 0.928, 0+3 naive flips, 0 BH regressions |
 | scene noise: same policy seeds, new scene seeds | X-VLA | done: 0.926 → 0.930, 0+2 naive flips, 0 BH; 8/500 rollouts differ in outcome (policy seeds: 13/500), 275/500 identical episodes (policy seeds: 174/500). At fixed states both noise sources are small; the hypothesis that scene randomization carries most of VLAQuantBench's seed noise is not supported |
