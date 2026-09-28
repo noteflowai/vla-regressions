@@ -1,0 +1,352 @@
+1. Same configuration, different seeds: states that change outcome
+suite/model                  configuration                        success by seed        flips        none/all/mixed obs  if rates equal
+libero_10/openvla_oft        ablate-W3-ah-only_fc2                0.125 0.105            14/200       170/ 16/ 14        156.6/  2.6/ 40.7
+libero_10/openvla_oft        ablate-W3-e2e-no_ah_fc2              0.935 0.915 0.910      8,7,9/200     11/177/ 12          0.1/155.7/ 44.2
+libero_object/pi05           ablate-W4A4-ah-attn_adarms           0.020 0.020 0.025      6,5,5/200    191/  1/  8        187.3/  0.0/ 12.7
+libero_object/pi05           ablate-W4A4-ah-down_attn_adarms      0.010 0.000 0.020      2,6,4/200    194/  0/  6        194.1/  0.0/  5.9
+libero_object/pi05           ablate-W4A4-ah-onlyadarms            0.950 0.960 0.970      14,10,8/200    2/182/ 16          0.0/176.9/ 23.0
+libero_object/pi05           ablate-W4A4-ah-onlyself_attn         0.985 0.985 0.975      6,8,8/200      0/189/ 11          0.0/189.2/ 10.8
+libero_object/pi05           rtn-BASELINE-e2e                     0.990 0.985 0.995      5,1,4/200      0/195/  5          0.0/194.1/  5.9
+libero_object/pi05           rtn-W4A4-ah                          0.600 0.630 0.610      44,50,50/200  43/ 85/ 72         11.6/ 46.1/142.3
+libero_spatial/openvla_oft   ablate-W4A8-ah-only_fc2              0.180 0.170            34/200       148/ 18/ 34        136.1/  6.1/ 57.8
+libero_spatial/pi05          ablate-W4A4-ah-attn_adarms           0.015 0.040 0.025      11,8,7/200   187/  0/ 13        184.4/  0.0/ 15.6
+libero_spatial/pi05          ablate-W4A4-ah-no_action_out         0.720 0.730            32/200        39/129/ 32         15.1/105.1/ 79.8
+libero_spatial/pi05          ablate-W4A4-ah-only_down             0.835 0.860            21/200        20/159/ 21          4.7/143.7/ 51.7
+libero_spatial/pi05          ablate-W4A4-ah-onlyadarms            0.935 0.955            14/200         4/182/ 14          0.6/178.6/ 20.8
+libero_spatial/pi05          ablate-W4A4-ah-onlymlp               0.880 0.875            29/200        10/161/ 29          3.0/154.0/ 43.0
+libero_spatial/pi05          ablate-W4A4-ah-onlyself_attn         0.980 0.985            5/200          1/194/  5          0.1/193.1/  6.9
+libero_spatial/pi05          calib_ah-W4A4-ah                     0.985 0.985            4/200          1/195/  4          0.0/194.0/  5.9
+libero_spatial/pi05          rtn-W4A4-ah                          0.705 0.705 0.685      44,36,32/200  34/110/ 56          5.5/ 68.1/126.4
+libero_spatial/xvla          ablate-W4A4-ah-only_attn             0.132 0.137            21/190       154/ 15/ 21        142.4/  3.4/ 44.2
+libero_spatial/xvla          ablate-W4A4-ah-only_fc1              0.663 0.668            37/190        45/108/ 37         21.2/ 84.2/ 84.6
+libero_spatial/xvla          ablate-W4A4-ah-only_qkv              0.116 0.147            22/190       154/ 14/ 22        143.3/  3.3/ 43.4
+
+2. Do runs with the same seed share random numbers? (flips between two configurations)
+libero_object/pi05           ablate-W4A4-ah-attn_adarms vs ablate-W4A4-ah-down_attn_adarms: same seed 6.3, different seeds 6.0
+libero_object/pi05           ablate-W4A4-ah-attn_adarms vs ablate-W4A4-ah-onlyadarms: same seed 187.7, different seeds 187.7
+libero_object/pi05           ablate-W4A4-ah-attn_adarms vs ablate-W4A4-ah-onlyself_attn: same seed 192.0, different seeds 192.0
+libero_object/pi05           ablate-W4A4-ah-attn_adarms vs rtn-BASELINE-e2e: same seed 193.7, different seeds 193.7
+libero_object/pi05           ablate-W4A4-ah-attn_adarms vs rtn-W4A4-ah: same seed 118.3, different seeds 118.7
+libero_object/pi05           ablate-W4A4-ah-down_attn_adarms vs ablate-W4A4-ah-onlyadarms: same seed 190.0, different seeds 190.0
+libero_object/pi05           ablate-W4A4-ah-down_attn_adarms vs ablate-W4A4-ah-onlyself_attn: same seed 194.3, different seeds 194.3
+libero_object/pi05           ablate-W4A4-ah-down_attn_adarms vs rtn-BASELINE-e2e: same seed 196.0, different seeds 196.0
+libero_object/pi05           ablate-W4A4-ah-down_attn_adarms vs rtn-W4A4-ah: same seed 121.3, different seeds 120.7
+libero_object/pi05           ablate-W4A4-ah-onlyadarms vs ablate-W4A4-ah-onlyself_attn: same seed 9.7, different seeds 10.3
+libero_object/pi05           ablate-W4A4-ah-onlyadarms vs rtn-BASELINE-e2e: same seed 9.3, different seeds 9.7
+libero_object/pi05           ablate-W4A4-ah-onlyadarms vs rtn-W4A4-ah: same seed 73.3, different seeds 74.7
+libero_object/pi05           ablate-W4A4-ah-onlyself_attn vs rtn-BASELINE-e2e: same seed 5.7, different seeds 5.3
+libero_object/pi05           ablate-W4A4-ah-onlyself_attn vs rtn-W4A4-ah: same seed 77.0, different seeds 76.7
+libero_object/pi05           rtn-BASELINE-e2e vs rtn-W4A4-ah: same seed 77.3, different seeds 78.0
+libero_spatial/pi05          ablate-W4A4-ah-attn_adarms vs rtn-W4A4-ah: same seed 135.7, different seeds 135.0
+
+3. Baseline against each configuration, seed 0, one rollout per state
+suite/model                  configuration                                  base    new  to fail  to succ  flip %  noise %
+libero_10/openvla_oft        ablate-W3-ah-only_blocks                      0.925  0.940        5        8     6.5 
+libero_10/openvla_oft        ablate-W3-ah-only_fc1                         0.925  0.940        9       12    10.5 
+libero_10/openvla_oft        ablate-W3-ah-only_fc2                         0.925  0.125      160        0    80.0      7.0
+libero_10/openvla_oft        ablate-W3-e2e-no_ah_fc2                       0.925  0.935       11       13    12.0      4.0
+libero_10/openvla_oft        ablate-W3-e2e-no_any_fc2                      0.925  0.930       12       13    12.5 
+libero_10/openvla_oft        ablate-W4A8-e2e-no_ah_fc2                     0.925  0.940       10       13    11.5 
+libero_10/openvla_oft        ablate-W8A8-e2e-no_ah_fc2                     0.925  0.935        5        7     6.0 
+libero_10/openvla_oft        rtn-W3-ah                                     0.925  0.095      167        1    84.0 
+libero_10/openvla_oft        rtn-W3-e2e                                    0.925  0.080      169        0    84.5 
+libero_10/openvla_oft        rtn-W3-llm                                    0.925  0.925       12       12    12.0 
+libero_10/openvla_oft        rtn-W3-ve                                     0.925  0.955        5       11     8.0 
+libero_10/openvla_oft        rtn-W3-ve_mp_llm                              0.925  0.950        8       13    10.5 
+libero_10/openvla_oft        rtn-W3G32-ah                                  0.925  0.175      152        2    77.0 
+libero_10/openvla_oft        rtn-W3G64-ah                                  0.925  0.125      161        1    81.0 
+libero_10/openvla_oft        rtn-W4-e2e                                    0.925  0.885       19       11    15.0 
+libero_10/openvla_oft        rtn-W4A4-e2e                                  0.925  0.000      185        0    92.5 
+libero_10/openvla_oft        rtn-W4A8-e2e                                  0.925  0.760       41        8    24.5 
+libero_10/openvla_oft        rtn-W8-e2e                                    0.925  0.935        6        8     7.0 
+libero_10/openvla_oft        rtn-W8A8-e2e                                  0.925  0.640       65        8    36.5 
+libero_10/pi0                rtn-W3-e2e                                    0.485  0.400       40       23    31.5 
+libero_10/pi0                rtn-W4-e2e                                    0.485  0.410       42       27    34.5 
+libero_10/pi0                rtn-W4A4-e2e                                  0.485  0.310       61       26    43.5 
+libero_10/pi0                rtn-W4A8-e2e                                  0.485  0.410       38       23    30.5 
+libero_10/pi0                rtn-W8-e2e                                    0.485  0.475       24       22    23.0 
+libero_10/pi0                rtn-W8A8-e2e                                  0.485  0.450       23       16    19.5 
+libero_10/pi05               ablate-W4A4-ah-attn_adarms                    0.950  0.000      190        0    95.0 
+libero_10/pi05               ablate-W4A4-ah-only_down                      0.950  0.565       80        3    41.5 
+libero_10/pi05               rtn-W3-e2e                                    0.950  0.945       10        9     9.5 
+libero_10/pi05               rtn-W4-e2e                                    0.950  0.940        7        5     6.0 
+libero_10/pi05               rtn-W4A4-ah                                   0.950  0.185      154        1    77.5 
+libero_10/pi05               rtn-W4A4-e2e                                  0.950  0.000      190        0    95.0 
+libero_10/pi05               rtn-W4A8-e2e                                  0.950  0.965        5        8     6.5 
+libero_10/pi05               rtn-W8-e2e                                    0.950  0.965        3        6     4.5 
+libero_10/pi05               rtn-W8A8-e2e                                  0.950  0.935        6        3     4.5 
+libero_10/xvla               ablate-W4A4-ah-only_attn                      0.979  0.000      186        0    97.9 
+libero_10/xvla               ablate-W4A4-ah-onlymlp                        0.979  0.000      186        0    97.9 
+libero_10/xvla               rtn-W3-e2e                                    0.979  0.947        9        3     6.3 
+libero_10/xvla               rtn-W4-e2e                                    0.979  0.958        6        2     4.2 
+libero_10/xvla               rtn-W4A4-ah                                   0.979  0.000      186        0    97.9 
+libero_10/xvla               rtn-W4A4-e2e                                  0.979  0.000      186        0    97.9 
+libero_10/xvla               rtn-W4A8-e2e                                  0.979  0.968        3        1     2.1 
+libero_10/xvla               rtn-W8-e2e                                    0.979  0.974        2        1     1.6 
+libero_10/xvla               rtn-W8A8-e2e                                  0.979  0.984        2        3     2.6 
+libero_goal/openvla_oft      ablate-W4A8-e2e-no_ah_fc2                     0.960  0.980        2        6     4.0 
+libero_goal/openvla_oft      ablate-W8A8-e2e-no_ah_fc2                     0.960  0.975        2        5     3.5 
+libero_goal/openvla_oft      rtn-W3-e2e                                    0.960  0.715       54        5    29.5 
+libero_goal/openvla_oft      rtn-W4-e2e                                    0.960  0.820       32        4    18.0 
+libero_goal/openvla_oft      rtn-W4A4-e2e                                  0.960  0.000      192        0    96.0 
+libero_goal/openvla_oft      rtn-W4A8-e2e                                  0.960  0.020      188        0    94.0 
+libero_goal/openvla_oft      rtn-W8-e2e                                    0.960  0.975        0        3     1.5 
+libero_goal/openvla_oft      rtn-W8A8-e2e                                  0.960  0.130      166        0    83.0 
+libero_goal/pi0              rtn-W3-e2e                                    0.845  0.645       51       11    31.0 
+libero_goal/pi0              rtn-W4-e2e                                    0.845  0.790       21       10    15.5 
+libero_goal/pi0              rtn-W4A4-e2e                                  0.845  0.580       65       12    38.5 
+libero_goal/pi0              rtn-W4A8-e2e                                  0.845  0.790       22       11    16.5 
+libero_goal/pi0              rtn-W8-e2e                                    0.845  0.830        7        4     5.5 
+libero_goal/pi0              rtn-W8A8-e2e                                  0.845  0.810       10        3     6.5 
+libero_goal/pi05             rtn-W3-e2e                                    0.940  0.955        8       11     9.5 
+libero_goal/pi05             rtn-W4-e2e                                    0.940  0.965        5       10     7.5 
+libero_goal/pi05             rtn-W4A4-e2e                                  0.940  0.000      188        0    94.0 
+libero_goal/pi05             rtn-W4A8-e2e                                  0.940  0.965        5       10     7.5 
+libero_goal/pi05             rtn-W8-e2e                                    0.940  0.960        1        5     3.0 
+libero_goal/pi05             rtn-W8A8-e2e                                  0.940  0.970        1        7     4.0 
+libero_goal/xvla             rtn-W3-e2e                                    0.974  0.974        4        4     4.2 
+libero_goal/xvla             rtn-W4-e2e                                    0.974  0.968        5        4     4.7 
+libero_goal/xvla             rtn-W4A4-e2e                                  0.974  0.000      185        0    97.4 
+libero_goal/xvla             rtn-W4A8-e2e                                  0.974  0.979        2        3     2.6 
+libero_goal/xvla             rtn-W8-e2e                                    0.974  0.963        3        1     2.1 
+libero_goal/xvla             rtn-W8A8-e2e                                  0.974  0.963        5        3     4.2 
+libero_object/openvla_oft    ablate-W4A8-ah-only_fc2                       0.975  0.015      192        0    96.0 
+libero_object/openvla_oft    ablate-W4A8-e2e-no_ah_fc2                     0.975  0.970        4        3     3.5 
+libero_object/openvla_oft    ablate-W8A8-e2e-no_ah_fc2                     0.975  0.975        2        2     2.0 
+libero_object/openvla_oft    rtn-W3-e2e                                    0.975  0.745       48        2    25.0 
+libero_object/openvla_oft    rtn-W4-e2e                                    0.975  0.935       10        2     6.0 
+libero_object/openvla_oft    rtn-W4A4-e2e                                  0.975  0.000      195        0    97.5 
+libero_object/openvla_oft    rtn-W4A8-ah                                   0.975  0.030      189        0    94.5 
+libero_object/openvla_oft    rtn-W4A8-e2e                                  0.975  0.025      191        1    96.0 
+libero_object/openvla_oft    rtn-W8-e2e                                    0.975  0.980        1        2     1.5 
+libero_object/openvla_oft    rtn-W8A8-e2e                                  0.975  0.025      190        0    95.0 
+libero_object/pi0            rtn-W3-e2e                                    0.875  0.760       33       10    21.5 
+libero_object/pi0            rtn-W4-e2e                                    0.875  0.905        9       15    12.0 
+libero_object/pi0            rtn-W4A4-ah                                   0.875  0.745       45       19    32.0 
+libero_object/pi0            rtn-W4A4-e2e                                  0.875  0.740       43       16    29.5 
+libero_object/pi0            rtn-W4A8-e2e                                  0.875  0.885       14       16    15.0 
+libero_object/pi0            rtn-W8-e2e                                    0.875  0.865        4        2     3.0 
+libero_object/pi0            rtn-W8A8-e2e                                  0.875  0.885        6        8     7.0 
+libero_object/pi05           ablate-W4A4-ah-attn_adarms                    0.990  0.020      194        0    97.0      2.7
+libero_object/pi05           ablate-W4A4-ah-down_attn_adarms               0.990  0.010      196        0    98.0      2.0
+libero_object/pi05           ablate-W4A4-ah-only_down                      0.990  0.820       36        2    19.0 
+libero_object/pi05           ablate-W4A4-ah-onlyadarms                     0.990  0.950       10        2     6.0      5.3
+libero_object/pi05           ablate-W4A4-ah-onlyself_attn                  0.990  0.985        3        2     2.5      3.7
+libero_object/pi05           rtn-W3-e2e                                    0.990  1.000        0        2     1.0 
+libero_object/pi05           rtn-W4-e2e                                    0.990  0.990        2        2     2.0 
+libero_object/pi05           rtn-W4A4-ah                                   0.990  0.600       78        0    39.0     24.0
+libero_object/pi05           rtn-W4A4-e2e                                  0.990  0.000      198        0    99.0 
+libero_object/pi05           rtn-W4A8-e2e                                  0.990  1.000        0        2     1.0 
+libero_object/pi05           rtn-W8-e2e                                    0.990  0.990        1        1     1.0 
+libero_object/pi05           rtn-W8A8-e2e                                  0.990  0.990        1        1     1.0 
+libero_object/xvla           rtn-W3-e2e                                    0.979  0.968        5        3     4.2 
+libero_object/xvla           rtn-W4-e2e                                    0.979  0.979        2        2     2.1 
+libero_object/xvla           rtn-W4A4-e2e                                  0.979  0.000      186        0    97.9 
+libero_object/xvla           rtn-W4A8-e2e                                  0.979  0.984        2        3     2.6 
+libero_object/xvla           rtn-W8-e2e                                    0.979  0.979        2        2     2.1 
+libero_object/xvla           rtn-W8A8-e2e                                  0.979  0.979        2        2     2.1 
+libero_spatial/openvla_oft   ablate-W4A6-ah-only_fc2                       1.000  0.145      171        0    85.5 
+libero_spatial/openvla_oft   ablate-W4A8-ah-fc1_fc2                        1.000  0.195      161        0    80.5 
+libero_spatial/openvla_oft   ablate-W4A8-ah-only_blocks                    1.000  0.995        1        0     0.5 
+libero_spatial/openvla_oft   ablate-W4A8-ah-only_fc1                       1.000  0.990        2        0     1.0 
+libero_spatial/openvla_oft   ablate-W4A8-ah-only_fc2                       1.000  0.180      164        0    82.0     17.0
+libero_spatial/openvla_oft   ablate-W4A8-e2e-no_ah_fc2                     1.000  0.975        5        0     2.5 
+libero_spatial/openvla_oft   ablate-W8A8-ah-only_fc2                       1.000  0.410      118        0    59.0 
+libero_spatial/openvla_oft   ablate-W8A8-e2e-no_ah_fc2                     1.000  0.990        2        0     1.0 
+libero_spatial/openvla_oft   awq-W3-llm                                    1.000  0.985        3        0     1.5 
+libero_spatial/openvla_oft   awq-W4-llm                                    1.000  0.990        2        0     1.0 
+libero_spatial/openvla_oft   calib-W4A6-e2e                                1.000  0.715       57        0    28.5 
+libero_spatial/openvla_oft   calib_ah-W4A4-ah                              1.000  0.385      123        0    61.5 
+libero_spatial/openvla_oft   calib_all-W4A4-e2e                            1.000  0.000      200        0   100.0 
+libero_spatial/openvla_oft   calib_all_a75-W4A4-e2e                        1.000  0.095      181        0    90.5 
+libero_spatial/openvla_oft   calib_llm-W4A4-llm                            1.000  0.330      134        0    67.0 
+libero_spatial/openvla_oft   calib_ve-W4A4-ve                              1.000  0.000      200        0   100.0 
+libero_spatial/openvla_oft   int8-W8-llm                                   1.000  0.985        3        0     1.5 
+libero_spatial/openvla_oft   nf4-W4-llm                                    1.000  0.980        4        0     2.0 
+libero_spatial/openvla_oft   rtn-W2-ah                                     1.000  0.000      200        0   100.0 
+libero_spatial/openvla_oft   rtn-W2-llm                                    1.000  0.100      180        0    90.0 
+libero_spatial/openvla_oft   rtn-W2-ve                                     1.000  0.810       38        0    19.0 
+libero_spatial/openvla_oft   rtn-W3-ah                                     1.000  0.845       31        0    15.5 
+libero_spatial/openvla_oft   rtn-W3-e2e                                    1.000  0.780       44        0    22.0 
+libero_spatial/openvla_oft   rtn-W3-llm                                    1.000  1.000        0        0     0.0 
+libero_spatial/openvla_oft   rtn-W3-ve                                     1.000  0.995        1        0     0.5 
+libero_spatial/openvla_oft   rtn-W4-ah-anchor                              1.000  0.970        6        0     3.0 
+libero_spatial/openvla_oft   rtn-W4-ah                                     1.000  0.970        6        0     3.0 
+libero_spatial/openvla_oft   rtn-W4-e2e                                    1.000  0.960        8        0     4.0 
+libero_spatial/openvla_oft   rtn-W4-llm                                    1.000  0.980        4        0     2.0 
+libero_spatial/openvla_oft   rtn-W4-ve                                     1.000  0.995        1        0     0.5 
+libero_spatial/openvla_oft   rtn-W4A4-ah                                   1.000  0.000      200        0   100.0 
+libero_spatial/openvla_oft   rtn-W4A4-e2e                                  1.000  0.000      200        0   100.0 
+libero_spatial/openvla_oft   rtn-W4A4-llm                                  1.000  0.000      200        0   100.0 
+libero_spatial/openvla_oft   rtn-W4A4-ve                                   1.000  0.000      200        0   100.0 
+libero_spatial/openvla_oft   rtn-W4A6-ah                                   1.000  0.170      166        0    83.0 
+libero_spatial/openvla_oft   rtn-W4A6-e2e                                  1.000  0.235      153        0    76.5 
+libero_spatial/openvla_oft   rtn-W4A6-llm                                  1.000  0.980        4        0     2.0 
+libero_spatial/openvla_oft   rtn-W4A6-ve                                   1.000  0.995        1        0     0.5 
+libero_spatial/openvla_oft   rtn-W4A8-ah                                   1.000  0.205      159        0    79.5 
+libero_spatial/openvla_oft   rtn-W4A8-e2e                                  1.000  0.215      157        0    78.5 
+libero_spatial/openvla_oft   rtn-W4A8-llm                                  1.000  0.985        3        0     1.5 
+libero_spatial/openvla_oft   rtn-W4A8-ve                                   1.000  0.990        2        0     1.0 
+libero_spatial/openvla_oft   rtn-W8-e2e                                    1.000  0.995        1        0     0.5 
+libero_spatial/openvla_oft   rtn-W8-llm                                    1.000  0.990        2        0     1.0 
+libero_spatial/openvla_oft   rtn-W8A8-ah                                   1.000  0.350      130        0    65.0 
+libero_spatial/openvla_oft   rtn-W8A8-e2e                                  1.000  0.360      128        0    64.0 
+libero_spatial/openvla_oft   rtn-W8A8-llm                                  1.000  1.000        0        0     0.0 
+libero_spatial/openvla_oft   smoothquant-W8A8-llm                          1.000  0.990        2        0     1.0 
+libero_spatial/pi0           ablate-W4A4-ah-only_action_out                0.780  0.720       28       16    22.0 
+libero_spatial/pi0           ablate-W4A4-ah-only_down                      0.780  0.780       22       22    22.0 
+libero_spatial/pi0           ablate-W4A4-ah-onlymlp                        0.780  0.775       20       19    19.5 
+libero_spatial/pi0           ablate-W4A4-ah-onlyself_attn                  0.780  0.685       35       16    25.5 
+libero_spatial/pi0           calib_ah-W4A4-ah                              0.780  0.395       92       15    53.5 
+libero_spatial/pi0           calib_all-W4A4-e2e                            0.780  0.105      136        1    68.5 
+libero_spatial/pi0           calib_all_a25-W4A4-e2e                        0.780  0.090      138        0    69.0 
+libero_spatial/pi0           calib_all_a75-W4A4-e2e                        0.780  0.080      144        4    74.0 
+libero_spatial/pi0           calib_llm-W4A4-llm                            0.780  0.110      135        1    68.0 
+libero_spatial/pi0           calib_ve-W4A4-ve                              0.780  0.720       34       22    28.0 
+libero_spatial/pi0           rtn-W2-ah                                     0.780  0.045      150        3    76.5 
+libero_spatial/pi0           rtn-W2-llm                                    0.780  0.630       53       23    38.0 
+libero_spatial/pi0           rtn-W2-ve                                     0.780  0.765       15       12    13.5 
+libero_spatial/pi0           rtn-W3-ah                                     0.780  0.720       36       24    30.0 
+libero_spatial/pi0           rtn-W3-e2e                                    0.780  0.710       39       25    32.0 
+libero_spatial/pi0           rtn-W3-llm                                    0.780  0.770       16       14    15.0 
+libero_spatial/pi0           rtn-W3-ve                                     0.780  0.780        7        7     7.0 
+libero_spatial/pi0           rtn-W4-ah                                     0.780  0.685       35       16    25.5 
+libero_spatial/pi0           rtn-W4-e2e                                    0.780  0.690       36       18    27.0 
+libero_spatial/pi0           rtn-W4-llm                                    0.780  0.760       11        7     9.0 
+libero_spatial/pi0           rtn-W4-ve                                     0.780  0.765        8        5     6.5 
+libero_spatial/pi0           rtn-W4A4-ah                                   0.780  0.580       54       14    34.0 
+libero_spatial/pi0           rtn-W4A4-e2e                                  0.780  0.610       51       17    34.0 
+libero_spatial/pi0           rtn-W4A4-llm                                  0.780  0.720       32       20    26.0 
+libero_spatial/pi0           rtn-W4A4-ve                                   0.780  0.765        7        4     5.5 
+libero_spatial/pi0           rtn-W4A6-ah                                   0.780  0.715       33       20    26.5 
+libero_spatial/pi0           rtn-W4A6-llm                                  0.780  0.720       19        7    13.0 
+libero_spatial/pi0           rtn-W4A6-ve                                   0.780  0.755       10        5     7.5 
+libero_spatial/pi0           rtn-W4A8-ah                                   0.780  0.670       37       15    26.0 
+libero_spatial/pi0           rtn-W4A8-e2e                                  0.780  0.645       42       15    28.5 
+libero_spatial/pi0           rtn-W4A8-llm                                  0.780  0.760       14       10    12.0 
+libero_spatial/pi0           rtn-W4A8-ve                                   0.780  0.750       28       22    25.0 
+libero_spatial/pi0           rtn-W8-e2e                                    0.780  0.775        6        5     5.5 
+libero_spatial/pi0           rtn-W8A8-e2e                                  0.780  0.745       15        8    11.5 
+libero_spatial/pi05          ablate-W4-ah-attn_adarms                      0.990  0.990        1        1     1.0 
+libero_spatial/pi05          ablate-W4-ah-down_attn_adarms                 0.990  0.990        1        1     1.0 
+libero_spatial/pi05          ablate-W4-ah-onlyadarms                       0.990  0.995        0        1     0.5 
+libero_spatial/pi05          ablate-W4-ah-onlyself_attn                    0.990  1.000        0        2     1.0 
+libero_spatial/pi05          ablate-W4A4-ah-attn_adarms                    0.990  0.015      195        0    97.5      4.3
+libero_spatial/pi05          ablate-W4A4-ah-attn_inputadarms               0.990  0.000      198        0    99.0 
+libero_spatial/pi05          ablate-W4A4-ah-attn_postadarms                0.990  0.940       12        2     7.0 
+libero_spatial/pi05          ablate-W4A4-ah-down_attn                      0.990  0.800       39        1    20.0 
+libero_spatial/pi05          ablate-W4A4-ah-down_attn_adarms               0.990  0.070      184        0    92.0 
+libero_spatial/pi05          ablate-W4A4-ah-kproj_adarms                   0.990  0.885       21        0    10.5 
+libero_spatial/pi05          ablate-W4A4-ah-mlp_plus_adarms                0.990  0.885       22        1    11.5 
+libero_spatial/pi05          ablate-W4A4-ah-no_action_out                  0.990  0.720       55        1    28.0     16.0
+libero_spatial/pi05          ablate-W4A4-ah-noadarms                       0.990  0.845       30        1    15.5 
+libero_spatial/pi05          ablate-W4A4-ah-only_action_out                0.990  0.970        4        0     2.0 
+libero_spatial/pi05          ablate-W4A4-ah-only_down                      0.990  0.835       32        1    16.5     10.5
+libero_spatial/pi05          ablate-W4A4-ah-only_gate                      0.990  0.990        1        1     1.0 
+libero_spatial/pi05          ablate-W4A4-ah-only_up                        0.990  0.985        2        1     1.5 
+libero_spatial/pi05          ablate-W4A4-ah-onlyadarms                     0.990  0.935       13        2     7.5      7.0
+libero_spatial/pi05          ablate-W4A4-ah-onlymlp                        0.990  0.880       22        0    11.0     14.5
+libero_spatial/pi05          ablate-W4A4-ah-onlyself_attn                  0.990  0.980        3        1     2.0      2.5
+libero_spatial/pi05          ablate-W4A4-ah-oproj_adarms                   0.990  0.965        6        1     3.5 
+libero_spatial/pi05          ablate-W4A4-ah-qproj_adarms                   0.990  0.720       55        1    28.0 
+libero_spatial/pi05          ablate-W4A4-ah-s126_gateup                    0.990  0.265      146        1    73.5 
+libero_spatial/pi05          ablate-W4A4-ah-s126_others                    0.990  0.785       41        0    20.5 
+libero_spatial/pi05          ablate-W4A4-ah-vproj_adarms                   0.990  0.895       21        2    11.5 
+libero_spatial/pi05          ablate-W4A6-ah-attn_adarms                    0.990  0.980        3        1     2.0 
+libero_spatial/pi05          ablate-W4A8-ah-attn_adarms                    0.990  0.980        2        0     1.0 
+libero_spatial/pi05          ablate-W4A8-ah-down_attn_adarms               0.990  0.985        2        1     1.5 
+libero_spatial/pi05          ablate-W4A8-ah-onlyadarms                     0.990  0.985        2        1     1.5 
+libero_spatial/pi05          ablate-W4A8-ah-onlyself_attn                  0.990  0.990        1        1     1.0 
+libero_spatial/pi05          calib_ah-W4A4-ah-attn_adarms                  0.990  0.975        5        2     3.5 
+libero_spatial/pi05          calib_ah-W4A4-ah-down_attn_adarms             0.990  0.990        2        2     2.0 
+libero_spatial/pi05          calib_ah-W4A4-ah-onlyadarms                   0.990  0.975        5        2     3.5 
+libero_spatial/pi05          calib_ah-W4A4-ah-onlyself_attn                0.990  0.985        2        1     1.5 
+libero_spatial/pi05          calib_ah-W4A4-ah                              0.990  0.985        3        2     2.5      2.0
+libero_spatial/pi05          calib_ah-W4A4-e2e                             0.990  0.000      198        0    99.0 
+libero_spatial/pi05          calib_all-W4A4-e2e                            0.990  0.000      198        0    99.0 
+libero_spatial/pi05          calib_all-W4A6-e2e                            0.990  0.980        3        1     2.0 
+libero_spatial/pi05          calib_all_a75-W4A4-e2e                        0.990  0.915       17        2     9.5 
+libero_spatial/pi05          calib_llm-W4A4-e2e                            0.990  0.000      198        0    99.0 
+libero_spatial/pi05          calib_llm-W4A4-llm                            0.990  0.705       59        2    30.5 
+libero_spatial/pi05          calib_set0_ah-W4A4-ah                         0.990  0.970        6        2     4.0 
+libero_spatial/pi05          calib_set0_all_a75-W4A4-e2e                   0.990  0.905       19        2    10.5 
+libero_spatial/pi05          calib_set1_ah-W4A4-ah                         0.990  0.970        6        2     4.0 
+libero_spatial/pi05          calib_set1_all_a75-W4A4-e2e                   0.990  0.880       23        1    12.0 
+libero_spatial/pi05          calib_set2_ah-W4A4-ah                         0.990  0.970        6        2     4.0 
+libero_spatial/pi05          calib_set2_all_a75-W4A4-e2e                   0.990  0.905       19        2    10.5 
+libero_spatial/pi05          calib_ve-W4A4-ve                              0.990  0.800       40        2    21.0 
+libero_spatial/pi05          rtn-W2-ah                                     0.990  0.730       53        1    27.0 
+libero_spatial/pi05          rtn-W2-e2e                                    0.990  0.000      198        0    99.0 
+libero_spatial/pi05          rtn-W2-llm                                    0.990  0.000      198        0    99.0 
+libero_spatial/pi05          rtn-W2-ve                                     0.990  0.995        1        2     1.5 
+libero_spatial/pi05          rtn-W3-ah                                     0.990  0.990        2        2     2.0 
+libero_spatial/pi05          rtn-W3-e2e                                    0.990  0.990        2        2     2.0 
+libero_spatial/pi05          rtn-W3-llm                                    0.990  0.980        4        2     3.0 
+libero_spatial/pi05          rtn-W3-ve                                     0.990  0.995        1        2     1.5 
+libero_spatial/pi05          rtn-W3G0ASYM-e2e                              0.990  0.200      158        0    79.0 
+libero_spatial/pi05          rtn-W3G0SYM-e2e                               0.990  0.000      198        0    99.0 
+libero_spatial/pi05          rtn-W3G128SYM-e2e                             0.990  0.960        8        2     5.0 
+libero_spatial/pi05          rtn-W3G64ASYM-e2e                             0.990  0.970        6        2     4.0 
+libero_spatial/pi05          rtn-W3G64SYM-e2e                              0.990  0.975        5        2     3.5 
+libero_spatial/pi05          rtn-W4-ah                                     0.990  0.975        4        1     2.5 
+libero_spatial/pi05          rtn-W4-e2e                                    0.990  0.975        4        1     2.5 
+libero_spatial/pi05          rtn-W4-llm                                    0.990  0.975        4        1     2.5 
+libero_spatial/pi05          rtn-W4-ve                                     0.990  0.980        3        1     2.0 
+libero_spatial/pi05          rtn-W4A4-ah                                   0.990  0.705       57        0    28.5     18.7
+libero_spatial/pi05          rtn-W4A4-e2e                                  0.990  0.000      198        0    99.0 
+libero_spatial/pi05          rtn-W4A4-llm                                  0.990  0.000      198        0    99.0 
+libero_spatial/pi05          rtn-W4A4-ve                                   0.990  0.370      124        0    62.0 
+libero_spatial/pi05          rtn-W4A5-ah                                   0.990  0.870       25        1    13.0 
+libero_spatial/pi05          rtn-W4A5-llm                                  0.990  0.000      198        0    99.0 
+libero_spatial/pi05          rtn-W4A6-ah                                   0.990  0.970        4        0     2.0 
+libero_spatial/pi05          rtn-W4A6-e2e                                  0.990  0.975        4        1     2.5 
+libero_spatial/pi05          rtn-W4A6-llm                                  0.990  0.975        5        2     3.5 
+libero_spatial/pi05          rtn-W4A6-ve                                   0.990  0.985        3        2     2.5 
+libero_spatial/pi05          rtn-W4A8-ah                                   0.990  0.975        3        0     1.5 
+libero_spatial/pi05          rtn-W4A8-e2e                                  0.990  0.990        2        2     2.0 
+libero_spatial/pi05          rtn-W4A8-llm                                  0.990  0.960        7        1     4.0 
+libero_spatial/pi05          rtn-W4A8-ve                                   0.990  0.980        2        0     1.0 
+libero_spatial/pi05          rtn-W4G0ASYM-e2e                              0.990  0.975        4        1     2.5 
+libero_spatial/pi05          rtn-W4G0SYM-e2e                               0.990  0.980        4        2     3.0 
+libero_spatial/pi05          rtn-W4G128SYM-e2e                             0.990  0.980        4        2     3.0 
+libero_spatial/pi05          rtn-W4G64ASYM-e2e                             0.990  0.975        5        2     3.5 
+libero_spatial/pi05          rtn-W4G64SYM-e2e                              0.990  0.970        6        2     4.0 
+libero_spatial/pi05          rtn-W8-e2e                                    0.990  0.985        2        1     1.5 
+libero_spatial/pi05          rtn-W8A8-e2e                                  0.990  0.985        3        2     2.5 
+libero_spatial/pi05          steps1-ablate-W4A4-ah-only_action_out         0.990  0.980        4        2     3.0 
+libero_spatial/pi05          steps1-rtn-BASELINE-e2e                       0.990  0.985        2        1     1.5 
+libero_spatial/pi05          steps2-ablate-W4A4-ah-only_action_out         0.990  0.990        2        2     2.0 
+libero_spatial/pi05          steps2-rtn-BASELINE-e2e                       0.990  0.970        5        1     3.0 
+libero_spatial/xvla          ablate-W4A4-ah-attn_fc1                       0.968  0.000      184        0    96.8 
+libero_spatial/xvla          ablate-W4A4-ah-attn_fc2                       0.968  0.000      184        0    96.8 
+libero_spatial/xvla          ablate-W4A4-ah-only_attn                      0.968  0.132      159        0    83.7     11.1
+libero_spatial/xvla          ablate-W4A4-ah-only_fc1                       0.968  0.663       60        2    32.6     19.5
+libero_spatial/xvla          ablate-W4A4-ah-only_fc2                       0.968  0.942        7        2     4.7 
+libero_spatial/xvla          ablate-W4A4-ah-only_proj                      0.968  0.963        3        2     2.6 
+libero_spatial/xvla          ablate-W4A4-ah-only_qkv                       0.968  0.116      163        1    86.3     11.6
+libero_spatial/xvla          ablate-W4A4-ah-onlymlp                        0.968  0.242      140        2    74.7 
+libero_spatial/xvla          rtn-W2-ah                                     0.968  0.932       10        3     6.8 
+libero_spatial/xvla          rtn-W2-llm                                    0.968  0.968        4        4     4.2 
+libero_spatial/xvla          rtn-W2-ve                                     0.968  0.963        4        3     3.7 
+libero_spatial/xvla          rtn-W3-ah                                     0.968  0.984        0        3     1.6 
+libero_spatial/xvla          rtn-W3-e2e                                    0.968  0.968        3        3     3.2 
+libero_spatial/xvla          rtn-W3-llm                                    0.968  0.953        4        1     2.6 
+libero_spatial/xvla          rtn-W3-ve                                     0.968  0.968        2        2     2.1 
+libero_spatial/xvla          rtn-W4-ah                                     0.968  0.974        1        2     1.6 
+libero_spatial/xvla          rtn-W4-e2e                                    0.968  0.958        4        2     3.2 
+libero_spatial/xvla          rtn-W4-llm                                    0.968  0.958        2        0     1.1 
+libero_spatial/xvla          rtn-W4-ve                                     0.968  0.974        1        2     1.6 
+libero_spatial/xvla          rtn-W4A4-ah                                   0.968  0.000      184        0    96.8 
+libero_spatial/xvla          rtn-W4A4-e2e                                  0.968  0.000      184        0    96.8 
+libero_spatial/xvla          rtn-W4A4-llm                                  0.968  0.963        5        4     4.7 
+libero_spatial/xvla          rtn-W4A4-ve                                   0.968  0.679       58        3    32.1 
+libero_spatial/xvla          rtn-W4A5-ah                                   0.968  0.368      115        1    61.1 
+libero_spatial/xvla          rtn-W4A6-ah                                   0.968  0.911       12        1     6.8 
+libero_spatial/xvla          rtn-W4A6-llm                                  0.968  0.979        1        3     2.1 
+libero_spatial/xvla          rtn-W4A6-ve                                   0.968  0.979        0        2     1.1 
+libero_spatial/xvla          rtn-W4A8-ah                                   0.968  0.968        2        2     2.1 
+libero_spatial/xvla          rtn-W4A8-e2e                                  0.968  0.963        3        2     2.6 
+libero_spatial/xvla          rtn-W4A8-llm                                  0.968  0.963        2        1     1.6 
+libero_spatial/xvla          rtn-W4A8-ve                                   0.968  0.974        0        1     0.5 
+libero_spatial/xvla          rtn-W8-e2e                                    0.968  0.974        0        1     0.5 
+libero_spatial/xvla          rtn-W8A8-e2e                                  0.968  0.963        2        1     1.6 

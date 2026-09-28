@@ -1,0 +1,3853 @@
+{
+ "repeated": [
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "ablate-W3-ah-only_fc2",
+   "states": 200,
+   "success": [
+    0.125,
+    0.105
+   ],
+   "pair_flips": [
+    14
+   ],
+   "split_observed": {
+    "none": 170,
+    "all": 16,
+    "mixed": 14
+   },
+   "split_if_equal": {
+    "none": 156.645,
+    "all": 2.645,
+    "mixed": 40.70999999999999
+   }
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "ablate-W3-e2e-no_ah_fc2",
+   "states": 200,
+   "success": [
+    0.935,
+    0.915,
+    0.91
+   ],
+   "pair_flips": [
+    8,
+    7,
+    9
+   ],
+   "split_observed": {
+    "none": 11,
+    "all": 177,
+    "mixed": 12
+   },
+   "split_if_equal": {
+    "none": 0.10239999999999984,
+    "all": 155.73760000000001,
+    "mixed": 44.16
+   }
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "ablate-W4A4-ah-attn_adarms",
+   "states": 200,
+   "success": [
+    0.02,
+    0.02,
+    0.025
+   ],
+   "pair_flips": [
+    6,
+    5,
+    5
+   ],
+   "split_observed": {
+    "none": 191,
+    "all": 1,
+    "mixed": 8
+   },
+   "split_if_equal": {
+    "none": 187.27963240740738,
+    "all": 0.0020342592592592595,
+    "mixed": 12.718333333333364
+   }
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "ablate-W4A4-ah-down_attn_adarms",
+   "states": 200,
+   "success": [
+    0.01,
+    0.0,
+    0.02
+   ],
+   "pair_flips": [
+    2,
+    6,
+    4
+   ],
+   "split_observed": {
+    "none": 194,
+    "all": 0,
+    "mixed": 6
+   },
+   "split_if_equal": {
+    "none": 194.0598,
+    "all": 0.00020000000000000004,
+    "mixed": 5.940000000000004
+   }
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "ablate-W4A4-ah-onlyadarms",
+   "states": 200,
+   "success": [
+    0.95,
+    0.96,
+    0.97
+   ],
+   "pair_flips": [
+    14,
+    10,
+    8
+   ],
+   "split_observed": {
+    "none": 2,
+    "all": 182,
+    "mixed": 16
+   },
+   "split_if_equal": {
+    "none": 0.012800000000000035,
+    "all": 176.94719999999998,
+    "mixed": 23.04000000000002
+   }
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "ablate-W4A4-ah-onlyself_attn",
+   "states": 200,
+   "success": [
+    0.985,
+    0.985,
+    0.975
+   ],
+   "pair_flips": [
+    6,
+    8,
+    8
+   ],
+   "split_observed": {
+    "none": 0,
+    "all": 189,
+    "mixed": 11
+   },
+   "split_if_equal": {
+    "none": 0.0012324074074074032,
+    "all": 189.20043425925928,
+    "mixed": 10.798333333333318
+   }
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "rtn-BASELINE-e2e",
+   "states": 200,
+   "success": [
+    0.99,
+    0.985,
+    0.995
+   ],
+   "pair_flips": [
+    5,
+    1,
+    4
+   ],
+   "split_observed": {
+    "none": 0,
+    "all": 195,
+    "mixed": 5
+   },
+   "split_if_equal": {
+    "none": 0.00020000000000000055,
+    "all": 194.0598,
+    "mixed": 5.939999999999998
+   }
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "rtn-W4A4-ah",
+   "states": 200,
+   "success": [
+    0.6,
+    0.63,
+    0.61
+   ],
+   "pair_flips": [
+    44,
+    50,
+    50
+   ],
+   "split_observed": {
+    "none": 43,
+    "all": 85,
+    "mixed": 72
+   },
+   "split_if_equal": {
+    "none": 11.562192592592597,
+    "all": 46.14447407407407,
+    "mixed": 142.29333333333335
+   }
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "ablate-W4A8-ah-only_fc2",
+   "states": 200,
+   "success": [
+    0.18,
+    0.17
+   ],
+   "pair_flips": [
+    34
+   ],
+   "split_observed": {
+    "none": 148,
+    "all": 18,
+    "mixed": 34
+   },
+   "split_if_equal": {
+    "none": 136.12499999999997,
+    "all": 6.124999999999999,
+    "mixed": 57.75000000000003
+   }
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-attn_adarms",
+   "states": 200,
+   "success": [
+    0.015,
+    0.04,
+    0.025
+   ],
+   "pair_flips": [
+    11,
+    8,
+    7
+   ],
+   "split_observed": {
+    "none": 187,
+    "all": 0,
+    "mixed": 13
+   },
+   "split_if_equal": {
+    "none": 184.4228740740741,
+    "all": 0.003792592592592593,
+    "mixed": 15.57333333333332
+   }
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-no_action_out",
+   "states": 200,
+   "success": [
+    0.72,
+    0.73
+   ],
+   "pair_flips": [
+    32
+   ],
+   "split_observed": {
+    "none": 39,
+    "all": 129,
+    "mixed": 32
+   },
+   "split_if_equal": {
+    "none": 15.125000000000002,
+    "all": 105.125,
+    "mixed": 79.75
+   }
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-only_down",
+   "states": 200,
+   "success": [
+    0.835,
+    0.86
+   ],
+   "pair_flips": [
+    21
+   ],
+   "split_observed": {
+    "none": 20,
+    "all": 159,
+    "mixed": 21
+   },
+   "split_if_equal": {
+    "none": 4.651249999999998,
+    "all": 143.65125,
+    "mixed": 51.69749999999999
+   }
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-onlyadarms",
+   "states": 200,
+   "success": [
+    0.935,
+    0.955
+   ],
+   "pair_flips": [
+    14
+   ],
+   "split_observed": {
+    "none": 4,
+    "all": 182,
+    "mixed": 14
+   },
+   "split_if_equal": {
+    "none": 0.6050000000000011,
+    "all": 178.605,
+    "mixed": 20.79000000000002
+   }
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-onlymlp",
+   "states": 200,
+   "success": [
+    0.88,
+    0.875
+   ],
+   "pair_flips": [
+    29
+   ],
+   "split_observed": {
+    "none": 10,
+    "all": 161,
+    "mixed": 29
+   },
+   "split_if_equal": {
+    "none": 3.0012500000000024,
+    "all": 154.00124999999997,
+    "mixed": 42.99750000000003
+   }
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-onlyself_attn",
+   "states": 200,
+   "success": [
+    0.98,
+    0.985
+   ],
+   "pair_flips": [
+    5
+   ],
+   "split_observed": {
+    "none": 1,
+    "all": 194,
+    "mixed": 5
+   },
+   "split_if_equal": {
+    "none": 0.061249999999999714,
+    "all": 193.06125,
+    "mixed": 6.877499999999998
+   }
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_ah-W4A4-ah",
+   "states": 200,
+   "success": [
+    0.985,
+    0.985
+   ],
+   "pair_flips": [
+    4
+   ],
+   "split_observed": {
+    "none": 1,
+    "all": 195,
+    "mixed": 4
+   },
+   "split_if_equal": {
+    "none": 0.04500000000000008,
+    "all": 194.045,
+    "mixed": 5.910000000000025
+   }
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A4-ah",
+   "states": 200,
+   "success": [
+    0.705,
+    0.705,
+    0.685
+   ],
+   "pair_flips": [
+    44,
+    36,
+    32
+   ],
+   "split_observed": {
+    "none": 34,
+    "all": 110,
+    "mixed": 56
+   },
+   "split_if_equal": {
+    "none": 5.490500925925924,
+    "all": 68.11116574074076,
+    "mixed": 126.39833333333333
+   }
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "ablate-W4A4-ah-only_attn",
+   "states": 190,
+   "success": [
+    0.13157894736842105,
+    0.1368421052631579
+   ],
+   "pair_flips": [
+    21
+   ],
+   "split_observed": {
+    "none": 154,
+    "all": 15,
+    "mixed": 21
+   },
+   "split_if_equal": {
+    "none": 142.42236842105262,
+    "all": 3.4223684210526315,
+    "mixed": 44.155263157894744
+   }
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "ablate-W4A4-ah-only_fc1",
+   "states": 190,
+   "success": [
+    0.6631578947368421,
+    0.6684210526315789
+   ],
+   "pair_flips": [
+    37
+   ],
+   "split_observed": {
+    "none": 45,
+    "all": 108,
+    "mixed": 37
+   },
+   "split_if_equal": {
+    "none": 21.222368421052636,
+    "all": 84.22236842105262,
+    "mixed": 84.55526315789474
+   }
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "ablate-W4A4-ah-only_qkv",
+   "states": 190,
+   "success": [
+    0.11578947368421053,
+    0.14736842105263157
+   ],
+   "pair_flips": [
+    22
+   ],
+   "split_observed": {
+    "none": 154,
+    "all": 14,
+    "mixed": 22
+   },
+   "split_if_equal": {
+    "none": 143.28947368421055,
+    "all": 3.289473684210526,
+    "mixed": 43.421052631578924
+   }
+  }
+ ],
+ "pairing": [
+  {
+   "cell": "libero_object/pi05",
+   "a": "ablate-W4A4-ah-attn_adarms",
+   "b": "ablate-W4A4-ah-down_attn_adarms",
+   "same_seed": [
+    6,
+    4,
+    9
+   ],
+   "cross_seed": [
+    4,
+    8,
+    6,
+    8,
+    5,
+    5
+   ]
+  },
+  {
+   "cell": "libero_object/pi05",
+   "a": "ablate-W4A4-ah-attn_adarms",
+   "b": "ablate-W4A4-ah-onlyadarms",
+   "same_seed": [
+    186,
+    188,
+    189
+   ],
+   "cross_seed": [
+    188,
+    190,
+    186,
+    190,
+    185,
+    187
+   ]
+  },
+  {
+   "cell": "libero_object/pi05",
+   "a": "ablate-W4A4-ah-attn_adarms",
+   "b": "ablate-W4A4-ah-onlyself_attn",
+   "same_seed": [
+    193,
+    193,
+    190
+   ],
+   "cross_seed": [
+    193,
+    191,
+    193,
+    191,
+    192,
+    192
+   ]
+  },
+  {
+   "cell": "libero_object/pi05",
+   "a": "ablate-W4A4-ah-attn_adarms",
+   "b": "rtn-BASELINE-e2e",
+   "same_seed": [
+    194,
+    193,
+    194
+   ],
+   "cross_seed": [
+    193,
+    195,
+    194,
+    195,
+    193,
+    192
+   ]
+  },
+  {
+   "cell": "libero_object/pi05",
+   "a": "ablate-W4A4-ah-attn_adarms",
+   "b": "rtn-W4A4-ah",
+   "same_seed": [
+    116,
+    122,
+    117
+   ],
+   "cross_seed": [
+    122,
+    120,
+    116,
+    118,
+    115,
+    121
+   ]
+  },
+  {
+   "cell": "libero_object/pi05",
+   "a": "ablate-W4A4-ah-down_attn_adarms",
+   "b": "ablate-W4A4-ah-onlyadarms",
+   "same_seed": [
+    188,
+    192,
+    190
+   ],
+   "cross_seed": [
+    190,
+    192,
+    190,
+    194,
+    186,
+    188
+   ]
+  },
+  {
+   "cell": "libero_object/pi05",
+   "a": "ablate-W4A4-ah-down_attn_adarms",
+   "b": "ablate-W4A4-ah-onlyself_attn",
+   "same_seed": [
+    195,
+    197,
+    191
+   ],
+   "cross_seed": [
+    195,
+    193,
+    197,
+    195,
+    193,
+    193
+   ]
+  },
+  {
+   "cell": "libero_object/pi05",
+   "a": "ablate-W4A4-ah-down_attn_adarms",
+   "b": "rtn-BASELINE-e2e",
+   "same_seed": [
+    196,
+    197,
+    195
+   ],
+   "cross_seed": [
+    195,
+    197,
+    198,
+    199,
+    194,
+    193
+   ]
+  },
+  {
+   "cell": "libero_object/pi05",
+   "a": "ablate-W4A4-ah-down_attn_adarms",
+   "b": "rtn-W4A4-ah",
+   "same_seed": [
+    118,
+    126,
+    120
+   ],
+   "cross_seed": [
+    124,
+    120,
+    120,
+    122,
+    116,
+    122
+   ]
+  },
+  {
+   "cell": "libero_object/pi05",
+   "a": "ablate-W4A4-ah-onlyadarms",
+   "b": "ablate-W4A4-ah-onlyself_attn",
+   "same_seed": [
+    11,
+    9,
+    9
+   ],
+   "cross_seed": [
+    13,
+    15,
+    9,
+    9,
+    7,
+    9
+   ]
+  },
+  {
+   "cell": "libero_object/pi05",
+   "a": "ablate-W4A4-ah-onlyadarms",
+   "b": "rtn-BASELINE-e2e",
+   "same_seed": [
+    12,
+    11,
+    5
+   ],
+   "cross_seed": [
+    13,
+    11,
+    10,
+    9,
+    6,
+    9
+   ]
+  },
+  {
+   "cell": "libero_object/pi05",
+   "a": "ablate-W4A4-ah-onlyadarms",
+   "b": "rtn-W4A4-ah",
+   "same_seed": [
+    76,
+    68,
+    76
+   ],
+   "cross_seed": [
+    70,
+    78,
+    78,
+    74,
+    76,
+    72
+   ]
+  },
+  {
+   "cell": "libero_object/pi05",
+   "a": "ablate-W4A4-ah-onlyself_attn",
+   "b": "rtn-BASELINE-e2e",
+   "same_seed": [
+    5,
+    6,
+    6
+   ],
+   "cross_seed": [
+    6,
+    4,
+    5,
+    4,
+    5,
+    8
+   ]
+  },
+  {
+   "cell": "libero_object/pi05",
+   "a": "ablate-W4A4-ah-onlyself_attn",
+   "b": "rtn-W4A4-ah",
+   "same_seed": [
+    79,
+    73,
+    79
+   ],
+   "cross_seed": [
+    71,
+    77,
+    81,
+    77,
+    79,
+    75
+   ]
+  },
+  {
+   "cell": "libero_object/pi05",
+   "a": "rtn-BASELINE-e2e",
+   "b": "rtn-W4A4-ah",
+   "same_seed": [
+    78,
+    75,
+    79
+   ],
+   "cross_seed": [
+    76,
+    80,
+    79,
+    79,
+    79,
+    75
+   ]
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "a": "ablate-W4A4-ah-attn_adarms",
+   "b": "rtn-W4A4-ah",
+   "same_seed": [
+    142,
+    133,
+    132
+   ],
+   "cross_seed": [
+    140,
+    136,
+    133,
+    129,
+    136,
+    136
+   ]
+  }
+ ],
+ "updates": [
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "ablate-W3-ah-only_blocks",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.94,
+   "to_fail": 5,
+   "to_success": 8,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "ablate-W3-ah-only_fc1",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.94,
+   "to_fail": 9,
+   "to_success": 12,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "ablate-W3-ah-only_fc2",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.125,
+   "to_fail": 160,
+   "to_success": 0,
+   "noise_floor_new": 0.07
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "ablate-W3-e2e-no_ah_fc2",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.935,
+   "to_fail": 11,
+   "to_success": 13,
+   "noise_floor_new": 0.04
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "ablate-W3-e2e-no_any_fc2",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.93,
+   "to_fail": 12,
+   "to_success": 13,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "ablate-W4A8-e2e-no_ah_fc2",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.94,
+   "to_fail": 10,
+   "to_success": 13,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "ablate-W8A8-e2e-no_ah_fc2",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.935,
+   "to_fail": 5,
+   "to_success": 7,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "rtn-W3-ah",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.095,
+   "to_fail": 167,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "rtn-W3-e2e",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.08,
+   "to_fail": 169,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "rtn-W3-llm",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.925,
+   "to_fail": 12,
+   "to_success": 12,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "rtn-W3-ve",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.955,
+   "to_fail": 5,
+   "to_success": 11,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "rtn-W3-ve_mp_llm",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.95,
+   "to_fail": 8,
+   "to_success": 13,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "rtn-W3G32-ah",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.175,
+   "to_fail": 152,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "rtn-W3G64-ah",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.125,
+   "to_fail": 161,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "rtn-W4-e2e",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.885,
+   "to_fail": 19,
+   "to_success": 11,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "rtn-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.0,
+   "to_fail": 185,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "rtn-W4A8-e2e",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.76,
+   "to_fail": 41,
+   "to_success": 8,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "rtn-W8-e2e",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.935,
+   "to_fail": 6,
+   "to_success": 8,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/openvla_oft",
+   "config": "rtn-W8A8-e2e",
+   "states": 200,
+   "success_base": 0.925,
+   "success_new": 0.64,
+   "to_fail": 65,
+   "to_success": 8,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi0",
+   "config": "rtn-W3-e2e",
+   "states": 200,
+   "success_base": 0.485,
+   "success_new": 0.4,
+   "to_fail": 40,
+   "to_success": 23,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi0",
+   "config": "rtn-W4-e2e",
+   "states": 200,
+   "success_base": 0.485,
+   "success_new": 0.41,
+   "to_fail": 42,
+   "to_success": 27,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi0",
+   "config": "rtn-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.485,
+   "success_new": 0.31,
+   "to_fail": 61,
+   "to_success": 26,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi0",
+   "config": "rtn-W4A8-e2e",
+   "states": 200,
+   "success_base": 0.485,
+   "success_new": 0.41,
+   "to_fail": 38,
+   "to_success": 23,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi0",
+   "config": "rtn-W8-e2e",
+   "states": 200,
+   "success_base": 0.485,
+   "success_new": 0.475,
+   "to_fail": 24,
+   "to_success": 22,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi0",
+   "config": "rtn-W8A8-e2e",
+   "states": 200,
+   "success_base": 0.485,
+   "success_new": 0.45,
+   "to_fail": 23,
+   "to_success": 16,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi05",
+   "config": "ablate-W4A4-ah-attn_adarms",
+   "states": 200,
+   "success_base": 0.95,
+   "success_new": 0.0,
+   "to_fail": 190,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi05",
+   "config": "ablate-W4A4-ah-only_down",
+   "states": 200,
+   "success_base": 0.95,
+   "success_new": 0.565,
+   "to_fail": 80,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi05",
+   "config": "rtn-W3-e2e",
+   "states": 200,
+   "success_base": 0.95,
+   "success_new": 0.945,
+   "to_fail": 10,
+   "to_success": 9,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi05",
+   "config": "rtn-W4-e2e",
+   "states": 200,
+   "success_base": 0.95,
+   "success_new": 0.94,
+   "to_fail": 7,
+   "to_success": 5,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi05",
+   "config": "rtn-W4A4-ah",
+   "states": 200,
+   "success_base": 0.95,
+   "success_new": 0.185,
+   "to_fail": 154,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi05",
+   "config": "rtn-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.95,
+   "success_new": 0.0,
+   "to_fail": 190,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi05",
+   "config": "rtn-W4A8-e2e",
+   "states": 200,
+   "success_base": 0.95,
+   "success_new": 0.965,
+   "to_fail": 5,
+   "to_success": 8,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi05",
+   "config": "rtn-W8-e2e",
+   "states": 200,
+   "success_base": 0.95,
+   "success_new": 0.965,
+   "to_fail": 3,
+   "to_success": 6,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/pi05",
+   "config": "rtn-W8A8-e2e",
+   "states": 200,
+   "success_base": 0.95,
+   "success_new": 0.935,
+   "to_fail": 6,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/xvla",
+   "config": "ablate-W4A4-ah-only_attn",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.0,
+   "to_fail": 186,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/xvla",
+   "config": "ablate-W4A4-ah-onlymlp",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.0,
+   "to_fail": 186,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/xvla",
+   "config": "rtn-W3-e2e",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.9473684210526315,
+   "to_fail": 9,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/xvla",
+   "config": "rtn-W4-e2e",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.9578947368421052,
+   "to_fail": 6,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/xvla",
+   "config": "rtn-W4A4-ah",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.0,
+   "to_fail": 186,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/xvla",
+   "config": "rtn-W4A4-e2e",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.0,
+   "to_fail": 186,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/xvla",
+   "config": "rtn-W4A8-e2e",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.968421052631579,
+   "to_fail": 3,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/xvla",
+   "config": "rtn-W8-e2e",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.9736842105263158,
+   "to_fail": 2,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_10/xvla",
+   "config": "rtn-W8A8-e2e",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.9842105263157894,
+   "to_fail": 2,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/openvla_oft",
+   "config": "ablate-W4A8-e2e-no_ah_fc2",
+   "states": 200,
+   "success_base": 0.96,
+   "success_new": 0.98,
+   "to_fail": 2,
+   "to_success": 6,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/openvla_oft",
+   "config": "ablate-W8A8-e2e-no_ah_fc2",
+   "states": 200,
+   "success_base": 0.96,
+   "success_new": 0.975,
+   "to_fail": 2,
+   "to_success": 5,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/openvla_oft",
+   "config": "rtn-W3-e2e",
+   "states": 200,
+   "success_base": 0.96,
+   "success_new": 0.715,
+   "to_fail": 54,
+   "to_success": 5,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/openvla_oft",
+   "config": "rtn-W4-e2e",
+   "states": 200,
+   "success_base": 0.96,
+   "success_new": 0.82,
+   "to_fail": 32,
+   "to_success": 4,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/openvla_oft",
+   "config": "rtn-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.96,
+   "success_new": 0.0,
+   "to_fail": 192,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/openvla_oft",
+   "config": "rtn-W4A8-e2e",
+   "states": 200,
+   "success_base": 0.96,
+   "success_new": 0.02,
+   "to_fail": 188,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/openvla_oft",
+   "config": "rtn-W8-e2e",
+   "states": 200,
+   "success_base": 0.96,
+   "success_new": 0.975,
+   "to_fail": 0,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/openvla_oft",
+   "config": "rtn-W8A8-e2e",
+   "states": 200,
+   "success_base": 0.96,
+   "success_new": 0.13,
+   "to_fail": 166,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/pi0",
+   "config": "rtn-W3-e2e",
+   "states": 200,
+   "success_base": 0.845,
+   "success_new": 0.645,
+   "to_fail": 51,
+   "to_success": 11,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/pi0",
+   "config": "rtn-W4-e2e",
+   "states": 200,
+   "success_base": 0.845,
+   "success_new": 0.79,
+   "to_fail": 21,
+   "to_success": 10,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/pi0",
+   "config": "rtn-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.845,
+   "success_new": 0.58,
+   "to_fail": 65,
+   "to_success": 12,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/pi0",
+   "config": "rtn-W4A8-e2e",
+   "states": 200,
+   "success_base": 0.845,
+   "success_new": 0.79,
+   "to_fail": 22,
+   "to_success": 11,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/pi0",
+   "config": "rtn-W8-e2e",
+   "states": 200,
+   "success_base": 0.845,
+   "success_new": 0.83,
+   "to_fail": 7,
+   "to_success": 4,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/pi0",
+   "config": "rtn-W8A8-e2e",
+   "states": 200,
+   "success_base": 0.845,
+   "success_new": 0.81,
+   "to_fail": 10,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/pi05",
+   "config": "rtn-W3-e2e",
+   "states": 200,
+   "success_base": 0.94,
+   "success_new": 0.955,
+   "to_fail": 8,
+   "to_success": 11,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/pi05",
+   "config": "rtn-W4-e2e",
+   "states": 200,
+   "success_base": 0.94,
+   "success_new": 0.965,
+   "to_fail": 5,
+   "to_success": 10,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/pi05",
+   "config": "rtn-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.94,
+   "success_new": 0.0,
+   "to_fail": 188,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/pi05",
+   "config": "rtn-W4A8-e2e",
+   "states": 200,
+   "success_base": 0.94,
+   "success_new": 0.965,
+   "to_fail": 5,
+   "to_success": 10,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/pi05",
+   "config": "rtn-W8-e2e",
+   "states": 200,
+   "success_base": 0.94,
+   "success_new": 0.96,
+   "to_fail": 1,
+   "to_success": 5,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/pi05",
+   "config": "rtn-W8A8-e2e",
+   "states": 200,
+   "success_base": 0.94,
+   "success_new": 0.97,
+   "to_fail": 1,
+   "to_success": 7,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/xvla",
+   "config": "rtn-W3-e2e",
+   "states": 190,
+   "success_base": 0.9736842105263158,
+   "success_new": 0.9736842105263158,
+   "to_fail": 4,
+   "to_success": 4,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/xvla",
+   "config": "rtn-W4-e2e",
+   "states": 190,
+   "success_base": 0.9736842105263158,
+   "success_new": 0.968421052631579,
+   "to_fail": 5,
+   "to_success": 4,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/xvla",
+   "config": "rtn-W4A4-e2e",
+   "states": 190,
+   "success_base": 0.9736842105263158,
+   "success_new": 0.0,
+   "to_fail": 185,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/xvla",
+   "config": "rtn-W4A8-e2e",
+   "states": 190,
+   "success_base": 0.9736842105263158,
+   "success_new": 0.9789473684210527,
+   "to_fail": 2,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/xvla",
+   "config": "rtn-W8-e2e",
+   "states": 190,
+   "success_base": 0.9736842105263158,
+   "success_new": 0.9631578947368421,
+   "to_fail": 3,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_goal/xvla",
+   "config": "rtn-W8A8-e2e",
+   "states": 190,
+   "success_base": 0.9736842105263158,
+   "success_new": 0.9631578947368421,
+   "to_fail": 5,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/openvla_oft",
+   "config": "ablate-W4A8-ah-only_fc2",
+   "states": 200,
+   "success_base": 0.975,
+   "success_new": 0.015,
+   "to_fail": 192,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/openvla_oft",
+   "config": "ablate-W4A8-e2e-no_ah_fc2",
+   "states": 200,
+   "success_base": 0.975,
+   "success_new": 0.97,
+   "to_fail": 4,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/openvla_oft",
+   "config": "ablate-W8A8-e2e-no_ah_fc2",
+   "states": 200,
+   "success_base": 0.975,
+   "success_new": 0.975,
+   "to_fail": 2,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/openvla_oft",
+   "config": "rtn-W3-e2e",
+   "states": 200,
+   "success_base": 0.975,
+   "success_new": 0.745,
+   "to_fail": 48,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/openvla_oft",
+   "config": "rtn-W4-e2e",
+   "states": 200,
+   "success_base": 0.975,
+   "success_new": 0.935,
+   "to_fail": 10,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/openvla_oft",
+   "config": "rtn-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.975,
+   "success_new": 0.0,
+   "to_fail": 195,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/openvla_oft",
+   "config": "rtn-W4A8-ah",
+   "states": 200,
+   "success_base": 0.975,
+   "success_new": 0.03,
+   "to_fail": 189,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/openvla_oft",
+   "config": "rtn-W4A8-e2e",
+   "states": 200,
+   "success_base": 0.975,
+   "success_new": 0.025,
+   "to_fail": 191,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/openvla_oft",
+   "config": "rtn-W8-e2e",
+   "states": 200,
+   "success_base": 0.975,
+   "success_new": 0.98,
+   "to_fail": 1,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/openvla_oft",
+   "config": "rtn-W8A8-e2e",
+   "states": 200,
+   "success_base": 0.975,
+   "success_new": 0.025,
+   "to_fail": 190,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/pi0",
+   "config": "rtn-W3-e2e",
+   "states": 200,
+   "success_base": 0.875,
+   "success_new": 0.76,
+   "to_fail": 33,
+   "to_success": 10,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/pi0",
+   "config": "rtn-W4-e2e",
+   "states": 200,
+   "success_base": 0.875,
+   "success_new": 0.905,
+   "to_fail": 9,
+   "to_success": 15,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/pi0",
+   "config": "rtn-W4A4-ah",
+   "states": 200,
+   "success_base": 0.875,
+   "success_new": 0.745,
+   "to_fail": 45,
+   "to_success": 19,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/pi0",
+   "config": "rtn-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.875,
+   "success_new": 0.74,
+   "to_fail": 43,
+   "to_success": 16,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/pi0",
+   "config": "rtn-W4A8-e2e",
+   "states": 200,
+   "success_base": 0.875,
+   "success_new": 0.885,
+   "to_fail": 14,
+   "to_success": 16,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/pi0",
+   "config": "rtn-W8-e2e",
+   "states": 200,
+   "success_base": 0.875,
+   "success_new": 0.865,
+   "to_fail": 4,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/pi0",
+   "config": "rtn-W8A8-e2e",
+   "states": 200,
+   "success_base": 0.875,
+   "success_new": 0.885,
+   "to_fail": 6,
+   "to_success": 8,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "ablate-W4A4-ah-attn_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.02,
+   "to_fail": 194,
+   "to_success": 0,
+   "noise_floor_new": 0.026666666666666665
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "ablate-W4A4-ah-down_attn_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.01,
+   "to_fail": 196,
+   "to_success": 0,
+   "noise_floor_new": 0.02
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "ablate-W4A4-ah-only_down",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.82,
+   "to_fail": 36,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "ablate-W4A4-ah-onlyadarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.95,
+   "to_fail": 10,
+   "to_success": 2,
+   "noise_floor_new": 0.05333333333333333
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "ablate-W4A4-ah-onlyself_attn",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.985,
+   "to_fail": 3,
+   "to_success": 2,
+   "noise_floor_new": 0.03666666666666667
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "rtn-W3-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 1.0,
+   "to_fail": 0,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "rtn-W4-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.99,
+   "to_fail": 2,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "rtn-W4A4-ah",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.6,
+   "to_fail": 78,
+   "to_success": 0,
+   "noise_floor_new": 0.24
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "rtn-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.0,
+   "to_fail": 198,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "rtn-W4A8-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 1.0,
+   "to_fail": 0,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "rtn-W8-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.99,
+   "to_fail": 1,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/pi05",
+   "config": "rtn-W8A8-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.99,
+   "to_fail": 1,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/xvla",
+   "config": "rtn-W3-e2e",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.968421052631579,
+   "to_fail": 5,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/xvla",
+   "config": "rtn-W4-e2e",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.9789473684210527,
+   "to_fail": 2,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/xvla",
+   "config": "rtn-W4A4-e2e",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.0,
+   "to_fail": 186,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/xvla",
+   "config": "rtn-W4A8-e2e",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.9842105263157894,
+   "to_fail": 2,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/xvla",
+   "config": "rtn-W8-e2e",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.9789473684210527,
+   "to_fail": 2,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_object/xvla",
+   "config": "rtn-W8A8-e2e",
+   "states": 190,
+   "success_base": 0.9789473684210527,
+   "success_new": 0.9789473684210527,
+   "to_fail": 2,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "ablate-W4A6-ah-only_fc2",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.145,
+   "to_fail": 171,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "ablate-W4A8-ah-fc1_fc2",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.195,
+   "to_fail": 161,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "ablate-W4A8-ah-only_blocks",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.995,
+   "to_fail": 1,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "ablate-W4A8-ah-only_fc1",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.99,
+   "to_fail": 2,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "ablate-W4A8-ah-only_fc2",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.18,
+   "to_fail": 164,
+   "to_success": 0,
+   "noise_floor_new": 0.17
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "ablate-W4A8-e2e-no_ah_fc2",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.975,
+   "to_fail": 5,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "ablate-W8A8-ah-only_fc2",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.41,
+   "to_fail": 118,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "ablate-W8A8-e2e-no_ah_fc2",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.99,
+   "to_fail": 2,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "awq-W3-llm",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.985,
+   "to_fail": 3,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "awq-W4-llm",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.99,
+   "to_fail": 2,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "calib-W4A6-e2e",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.715,
+   "to_fail": 57,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "calib_ah-W4A4-ah",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.385,
+   "to_fail": 123,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "calib_all-W4A4-e2e",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.0,
+   "to_fail": 200,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "calib_all_a75-W4A4-e2e",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.095,
+   "to_fail": 181,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "calib_llm-W4A4-llm",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.33,
+   "to_fail": 134,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "calib_ve-W4A4-ve",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.0,
+   "to_fail": 200,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "int8-W8-llm",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.985,
+   "to_fail": 3,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "nf4-W4-llm",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.98,
+   "to_fail": 4,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W2-ah",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.0,
+   "to_fail": 200,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W2-llm",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.1,
+   "to_fail": 180,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W2-ve",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.81,
+   "to_fail": 38,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W3-ah",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.845,
+   "to_fail": 31,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W3-e2e",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.78,
+   "to_fail": 44,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W3-llm",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 1.0,
+   "to_fail": 0,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W3-ve",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.995,
+   "to_fail": 1,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4-ah-anchor",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.97,
+   "to_fail": 6,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4-ah",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.97,
+   "to_fail": 6,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4-e2e",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.96,
+   "to_fail": 8,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4-llm",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.98,
+   "to_fail": 4,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4-ve",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.995,
+   "to_fail": 1,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4A4-ah",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.0,
+   "to_fail": 200,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4A4-e2e",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.0,
+   "to_fail": 200,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4A4-llm",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.0,
+   "to_fail": 200,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4A4-ve",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.0,
+   "to_fail": 200,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4A6-ah",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.17,
+   "to_fail": 166,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4A6-e2e",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.235,
+   "to_fail": 153,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4A6-llm",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.98,
+   "to_fail": 4,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4A6-ve",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.995,
+   "to_fail": 1,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4A8-ah",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.205,
+   "to_fail": 159,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4A8-e2e",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.215,
+   "to_fail": 157,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4A8-llm",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.985,
+   "to_fail": 3,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W4A8-ve",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.99,
+   "to_fail": 2,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W8-e2e",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.995,
+   "to_fail": 1,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W8-llm",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.99,
+   "to_fail": 2,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W8A8-ah",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.35,
+   "to_fail": 130,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W8A8-e2e",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.36,
+   "to_fail": 128,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "rtn-W8A8-llm",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 1.0,
+   "to_fail": 0,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/openvla_oft",
+   "config": "smoothquant-W8A8-llm",
+   "states": 200,
+   "success_base": 1.0,
+   "success_new": 0.99,
+   "to_fail": 2,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "ablate-W4A4-ah-only_action_out",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.72,
+   "to_fail": 28,
+   "to_success": 16,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "ablate-W4A4-ah-only_down",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.78,
+   "to_fail": 22,
+   "to_success": 22,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "ablate-W4A4-ah-onlymlp",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.775,
+   "to_fail": 20,
+   "to_success": 19,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "ablate-W4A4-ah-onlyself_attn",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.685,
+   "to_fail": 35,
+   "to_success": 16,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "calib_ah-W4A4-ah",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.395,
+   "to_fail": 92,
+   "to_success": 15,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "calib_all-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.105,
+   "to_fail": 136,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "calib_all_a25-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.09,
+   "to_fail": 138,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "calib_all_a75-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.08,
+   "to_fail": 144,
+   "to_success": 4,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "calib_llm-W4A4-llm",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.11,
+   "to_fail": 135,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "calib_ve-W4A4-ve",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.72,
+   "to_fail": 34,
+   "to_success": 22,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W2-ah",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.045,
+   "to_fail": 150,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W2-llm",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.63,
+   "to_fail": 53,
+   "to_success": 23,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W2-ve",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.765,
+   "to_fail": 15,
+   "to_success": 12,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W3-ah",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.72,
+   "to_fail": 36,
+   "to_success": 24,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W3-e2e",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.71,
+   "to_fail": 39,
+   "to_success": 25,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W3-llm",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.77,
+   "to_fail": 16,
+   "to_success": 14,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W3-ve",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.78,
+   "to_fail": 7,
+   "to_success": 7,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4-ah",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.685,
+   "to_fail": 35,
+   "to_success": 16,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4-e2e",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.69,
+   "to_fail": 36,
+   "to_success": 18,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4-llm",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.76,
+   "to_fail": 11,
+   "to_success": 7,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4-ve",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.765,
+   "to_fail": 8,
+   "to_success": 5,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4A4-ah",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.58,
+   "to_fail": 54,
+   "to_success": 14,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.61,
+   "to_fail": 51,
+   "to_success": 17,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4A4-llm",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.72,
+   "to_fail": 32,
+   "to_success": 20,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4A4-ve",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.765,
+   "to_fail": 7,
+   "to_success": 4,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4A6-ah",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.715,
+   "to_fail": 33,
+   "to_success": 20,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4A6-llm",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.72,
+   "to_fail": 19,
+   "to_success": 7,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4A6-ve",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.755,
+   "to_fail": 10,
+   "to_success": 5,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4A8-ah",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.67,
+   "to_fail": 37,
+   "to_success": 15,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4A8-e2e",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.645,
+   "to_fail": 42,
+   "to_success": 15,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4A8-llm",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.76,
+   "to_fail": 14,
+   "to_success": 10,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W4A8-ve",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.75,
+   "to_fail": 28,
+   "to_success": 22,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W8-e2e",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.775,
+   "to_fail": 6,
+   "to_success": 5,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi0",
+   "config": "rtn-W8A8-e2e",
+   "states": 200,
+   "success_base": 0.78,
+   "success_new": 0.745,
+   "to_fail": 15,
+   "to_success": 8,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4-ah-attn_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.99,
+   "to_fail": 1,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4-ah-down_attn_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.99,
+   "to_fail": 1,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4-ah-onlyadarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.995,
+   "to_fail": 0,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4-ah-onlyself_attn",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 1.0,
+   "to_fail": 0,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-attn_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.015,
+   "to_fail": 195,
+   "to_success": 0,
+   "noise_floor_new": 0.04333333333333333
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-attn_inputadarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.0,
+   "to_fail": 198,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-attn_postadarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.94,
+   "to_fail": 12,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-down_attn",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.8,
+   "to_fail": 39,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-down_attn_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.07,
+   "to_fail": 184,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-kproj_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.885,
+   "to_fail": 21,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-mlp_plus_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.885,
+   "to_fail": 22,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-no_action_out",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.72,
+   "to_fail": 55,
+   "to_success": 1,
+   "noise_floor_new": 0.16
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-noadarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.845,
+   "to_fail": 30,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-only_action_out",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.97,
+   "to_fail": 4,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-only_down",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.835,
+   "to_fail": 32,
+   "to_success": 1,
+   "noise_floor_new": 0.105
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-only_gate",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.99,
+   "to_fail": 1,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-only_up",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.985,
+   "to_fail": 2,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-onlyadarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.935,
+   "to_fail": 13,
+   "to_success": 2,
+   "noise_floor_new": 0.07
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-onlymlp",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.88,
+   "to_fail": 22,
+   "to_success": 0,
+   "noise_floor_new": 0.145
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-onlyself_attn",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.98,
+   "to_fail": 3,
+   "to_success": 1,
+   "noise_floor_new": 0.025
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-oproj_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.965,
+   "to_fail": 6,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-qproj_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.72,
+   "to_fail": 55,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-s126_gateup",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.265,
+   "to_fail": 146,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-s126_others",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.785,
+   "to_fail": 41,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A4-ah-vproj_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.895,
+   "to_fail": 21,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A6-ah-attn_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.98,
+   "to_fail": 3,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A8-ah-attn_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.98,
+   "to_fail": 2,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A8-ah-down_attn_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.985,
+   "to_fail": 2,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A8-ah-onlyadarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.985,
+   "to_fail": 2,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "ablate-W4A8-ah-onlyself_attn",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.99,
+   "to_fail": 1,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_ah-W4A4-ah-attn_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.975,
+   "to_fail": 5,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_ah-W4A4-ah-down_attn_adarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.99,
+   "to_fail": 2,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_ah-W4A4-ah-onlyadarms",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.975,
+   "to_fail": 5,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_ah-W4A4-ah-onlyself_attn",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.985,
+   "to_fail": 2,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_ah-W4A4-ah",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.985,
+   "to_fail": 3,
+   "to_success": 2,
+   "noise_floor_new": 0.02
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_ah-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.0,
+   "to_fail": 198,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_all-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.0,
+   "to_fail": 198,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_all-W4A6-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.98,
+   "to_fail": 3,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_all_a75-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.915,
+   "to_fail": 17,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_llm-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.0,
+   "to_fail": 198,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_llm-W4A4-llm",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.705,
+   "to_fail": 59,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_set0_ah-W4A4-ah",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.97,
+   "to_fail": 6,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_set0_all_a75-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.905,
+   "to_fail": 19,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_set1_ah-W4A4-ah",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.97,
+   "to_fail": 6,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_set1_all_a75-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.88,
+   "to_fail": 23,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_set2_ah-W4A4-ah",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.97,
+   "to_fail": 6,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_set2_all_a75-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.905,
+   "to_fail": 19,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "calib_ve-W4A4-ve",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.8,
+   "to_fail": 40,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W2-ah",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.73,
+   "to_fail": 53,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W2-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.0,
+   "to_fail": 198,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W2-llm",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.0,
+   "to_fail": 198,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W2-ve",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.995,
+   "to_fail": 1,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W3-ah",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.99,
+   "to_fail": 2,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W3-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.99,
+   "to_fail": 2,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W3-llm",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.98,
+   "to_fail": 4,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W3-ve",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.995,
+   "to_fail": 1,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W3G0ASYM-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.2,
+   "to_fail": 158,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W3G0SYM-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.0,
+   "to_fail": 198,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W3G128SYM-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.96,
+   "to_fail": 8,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W3G64ASYM-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.97,
+   "to_fail": 6,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W3G64SYM-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.975,
+   "to_fail": 5,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4-ah",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.975,
+   "to_fail": 4,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.975,
+   "to_fail": 4,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4-llm",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.975,
+   "to_fail": 4,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4-ve",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.98,
+   "to_fail": 3,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A4-ah",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.705,
+   "to_fail": 57,
+   "to_success": 0,
+   "noise_floor_new": 0.18666666666666668
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A4-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.0,
+   "to_fail": 198,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A4-llm",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.0,
+   "to_fail": 198,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A4-ve",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.37,
+   "to_fail": 124,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A5-ah",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.87,
+   "to_fail": 25,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A5-llm",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.0,
+   "to_fail": 198,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A6-ah",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.97,
+   "to_fail": 4,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A6-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.975,
+   "to_fail": 4,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A6-llm",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.975,
+   "to_fail": 5,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A6-ve",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.985,
+   "to_fail": 3,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A8-ah",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.975,
+   "to_fail": 3,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A8-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.99,
+   "to_fail": 2,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A8-llm",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.96,
+   "to_fail": 7,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4A8-ve",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.98,
+   "to_fail": 2,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4G0ASYM-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.975,
+   "to_fail": 4,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4G0SYM-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.98,
+   "to_fail": 4,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4G128SYM-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.98,
+   "to_fail": 4,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4G64ASYM-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.975,
+   "to_fail": 5,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W4G64SYM-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.97,
+   "to_fail": 6,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W8-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.985,
+   "to_fail": 2,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "rtn-W8A8-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.985,
+   "to_fail": 3,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "steps1-ablate-W4A4-ah-only_action_out",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.98,
+   "to_fail": 4,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "steps1-rtn-BASELINE-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.985,
+   "to_fail": 2,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "steps2-ablate-W4A4-ah-only_action_out",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.99,
+   "to_fail": 2,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/pi05",
+   "config": "steps2-rtn-BASELINE-e2e",
+   "states": 200,
+   "success_base": 0.99,
+   "success_new": 0.97,
+   "to_fail": 5,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "ablate-W4A4-ah-attn_fc1",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.0,
+   "to_fail": 184,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "ablate-W4A4-ah-attn_fc2",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.0,
+   "to_fail": 184,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "ablate-W4A4-ah-only_attn",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.13157894736842105,
+   "to_fail": 159,
+   "to_success": 0,
+   "noise_floor_new": 0.11052631578947368
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "ablate-W4A4-ah-only_fc1",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.6631578947368421,
+   "to_fail": 60,
+   "to_success": 2,
+   "noise_floor_new": 0.19473684210526315
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "ablate-W4A4-ah-only_fc2",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9421052631578948,
+   "to_fail": 7,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "ablate-W4A4-ah-only_proj",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9631578947368421,
+   "to_fail": 3,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "ablate-W4A4-ah-only_qkv",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.11578947368421053,
+   "to_fail": 163,
+   "to_success": 1,
+   "noise_floor_new": 0.11578947368421053
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "ablate-W4A4-ah-onlymlp",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.24210526315789474,
+   "to_fail": 140,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W2-ah",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9315789473684211,
+   "to_fail": 10,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W2-llm",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.968421052631579,
+   "to_fail": 4,
+   "to_success": 4,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W2-ve",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9631578947368421,
+   "to_fail": 4,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W3-ah",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9842105263157894,
+   "to_fail": 0,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W3-e2e",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.968421052631579,
+   "to_fail": 3,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W3-llm",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9526315789473684,
+   "to_fail": 4,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W3-ve",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.968421052631579,
+   "to_fail": 2,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4-ah",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9736842105263158,
+   "to_fail": 1,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4-e2e",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9578947368421052,
+   "to_fail": 4,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4-llm",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9578947368421052,
+   "to_fail": 2,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4-ve",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9736842105263158,
+   "to_fail": 1,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4A4-ah",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.0,
+   "to_fail": 184,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4A4-e2e",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.0,
+   "to_fail": 184,
+   "to_success": 0,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4A4-llm",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9631578947368421,
+   "to_fail": 5,
+   "to_success": 4,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4A4-ve",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.6789473684210526,
+   "to_fail": 58,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4A5-ah",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.3684210526315789,
+   "to_fail": 115,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4A6-ah",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9105263157894737,
+   "to_fail": 12,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4A6-llm",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9789473684210527,
+   "to_fail": 1,
+   "to_success": 3,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4A6-ve",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9789473684210527,
+   "to_fail": 0,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4A8-ah",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.968421052631579,
+   "to_fail": 2,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4A8-e2e",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9631578947368421,
+   "to_fail": 3,
+   "to_success": 2,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4A8-llm",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9631578947368421,
+   "to_fail": 2,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W4A8-ve",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9736842105263158,
+   "to_fail": 0,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W8-e2e",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9736842105263158,
+   "to_fail": 0,
+   "to_success": 1,
+   "noise_floor_new": null
+  },
+  {
+   "cell": "libero_spatial/xvla",
+   "config": "rtn-W8A8-e2e",
+   "states": 190,
+   "success_base": 0.968421052631579,
+   "success_new": 0.9631578947368421,
+   "to_fail": 2,
+   "to_success": 1,
+   "noise_floor_new": null
+  }
+ ]
+}

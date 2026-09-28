@@ -46,8 +46,8 @@ than the old one, with a test that accounts for rollout randomness, and show tha
 | 10 → 5 flow-matching steps | X-VLA | planned |
 | execute 1 → 10 → 50 actions per chunk | SmolVLA (`HuggingFaceVLA/smolvla_libero`) | planned |
 | noise floor, old vs old | both | queued after the pilot |
-| reanalysis of VLAQuantBench episode records (single rollout per state) | X-VLA, π0.5, π0, OpenVLA-OFT | planned |
-| π0.5 (`lerobot/pi05_libero_finetuned_v044`) | needs the PaliGemma licence accepted on HuggingFace | blocked |
+| reanalysis of VLAQuantBench episode records (single rollout per state) | X-VLA, π0.5, π0, OpenVLA-OFT | done: `reanalyze_vqb.py`, `results/vqb/` |
+| π0.5 (`lerobot/pi05_libero_finetuned_v044`) | licence accepted; peak RAM too high to run beside the pilot | after the pilot, alone |
 
 Pilot: LIBERO-10, 10 tasks × 10 states × 5 repeats = 500 episodes per variant, about 1.2 h each on
 the L40S (LeRobot's 520-step limit; VLAQuantBench uses 900).
@@ -59,3 +59,17 @@ the L40S (LeRobot's 520-step limit; VLAQuantBench uses 900).
   Embodied AI" (non-archival, https://efficient-embodied-ai.github.io/), and arXiv.
 - then: full paper with sequential testing and all four LIBERO suites, RA-L (ICRA 2027 transfer
   window closes Dec 31, 2026) or RSS 2027.
+
+## VLAQuantBench reanalysis (2026-09-28, repo at 4a2cb7c)
+
+- Same configuration, seeds 0/1/2, 200 states: between 1 and 25% of states change outcome with
+  nothing changed. π0.5 W4A4-ah on LIBERO-Object (success 0.60-0.63): 44-50 of 200 states flip
+  between seeds. Near ceiling (0.95-0.99) it is still 1-14 states.
+- Runs with the same seed do not share random numbers across configurations (flips at the same
+  seed equal flips across seeds), so seed-to-seed flips are the right floor for their comparisons.
+- States do differ in difficulty: at 0.61 success, 43 states never succeed in three seeds and 85
+  always do; equal per-state rates would give 12 and 46. Per-state effects are real, but one
+  rollout cannot find them.
+- Example: π0 on LIBERO-10, W8 weights, aggregate 0.485 → 0.475, yet 24 states flip to failure
+  and 22 to success; π0.5 LIBERO-10 W4A8, 0.950 → 0.965 with 5 + 8 flips, about the floor seen at
+  that success rate.
