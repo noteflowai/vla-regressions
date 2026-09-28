@@ -4,3 +4,5 @@
 *.out
 *.pdf
 !../fig_noise_floor.pdf
+arxiv/
+arxiv.tar.gz

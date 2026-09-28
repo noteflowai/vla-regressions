@@ -17,6 +17,7 @@
 
 \usepackage{booktabs}
 \usepackage{graphicx}
+\graphicspath{{../}}
 \usepackage{amsmath}
 \usepackage{xspace}
 
@@ -141,7 +142,8 @@ per-state reading of such a comparison needs repeated rollouts.
   \centering
   \small
   \caption{States that change outcome between seeds of the same configuration (VLAQuantBench,
-  LIBERO, 200 states). \todo{select rows.}}
+  LIBERO, 200 states). Rows span the range of success rates; all 20 repeated configurations are
+  in the supplementary material.}
   \label{tab:floor}
   \begin{tabular}{llccc}
     \toprule
@@ -158,7 +160,7 @@ per-state reading of such a comparison needs repeated rollouts.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.55\linewidth]{../fig_noise_floor.pdf}
+  \includegraphics[width=0.55\linewidth]{fig_noise_floor.pdf}
   \caption{Fraction of states that change outcome between two runs, against their mean success
   rate. Crosses: the same configuration with a new seed. Dots: baseline against every other
   configuration in VLAQuantBench. The dashed curve is $2p(1-p)$, the flip rate if every state had

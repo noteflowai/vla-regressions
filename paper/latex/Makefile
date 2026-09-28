@@ -9,7 +9,17 @@ main-preprint.pdf: main.tex references.bib ../fig_noise_floor.pdf
 	pdflatex -interaction=nonstopmode -jobname=main-preprint "\def\PREPRINT{}\input{main}" && \
 	pdflatex -interaction=nonstopmode -jobname=main-preprint "\def\PREPRINT{}\input{main}"
 
+# arXiv source: the preprint build as one flat directory. arXiv does not run BibTeX, so the .bbl
+# goes along. Check the tarball's content before uploading it.
+arxiv.tar.gz: main-preprint.pdf
+	rm -rf arxiv && mkdir arxiv
+	{ echo '\\def\\PREPRINT{}'; cat main.tex; } > arxiv/main.tex
+	cp main-preprint.bbl arxiv/main.bbl
+	cp corl_2026.sty ../fig_noise_floor.pdf arxiv/
+	cd arxiv && pdflatex -interaction=nonstopmode main >/dev/null && pdflatex -interaction=nonstopmode main >/dev/null
+	tar -czf $@ -C arxiv main.tex main.bbl corl_2026.sty fig_noise_floor.pdf
+
 clean:
-	rm -f *.aux *.bbl *.blg *.log *.out *.pdf
+	rm -rf *.aux *.bbl *.blg *.log *.out *.pdf arxiv arxiv.tar.gz
 
 .PHONY: all clean
