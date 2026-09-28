@@ -2,8 +2,8 @@
 
 Every nn.Linear weight is rounded to a symmetric integer grid and stored back dequantized,
 so the model computes exactly what a W8A16 / W4A16 kernel would, without needing one.
-INT8 uses one scale per output channel; INT4 one scale per group of 128 inputs, as GPTQ-
-and AWQ-style deployments do.
+INT8 uses one scale per output channel; INT4 and below one scale per group of 128 inputs, as
+GPTQ- and AWQ-style deployments do.
 """
 
 import torch
@@ -26,7 +26,7 @@ def _quantize(w: torch.Tensor, bits: int, group: int | None) -> torch.Tensor:
 
 @torch.no_grad()
 def fake_quantize_(model: nn.Module, bits: int) -> dict:
-    group = 128 if bits == 4 else None
+    group = 128 if bits <= 4 else None
     n, params, err = 0, 0, 0.0
     for module in model.modules():
         if isinstance(module, nn.Linear):

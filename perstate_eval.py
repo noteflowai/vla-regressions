@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import time
 from functools import partial
 from pathlib import Path
@@ -103,7 +104,7 @@ def run_batch(env, policy, env_pre, env_post, pre, post, n, seeds):
 def main():
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     p.add_argument("--policy", default="lerobot/xvla-libero")
-    p.add_argument("--variant", default="fp32", help="fp32, bf16, w8, w4, or steps<N> (denoising steps)")
+    p.add_argument("--variant", default="fp32", help="fp32, bf16, w<bits> (weight-only), steps<N> (denoising steps), chunk<N> (actions executed per chunk)")
     p.add_argument("--suite", default="libero_spatial")
     p.add_argument("--tasks", default="0-9", help="e.g. 0-9 or 0,3,5")
     p.add_argument("--states", default="0-9", help="initial state indices, e.g. 0-9")
@@ -139,10 +140,12 @@ def main():
         policy_cfg.dtype = "bfloat16"
     if args.variant.startswith("steps"):
         policy_cfg.num_denoising_steps = int(args.variant[5:])
+    if args.variant.startswith("chunk"):
+        policy_cfg.n_action_steps = int(args.variant[5:])
     env_cfg = LiberoEnvConfig(task=args.suite, control_mode=args.control_mode)
     policy = make_policy(cfg=policy_cfg, env_cfg=env_cfg)
     policy.eval()
-    if args.variant in ("w8", "w4"):
+    if re.fullmatch(r"w\d", args.variant):
         report = quant.fake_quantize_(policy, bits=int(args.variant[1:]))
         print(json.dumps({"quantized": report}))
     pre, post = make_pre_post_processors(
