@@ -109,7 +109,8 @@ def main():
     p.add_argument("--states", default="0-9", help="initial state indices, e.g. 0-9")
     p.add_argument("--repeats", type=int, default=5)
     p.add_argument("--batch-size", type=int, default=5)
-    p.add_argument("--seed", type=int, default=1000)
+    p.add_argument("--seed", type=int, default=1000, help="policy noise seed")
+    p.add_argument("--scene-seed", type=int, default=None, help="default: --seed; keep it fixed to compare on the same states")
     p.add_argument("--control-mode", default="absolute")
     p.add_argument("--episode-length", type=int, default=None, help="default: LeRobot's per-suite limit")
     p.add_argument("--out", required=True)
@@ -122,6 +123,8 @@ def main():
         return [int(x) for x in spec.split(",")]
 
     tasks, states = ids(args.tasks), ids(args.states)
+    if args.scene_seed is None:
+        args.scene_seed = args.seed
 
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
@@ -177,7 +180,7 @@ def main():
             )
             t0 = time.time()
             try:
-                seeds = [scene_seed(args.seed, task, s) for s, _ in jobs]
+                seeds = [scene_seed(args.scene_seed, task, s) for s, _ in jobs]
                 success, steps = run_batch(env, policy, env_pre, env_post, pre, post, len(jobs), seeds)
             finally:
                 env.close()
@@ -192,7 +195,7 @@ def main():
                             "init_state": s,
                             "repeat": r,
                             "seed": args.seed,
-                            "scene_seed": scene_seed(args.seed, task, s),
+                            "scene_seed": scene_seed(args.scene_seed, task, s),
                             "success": bool(ok),
                             "steps": int(n),
                         }
