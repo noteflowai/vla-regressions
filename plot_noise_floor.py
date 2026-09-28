@@ -4,7 +4,10 @@ Same-configuration seed repeats (the noise floor) and baseline-versus-update com
 `reanalyze_vqb.py --json`, with the flip rate two independent rollouts of a state give if every
 state has the same success rate p: 2p(1-p).
 
-Usage: plot_noise_floor.py results/vqb/reanalysis.json out.pdf
+Usage: plot_noise_floor.py results/vqb/reanalysis.json out.pdf [analyze.json ...]
+
+Optional `analyze.py --json` outputs of a policy against itself are added as the fixed-state
+noise floor of this work (first-rollout flips, like the VLAQuantBench points).
 """
 
 import json
@@ -22,7 +25,7 @@ def main():
     fig, ax = plt.subplots(figsize=(3.4, 2.6))
 
     p = np.linspace(0, 1, 200)
-    ax.plot(p, 2 * p * (1 - p), color="0.6", lw=1, ls="--", label="$2p(1-p)$, equal states")
+    ax.plot(p, 2 * p * (1 - p), color="0.6", lw=1, ls="--", label="$2p(1-p)$")
 
     up_x, up_y = [], []
     for u in data["updates"]:
@@ -35,6 +38,15 @@ def main():
         rep_x.append(np.mean(r["success"]))
         rep_y.append(np.mean(r["pair_flips"]) / r["states"])
     ax.scatter(rep_x, rep_y, s=14, color="tab:red", marker="x", lw=1, label="same config, new seed")
+
+    own_x, own_y = [], []
+    for path in sys.argv[3:]:
+        d = json.load(open(path))["summary"]
+        own_x.append((d["success_old"] + d["success_new"]) / 2)
+        own_y.append((d["naive_negative_flips"] + d["naive_positive_flips"]) / d["states"])
+    if own_x:
+        ax.scatter(own_x, own_y, s=22, facecolor="none", edgecolor="k", lw=1,
+                   label="ours: same policy, new seed")
 
     ax.set_xlabel("mean success rate of the two runs")
     ax.set_ylabel("fraction of states flipped")
