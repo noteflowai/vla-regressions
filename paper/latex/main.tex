@@ -44,7 +44,10 @@ the usual protocol, cannot tell: in VLAQuantBench's public LIBERO records, rerun
 configuration with a new seed changes the outcome of up to a quarter of the initial states. We
 define a state as a LIBERO initial state together with its scene seed, roll out every state several
 times per policy with common random numbers, and test each state for regression under
-false-discovery control. \todo{one sentence of X-VLA results.}
+false-discovery control. On X-VLA in LIBERO-10, this old-versus-old floor falls to 2--3 flips per
+100 states; 4-bit weights leave every state intact, while 3-bit weights break seven states
+outright and concentrate a 20-point drop on a few tasks. \todo{update with the step and BF16
+variants.}
 \end{abstract}
 
 \keywords{Vision-language-action models, quantization, evaluation, regression testing}
@@ -82,7 +85,9 @@ We make three contributions.
     Benjamini-Hochberg control, and an explicit old-versus-old baseline
     (Section~\ref{sec:method}). The harness is built on LeRobot~\citep{cadene2024lerobot}.
   \item \textbf{Per-state regressions of X-VLA}~\citep{zheng2025xvla} under weight
-    quantization on LIBERO-10 (Section~\ref{sec:xvla}). \todo{headline.}
+    quantization on LIBERO-10 (Section~\ref{sec:xvla}): at precisely defined states a rerun is
+    close to a replay, W4 changes no state significantly, and W3's losses sit in seven states
+    that go from always to never succeeding.
 \end{itemize}
 
 \section{Method}
@@ -145,6 +150,7 @@ per-state reading of such a comparison needs repeated rollouts.
   LIBERO, 200 states). Rows span the range of success rates; all 20 repeated configurations are
   in the supplementary material.}
   \label{tab:floor}
+  \setlength{\tabcolsep}{4pt}
   \begin{tabular}{llccc}
     \toprule
     Suite / model & Configuration & Success by seed & Flips per seed pair & Never / always / mixed \\
@@ -179,8 +185,43 @@ here. The quantized variants round all 267 linear layers (792M parameters) to a 
 integer grid and store them dequantized: INT8 with one scale per output channel, INT4 with one
 scale per group of 128 inputs.
 
-\todo{Table: aggregate $\Delta$ with CI; naive flips; noise-floor flips; BH regressions and
-improvements; per task.}
+\begin{table}[t]
+  \centering
+  \small
+  \caption{X-VLA on LIBERO-10, FP32 against each variant: 100 states, 5 rollouts each. Naive
+  flips use the first rollout only (to failure / to success). BH: states with a significant
+  per-state change at FDR 0.1 (regressed / improved). The first two rows compare FP32 with
+  itself.}
+  \label{tab:xvla}
+  \begin{tabular}{lccccc}
+    \toprule
+    Variant & Success & $\Delta$ [95\% CI] & Naive flips & BH & $P(\text{worse})>0.9$ \\
+    \midrule
+    FP32, new policy seeds & .928 & $+0.2$ [$-1.0$, $+1.4$] & 0 / 3 & 0 / 0 & 0 \\
+    FP32, new scene seeds & .930 & $+0.4$ [$-0.4$, $+1.2$] & 0 / 2 & 0 / 0 & 0 \\
+    W4, group 128 & .918 & $-0.8$ [$-3.2$, $+1.2$] & 4 / 2 & 0 / 0 & 1 \\
+    W3, group 128 & .726 & $-20.0$ [$-26.8$, $-13.4$] & 23 / 2 & 7 / 0 & 26 \\
+    \todo{2 denoising steps} & & & & & \\
+    \todo{BF16} & & & & & \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{The floor is low at fixed states.} With states that fix the scene seed, FP32 against
+itself changes the outcome of 13 of 500 rollouts under new policy seeds and 8 of 500 under new
+scene seeds; no state's success count moves by more than two, and neither run has a significant
+state. 88 of the 100 states succeed in all five FP32 rollouts and 5 fail in all five. The large
+seed-to-seed flip counts of Section~\ref{sec:floor} are therefore not intrinsic to the policy:
+once a state is defined precisely, a rerun is close to a replay.
+
+\paragraph{W4 is safe per state as well as on average.} Its six naive flips are twice the floor,
+but none survives the test; the most affected state drops from 5/5 to 1/5 ($p=0.024$, not
+significant after correction).
+
+\paragraph{W3 fails in specific places.} The 20-point drop is concentrated: tasks 5, 8 and 9 keep
+96--100\% while tasks 0, 4 and 7 lose 40--52 points. Seven states go from 5/5 to 0/5 and are
+flagged; 26 have posterior probability above 0.9 of having become worse. The single-rollout
+protocol would report 23 new failures and 2 new successes, and cannot say which of them are real.
 
 \section{Discussion}
 

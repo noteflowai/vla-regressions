@@ -42,7 +42,7 @@ than the old one, with a test that accounts for rollout randomness, and show tha
 | Update | Model | Status |
 |---|---|---|
 | FP32 → W4 (group 128) weight-only, simulated | X-VLA (`lerobot/xvla-libero`) | done: 0.926 → 0.918, 4+2 naive flips, 0 BH regressions |
-| FP32 → W3 (group 128) | X-VLA | queue2 |
+| FP32 → W3 (group 128) | X-VLA | done: 0.926 → 0.726, 23+2 naive flips, 7 BH regressions (5/5 → 0/5), 26 with P(worse) > 0.9 |
 | FP32 → BF16 | X-VLA | queue2 |
 | 10 → 2 flow-matching steps | X-VLA | queue2 |
 | execute 1 → 10 → 50 actions per chunk | SmolVLA (`HuggingFaceVLA/smolvla_libero`) | deferred: smoke test 0/5 on LIBERO-10 task 0 with relative control, 436 s per batch of 5 (about 12 h per variant) |

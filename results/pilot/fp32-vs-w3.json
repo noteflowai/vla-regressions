@@ -1,0 +1,1726 @@
+{
+ "summary": {
+  "old": "results/pilot/libero_10-fp32.jsonl",
+  "new": "results/pilot/libero_10-w3.jsonl",
+  "states": 100,
+  "repeats": [
+   5
+  ],
+  "success_old": 0.926,
+  "success_new": 0.726,
+  "delta": -0.2,
+  "delta_ci95": [
+   -0.268,
+   -0.134
+  ],
+  "naive_negative_flips": 23,
+  "naive_positive_flips": 2,
+  "regressed_bh": 7,
+  "improved_bh": 0,
+  "prob_worse_over_0.9": 26,
+  "prob_better_over_0.9": 1,
+  "alpha": 0.1
+ },
+ "states": [
+  {
+   "task": 0,
+   "init_state": 0,
+   "old": [
+    4,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 0.023809523809523808,
+   "p_improve": 1.0,
+   "prob_worse": 0.99325,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 0,
+   "init_state": 1,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.5065,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 0,
+   "init_state": 2,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.4915,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 0,
+   "init_state": 3,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    1,
+    5
+   ],
+   "p_regress": 0.023809523809523808,
+   "p_improve": 1.0,
+   "prob_worse": 0.99275,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 0,
+   "init_state": 4,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    1,
+    5
+   ],
+   "p_regress": 0.023809523809523808,
+   "p_improve": 1.0,
+   "prob_worse": 0.99475,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 0,
+   "init_state": 5,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50425,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 0,
+   "init_state": 6,
+   "old": [
+    4,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 0.023809523809523808,
+   "p_improve": 1.0,
+   "prob_worse": 0.99425,
+   "first_old": false,
+   "first_new": false
+  },
+  {
+   "task": 0,
+   "init_state": 7,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    4,
+    5
+   ],
+   "p_regress": 0.5,
+   "p_improve": 1.0,
+   "prob_worse": 0.77425,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 0,
+   "init_state": 8,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    2,
+    5
+   ],
+   "p_regress": 0.08333333333333333,
+   "p_improve": 1.0,
+   "prob_worse": 0.97,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 0,
+   "init_state": 9,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.492,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 1,
+   "init_state": 0,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 0.003968253968253968,
+   "p_improve": 1.0,
+   "prob_worse": 0.99875,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 1,
+   "init_state": 1,
+   "old": [
+    0,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.515,
+   "first_old": false,
+   "first_new": false
+  },
+  {
+   "task": 1,
+   "init_state": 2,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    2,
+    5
+   ],
+   "p_regress": 0.08333333333333333,
+   "p_improve": 1.0,
+   "prob_worse": 0.96825,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 1,
+   "init_state": 3,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.5005,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 1,
+   "init_state": 4,
+   "old": [
+    3,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 0.08333333333333333,
+   "p_improve": 1.0,
+   "prob_worse": 0.97,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 1,
+   "init_state": 5,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.491,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 1,
+   "init_state": 6,
+   "old": [
+    0,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.47725,
+   "first_old": false,
+   "first_new": false
+  },
+  {
+   "task": 1,
+   "init_state": 7,
+   "old": [
+    0,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.49425,
+   "first_old": false,
+   "first_new": false
+  },
+  {
+   "task": 1,
+   "init_state": 8,
+   "old": [
+    0,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.49275,
+   "first_old": false,
+   "first_new": false
+  },
+  {
+   "task": 1,
+   "init_state": 9,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 0.003968253968253968,
+   "p_improve": 1.0,
+   "prob_worse": 0.999,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 2,
+   "init_state": 0,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50225,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 2,
+   "init_state": 1,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    2,
+    5
+   ],
+   "p_regress": 0.08333333333333333,
+   "p_improve": 1.0,
+   "prob_worse": 0.9695,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 2,
+   "init_state": 2,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.5015,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 2,
+   "init_state": 3,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50425,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 2,
+   "init_state": 4,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.485,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 2,
+   "init_state": 5,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.51175,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 2,
+   "init_state": 6,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.499,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 2,
+   "init_state": 7,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    4,
+    5
+   ],
+   "p_regress": 0.5,
+   "p_improve": 1.0,
+   "prob_worse": 0.76875,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 2,
+   "init_state": 8,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.509,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 2,
+   "init_state": 9,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50475,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 3,
+   "init_state": 0,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.49775,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 3,
+   "init_state": 1,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    3,
+    5
+   ],
+   "p_regress": 0.2222222222222222,
+   "p_improve": 1.0,
+   "prob_worse": 0.91625,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 3,
+   "init_state": 2,
+   "old": [
+    1,
+    5
+   ],
+   "new": [
+    2,
+    5
+   ],
+   "p_regress": 0.9166666666666666,
+   "p_improve": 0.5,
+   "prob_worse": 0.2685,
+   "first_old": false,
+   "first_new": true
+  },
+  {
+   "task": 3,
+   "init_state": 3,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    4,
+    5
+   ],
+   "p_regress": 0.5,
+   "p_improve": 1.0,
+   "prob_worse": 0.778,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 3,
+   "init_state": 4,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.495,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 3,
+   "init_state": 5,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.49425,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 3,
+   "init_state": 6,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.5045,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 3,
+   "init_state": 7,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.503,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 3,
+   "init_state": 8,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.503,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 3,
+   "init_state": 9,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.498,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 4,
+   "init_state": 0,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    1,
+    5
+   ],
+   "p_regress": 0.023809523809523808,
+   "p_improve": 1.0,
+   "prob_worse": 0.99175,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 4,
+   "init_state": 1,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    2,
+    5
+   ],
+   "p_regress": 0.08333333333333333,
+   "p_improve": 1.0,
+   "prob_worse": 0.9725,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 4,
+   "init_state": 2,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    3,
+    5
+   ],
+   "p_regress": 0.2222222222222222,
+   "p_improve": 1.0,
+   "prob_worse": 0.90525,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 4,
+   "init_state": 3,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    4,
+    5
+   ],
+   "p_regress": 0.5,
+   "p_improve": 1.0,
+   "prob_worse": 0.7765,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 4,
+   "init_state": 4,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 0.003968253968253968,
+   "p_improve": 1.0,
+   "prob_worse": 0.99925,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 4,
+   "init_state": 5,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 0.003968253968253968,
+   "p_improve": 1.0,
+   "prob_worse": 0.99875,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 4,
+   "init_state": 6,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    2,
+    5
+   ],
+   "p_regress": 0.08333333333333333,
+   "p_improve": 1.0,
+   "prob_worse": 0.97275,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 4,
+   "init_state": 7,
+   "old": [
+    4,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 0.5,
+   "prob_worse": 0.25125,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 4,
+   "init_state": 8,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    4,
+    5
+   ],
+   "p_regress": 0.5,
+   "p_improve": 1.0,
+   "prob_worse": 0.78225,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 4,
+   "init_state": 9,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    2,
+    5
+   ],
+   "p_regress": 0.08333333333333333,
+   "p_improve": 1.0,
+   "prob_worse": 0.97275,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 5,
+   "init_state": 0,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50325,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 5,
+   "init_state": 1,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.4905,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 5,
+   "init_state": 2,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.48375,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 5,
+   "init_state": 3,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50025,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 5,
+   "init_state": 4,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.49575,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 5,
+   "init_state": 5,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50425,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 5,
+   "init_state": 6,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50475,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 5,
+   "init_state": 7,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50675,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 5,
+   "init_state": 8,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.494,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 5,
+   "init_state": 9,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50225,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 6,
+   "init_state": 0,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    3,
+    5
+   ],
+   "p_regress": 0.2222222222222222,
+   "p_improve": 1.0,
+   "prob_worse": 0.91525,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 6,
+   "init_state": 1,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.49925,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 6,
+   "init_state": 2,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.495,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 6,
+   "init_state": 3,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    2,
+    5
+   ],
+   "p_regress": 0.08333333333333333,
+   "p_improve": 1.0,
+   "prob_worse": 0.97175,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 6,
+   "init_state": 4,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.48925,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 6,
+   "init_state": 5,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.518,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 6,
+   "init_state": 6,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.505,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 6,
+   "init_state": 7,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 0.003968253968253968,
+   "p_improve": 1.0,
+   "prob_worse": 0.9985,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 6,
+   "init_state": 8,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.49475,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 6,
+   "init_state": 9,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    1,
+    5
+   ],
+   "p_regress": 0.023809523809523808,
+   "p_improve": 1.0,
+   "prob_worse": 0.99175,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 7,
+   "init_state": 0,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.494,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 7,
+   "init_state": 1,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    1,
+    5
+   ],
+   "p_regress": 0.023809523809523808,
+   "p_improve": 1.0,
+   "prob_worse": 0.99175,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 7,
+   "init_state": 2,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.4925,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 7,
+   "init_state": 3,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 0.003968253968253968,
+   "p_improve": 1.0,
+   "prob_worse": 0.999,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 7,
+   "init_state": 4,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50675,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 7,
+   "init_state": 5,
+   "old": [
+    0,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.5015,
+   "first_old": false,
+   "first_new": false
+  },
+  {
+   "task": 7,
+   "init_state": 6,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    0,
+    5
+   ],
+   "p_regress": 0.003968253968253968,
+   "p_improve": 1.0,
+   "prob_worse": 0.99825,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 7,
+   "init_state": 7,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.48625,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 7,
+   "init_state": 8,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    1,
+    5
+   ],
+   "p_regress": 0.023809523809523808,
+   "p_improve": 1.0,
+   "prob_worse": 0.994,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 7,
+   "init_state": 9,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    4,
+    5
+   ],
+   "p_regress": 0.5,
+   "p_improve": 1.0,
+   "prob_worse": 0.773,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 8,
+   "init_state": 0,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.51575,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 8,
+   "init_state": 1,
+   "old": [
+    4,
+    5
+   ],
+   "new": [
+    4,
+    5
+   ],
+   "p_regress": 0.7777777777777778,
+   "p_improve": 0.7777777777777778,
+   "prob_worse": 0.492,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 8,
+   "init_state": 2,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.5135,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 8,
+   "init_state": 3,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    4,
+    5
+   ],
+   "p_regress": 0.5,
+   "p_improve": 1.0,
+   "prob_worse": 0.7765,
+   "first_old": true,
+   "first_new": false
+  },
+  {
+   "task": 8,
+   "init_state": 4,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50425,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 8,
+   "init_state": 5,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.49325,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 8,
+   "init_state": 6,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.49475,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 8,
+   "init_state": 7,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50175,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 8,
+   "init_state": 8,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.491,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 8,
+   "init_state": 9,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.5085,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 9,
+   "init_state": 0,
+   "old": [
+    3,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 0.2222222222222222,
+   "prob_worse": 0.0925,
+   "first_old": false,
+   "first_new": true
+  },
+  {
+   "task": 9,
+   "init_state": 1,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.4965,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 9,
+   "init_state": 2,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.503,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 9,
+   "init_state": 3,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.496,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 9,
+   "init_state": 4,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50625,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 9,
+   "init_state": 5,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.5085,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 9,
+   "init_state": 6,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50825,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 9,
+   "init_state": 7,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.491,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 9,
+   "init_state": 8,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50125,
+   "first_old": true,
+   "first_new": true
+  },
+  {
+   "task": 9,
+   "init_state": 9,
+   "old": [
+    5,
+    5
+   ],
+   "new": [
+    5,
+    5
+   ],
+   "p_regress": 1.0,
+   "p_improve": 1.0,
+   "prob_worse": 0.50175,
+   "first_old": true,
+   "first_new": true
+  }
+ ]
+}
