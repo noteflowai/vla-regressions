@@ -1,65 +1,93 @@
-# Submission kit
+# Current submission kit
 
-Everything the account and submission forms ask for, ready to paste. The accounts belong to Qiang Guo:
-the author registers, accepts the terms of service and clicks the final "Submit".
+Updated 2026-09-30 after the paired statistical correction.
+Historical receipts are preserved in
+`../../artifacts/submission-recovery-2026-09-30/`; current correction and
+arXiv preflight evidence are in `../../artifacts/arxiv-acceleration-2026-09-30/`.
 
-## 1. OpenReview profile (do this first: moderation of non-institutional emails takes up to 2 weeks)
+## OpenReview
 
-Sign up: https://openreview.net/signup
+Profile `~Qiang_Guo10` is active, with confirmed preferred address
+`qiangu@amazon.com`. The confirmed personal address is `glay.guo@foxmail.com`;
+Homepage is <https://github.com/glayyiyi>. The profile records the author's
+confirmed Amazon/AWS employment. The personal-research manuscript and arXiv
+account retain the existing Independent Researcher attribution.
 
-| Field | Value |
-|---|---|
-| First / last name | Qiang / Guo |
-| Preferred email | glay.guo@foxmail.com |
-| Career & education history | Position: Independent Researcher; institution name: Independent Researcher; domain: leave empty; start year: current year |
-| Personal links | any of: homepage, Google Scholar, DBLP, GitHub, ORCID (moderators need at least one public link that shows the person; ORCID is free: https://orcid.org/register) |
-| Expertise | Robot learning; Vision-language-action models; Model quantization; Evaluation methodology |
-| Conflicts | none beyond the automatic ones |
+**Existing submission #2:** <https://openreview.net/forum?id=VUuO0hceYF>.
+The author previously approved CC BY 4.0, sharing author emails with Program
+Chairs, and public release upon acceptance under the venue's stated terms.
+There is no duplicate submission.
 
-Then confirm the email from the foxmail inbox (check spam) and wait for moderation.
+The initial PDF was submitted September 30. At **13:05 Singapore time** the
+same note was revised with the paired-test correction. Downloading its
+attachment through that note reproduced the corrected anonymous PDF exactly:
 
-## 2. OpenReview submission (CoRL 2026 Workshop EEAI, due 2026-10-12 AoE)
+`5f883d848058efee8f5502c86677aab3a274da80e9f4128845a8b6baf121e54c`
 
-Upload `paper/latex/main.pdf` (anonymous build). Do not upload `main-preprint.pdf`.
+The revised PDF has five total pages: four body pages and one references page.
+The current abstract matches `latex/main.tex`. License and restricted readers
+were preserved. The live note does **not** establish acceptance, peer-review
+approval or public publication.
 
-- **Title:** Higher Success, New Failures: Measuring Per-State Regressions in VLA Policy Updates
-- **Authors:** Qiang Guo (from the profile)
-- **Keywords:** vision-language-action models; quantization; evaluation; regression testing;
-  LIBERO
-- **TL;DR:** One rollout per initial state cannot tell which states a VLA update breaks: rerunning
-  an unchanged policy flips up to a quarter of LIBERO states. We give a repeated-rollout,
-  FDR-controlled per-state test and apply it to quantized X-VLA.
-- **Abstract:** copy from `main.tex` (all results are in; no TODO left).
+Use `latex/main.pdf` for any further permitted workshop revision.
+Keep the existing note ID; do not submit a new note.
 
-## 3. arXiv
+- Title: Higher Success, New Failures: Measuring Per-State Regressions in VLA Policy Updates
+- Author: Qiang Guo
+- Keywords: vision-language-action models; quantization; evaluation; regression testing; LIBERO
+- Abstract: current `latex/main.tex` or `abstract.md`
 
-Register: https://arxiv.org/user/register (the author chooses the username and password and accepts the agreement).
+The [venue](https://openreview.net/group?id=robot-learning.org/CoRL/2026/Workshop/EEAI)
+and [website](https://efficient-embodied-ai.github.io/) describe a double-blind,
+nonarchival workshop. The website lists October 12 AoE; the live OpenReview
+invitation instead ends October 12 at 11:59 UTC / 19:59 Singapore. Observe the
+earlier live cutoff unless it changes.
 
-- **Primary category:** cs.RO. **Cross-list:** cs.LG.
-- **Title:** as above. **Authors:** Qiang Guo
-- **Comments:** 6 pages (4 plus references), 1 figure, 2 tables. Workshop paper.
-  (Name the workshop only if its call for papers allows it during review.)
-- **License:** the author's choice; CC BY 4.0 is the most common for open preprints.
-- **Source:** `make arxiv.tar.gz` in `paper/latex/` (flat directory with main.tex, main.bbl,
-  corl_2026.sty, fig_noise_floor.pdf; it compiles with the author names). Upload the tarball,
-  check arXiv's generated PDF before "Submit".
-- **Endorsement:** a first submission to cs.RO from a non-academic email usually needs an
-  endorser. arXiv shows an endorsement code when the author starts the submission; send it to someone
-  who has posted to cs.RO (arXiv lists who may endorse on each paper's "Which authors of this
-  paper are endorsers?" link). Template:
+## arXiv
 
-  > Subject: arXiv endorsement request for cs.RO
-  >
-  > Dear Dr. …,
-  >
-  > I am an independent researcher preparing my first arXiv submission in cs.RO, "Higher Success,
-  > New Failures: Measuring Per-State Regressions in VLA Policy Updates", which reanalyses
-  > VLAQuantBench's LIBERO records and tests per-state regressions of quantized X-VLA. arXiv asks
-  > for an endorsement for new submitters. If you are willing, the link is
-  > https://arxiv.org/auth/endorse?x=CODE (code CODE). The draft is attached.
-  >
-  > Thank you for considering it.
-  > Qiang Guo
+Account `qiangguo-vla`, Qiang Guo, `glay.guo@foxmail.com`, Independent Researcher.
+**Existing draft 8144759** remains incomplete, expires October 12, and resumes
+at Start. A correctly completed Start attempt on September 30 returned:
 
-Whether to post on arXiv during the review period is the author's call; the submission PDF stays anonymous
-either way.
+> You are not endorsed for this archive.
+
+The primary category is cs.RO. The prepared optional cross-list is cs.LG.
+The existing selected license is arXiv perpetual, non-exclusive distribution;
+verify that selection again once endorsement permits proceeding.
+
+Prepared metadata:
+`../../artifacts/arxiv-acceleration-2026-09-30/arxiv-prepared-metadata.json`.
+
+Prepared source archive: `latex/arxiv.tar.gz`.
+It contains only named `main.tex`, `main.bbl`, `corl_2026.sty`, and
+`fig_noise_floor.pdf`. Authoring notes were removed; the third-party style's
+license comments were preserved. A clean-room two-pass compile produces the
+same five-page preprint text as `latex/main-preprint.pdf`.
+
+Archive SHA-256:
+`6d634fbb8667859c885e079478910be611fe1f33051e6bdae44b74bbe738dca5`.
+
+Comments: **5 pages (4 body pages plus references), 1 figure, 2 tables**.
+No acceptance or proceedings citation should be added before it exists.
+
+One personal request was sent from foxmail to David Snyder on September 29
+at 00:17 Singapore, with the named preprint and arXiv's private request.
+Actual current eligibility and willingness remain unverified. Do not interpret
+“You can't endorse yourself” as his response. This correction did not read a
+new inbox response or send another message. Keep the endorsement code and
+passwords outside the repository.
+
+## How the OpenReview paper helps endorsement
+
+An eligible endorser can use the manuscript to assess whether the author's
+work belongs in cs.RO. A workshop URL, acceptance or non-arXiv publication
+does not itself execute arXiv endorsement. This particular URL is restricted,
+so the current named PDF is the useful review material for someone outside
+the venue. Describe it as **submitted**, not published or accepted.
+
+[arXiv's official policy](https://info.arxiv.org/help/endorsement.html) explains
+personal endorsement and its separate institutional-email/claimed-authorship
+route. Do not claim another person's paper, change category to evade the gate,
+or create a second draft. Once the gate clears, resume this draft, upload
+the corrected sources, inspect arXiv's generated PDF, then complete metadata
+and final submission.

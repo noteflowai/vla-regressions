@@ -11,13 +11,10 @@ main-preprint.pdf: main.tex references.bib ../fig_noise_floor.pdf
 
 # arXiv source: the preprint build as one flat directory. arXiv does not run BibTeX, so the .bbl
 # goes along. Check the tarball's content before uploading it.
-arxiv.tar.gz: main-preprint.pdf
+arxiv.tar.gz: main-preprint.pdf prepare_arxiv_sources.py
 	rm -rf arxiv && mkdir arxiv
-	{ echo '\\def\\PREPRINT{}'; cat main.tex; } > arxiv/main.tex
-	cp main-preprint.bbl arxiv/main.bbl
-	cp corl_2026.sty ../fig_noise_floor.pdf arxiv/
+	python3 prepare_arxiv_sources.py --output-dir arxiv
 	cd arxiv && pdflatex -interaction=nonstopmode main >/dev/null && pdflatex -interaction=nonstopmode main >/dev/null
-	tar -czf $@ -C arxiv main.tex main.bbl corl_2026.sty fig_noise_floor.pdf
 
 clean:
 	rm -rf *.aux *.bbl *.blg *.log *.out *.pdf arxiv arxiv.tar.gz

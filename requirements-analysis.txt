@@ -1,0 +1,2 @@
+# Minimal environment for outcome analysis and independent reference tests.
+scipy>=1.10,<2

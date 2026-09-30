@@ -4,9 +4,8 @@ A state is (task, init_state, scene_seed). For each state both variants have n r
 Reports:
   - the aggregate success rates and their paired difference, with a bootstrap over states;
   - naive flips: what a single rollout per state would show (repeat 0 only);
-  - per-state regressions: one-sided Fisher exact test that the new variant succeeds less often,
-    Benjamini-Hochberg across states, and the posterior probability of being worse under
-    uniform Beta priors.
+  - per-state regressions: a one-sided exact paired discordance test,
+    Benjamini-Yekutieli across states, and a paired discordance posterior.
 
 Usage: analyze.py OLD.jsonl NEW.jsonl [--alpha 0.1] [--json out.json] [--ignore-scene]
 """
@@ -18,15 +17,23 @@ import json
 import random
 from collections import defaultdict
 from math import comb
+from scipy.stats import beta
 
 
 def load(path, match_scene=True):
     states = defaultdict(list)
-    for line in open(path):
-        r = json.loads(line)
-        states[(r["task"], r["init_state"], r.get("scene_seed") if match_scene else None)].append(r)
+    with open(path) as handle:
+        for line in handle:
+            r = json.loads(line)
+            if type(r.get("success")) is not bool or type(r.get("repeat")) is not int:
+                raise ValueError("A row needs a boolean outcome and integer repeat")
+            if any(k not in r for k in ("task", "init_state", "scene_seed", "seed")):
+                raise ValueError("Incomplete episode identity")
+            states[(r["task"], r["init_state"], r["scene_seed"] if match_scene else None)].append(r)
     for rows in states.values():
         rows.sort(key=lambda r: r["repeat"])
+        if len({r["repeat"] for r in rows}) != len(rows):
+            raise ValueError("Duplicate state/repeat identity")
     return states
 
 
@@ -48,12 +55,33 @@ def bh(pvalues, alpha):
     return set(order[:cutoff]) if cutoff > 0 else set()
 
 
-def prob_worse(k_new, n_new, k_old, n_old, draws=4000, rng=random.Random(0)):
-    worse = 0
-    for _ in range(draws):
-        if rng.betavariate(k_new + 1, n_new - k_new + 1) < rng.betavariate(k_old + 1, n_old - k_old + 1):
-            worse += 1
-    return worse / draws
+def by(pvalues, alpha):
+    """FDR control under arbitrary dependence of valid marginal p-values."""
+    if not pvalues:
+        return set()
+    harmonic = sum(1/i for i in range(1, len(pvalues)+1))
+    return bh(pvalues, alpha/harmonic)
+
+
+def paired_pvalue(harm, gain):
+    """Conditional exact one-sided McNemar/binomial test on discordant pairs."""
+    n = harm + gain
+    return sum(comb(n, k) for k in range(harm, n+1)) / 2**n if n else 1.
+
+
+def pair_rows(old, new, allow_seed_change=False):
+    if {r["repeat"] for r in old} != {r["repeat"] for r in new}:
+        raise ValueError("Paired repeat identities differ")
+    lookup = {r["repeat"]: r for r in new}
+    pairs = [(r, lookup[r["repeat"]]) for r in old]
+    if not allow_seed_change and any(a["seed"] != b["seed"] for a, b in pairs):
+        raise ValueError("Policy seeds differ; declare the independent-seed control explicitly")
+    return pairs
+
+
+def prob_worse_paired(harm, gain):
+    """Jeffreys posterior for the direction of a discordant pair."""
+    return float(beta.sf(.5, harm+.5, gain+.5))
 
 
 def main():
@@ -64,16 +92,23 @@ def main():
     p.add_argument("--json")
     p.add_argument("--ignore-scene", action="store_true",
                    help="pair on (task, init_state) only, to compare runs with different scene seeds")
+    p.add_argument("--allow-seed-change", action="store_true",
+                   help="explicit independent-policy-seed noise control, paired by repeat")
     args = p.parse_args()
 
     old, new = load(args.old, not args.ignore_scene), load(args.new, not args.ignore_scene)
-    keys = sorted(set(old) & set(new))
+    if set(old) != set(new):
+        raise ValueError("State inventories differ; silently intersecting states is not allowed")
+    keys = sorted(old)
     if not keys:
         raise SystemExit("no states in common")
 
     rows = []
     for key in keys:
         a, b = old[key], new[key]
+        pairs = pair_rows(a, b, args.allow_seed_change)
+        harm = sum(x["success"] and not y["success"] for x, y in pairs)
+        gain = sum(not x["success"] and y["success"] for x, y in pairs)
         ka, na = sum(r["success"] for r in a), len(a)
         kb, nb = sum(r["success"] for r in b), len(b)
         rows.append(
@@ -82,9 +117,11 @@ def main():
                 "init_state": key[1],
                 "old": [ka, na],
                 "new": [kb, nb],
-                "p_regress": fisher_less(kb, nb, ka, na),
-                "p_improve": fisher_less(ka, na, kb, nb),
-                "prob_worse": prob_worse(kb, nb, ka, na),
+                "discordant_harm": harm,
+                "discordant_gain": gain,
+                "p_regress": paired_pvalue(harm, gain),
+                "p_improve": paired_pvalue(gain, harm),
+                "prob_worse": prob_worse_paired(harm, gain),
                 "first_old": a[0]["success"],
                 "first_new": b[0]["success"],
             }
@@ -98,8 +135,8 @@ def main():
 
     naive_neg = sum(r["first_old"] and not r["first_new"] for r in rows)
     naive_pos = sum(r["first_new"] and not r["first_old"] for r in rows)
-    regressed = bh([r["p_regress"] for r in rows], args.alpha)
-    improved = bh([r["p_improve"] for r in rows], args.alpha)
+    regressed = by([r["p_regress"] for r in rows], args.alpha)
+    improved = by([r["p_improve"] for r in rows], args.alpha)
 
     summary = {
         "old": args.old,
@@ -112,18 +149,25 @@ def main():
         "delta_ci95": ci,
         "naive_negative_flips": naive_neg,
         "naive_positive_flips": naive_pos,
-        "regressed_bh": len(regressed),
-        "improved_bh": len(improved),
+        "regressed_by": len(regressed),
+        "improved_by": len(improved),
+        "regressed_bh_exploratory": len(bh([r["p_regress"] for r in rows], args.alpha)),
+        "improved_bh_exploratory": len(bh([r["p_improve"] for r in rows], args.alpha)),
         "prob_worse_over_0.9": sum(r["prob_worse"] > 0.9 for r in rows),
         "prob_better_over_0.9": sum(r["prob_worse"] < 0.1 for r in rows),
         "alpha": args.alpha,
+        "test": "one-sided exact paired discordance (conditional binomial)",
+        "multiplicity": "Benjamini-Yekutieli; BH secondary and assumption-dependent",
+        "posterior": "Jeffreys Beta posterior for discordance direction",
+        "allow_seed_change": args.allow_seed_change,
+        "ignore_scene": args.ignore_scene,
     }
 
     print(f"{summary['states']} states, repeats {summary['repeats']}")
     print(f"success  old {summary['success_old']:.3f}  new {summary['success_new']:.3f}  "
           f"delta {summary['delta']:+.3f}  95% CI [{ci[0]:+.3f}, {ci[1]:+.3f}]")
     print(f"single rollout per state: {naive_neg} states flip to failure, {naive_pos} to success")
-    print(f"per-state tests, BH at {args.alpha}: {len(regressed)} regressed, {len(improved)} improved")
+    print(f"paired per-state tests, BY at {args.alpha}: {len(regressed)} regressed, {len(improved)} improved")
     print(f"posterior P(worse) > 0.9: {summary['prob_worse_over_0.9']} states; "
           f"P(better) > 0.9: {summary['prob_better_over_0.9']}")
     by_task = defaultdict(lambda: [0, 0, 0, 0])

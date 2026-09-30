@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.tex": {
+      "bytes": 14628,
+      "sha256": "e5f100194ade574e8a5ddc0e318a8cca3c173aaf9ace6b84590dc383d7dca590"
+    },
+    "main.bbl": {
+      "bytes": 5834,
+      "sha256": "47ca50331fbe5af5ce496cd5a4390300cd166c714efdcae666c392765cbb1d24"
+    },
+    "corl_2026.sty": {
+      "bytes": 14861,
+      "sha256": "62f38cd8df7ad718796617595c8230da136fc83ea1d7e1ba80084113409ec957"
+    },
+    "fig_noise_floor.pdf": {
+      "bytes": 21646,
+      "sha256": "8c4634910aafc63c489fd9ad17b972e05af833c2c52ab590c60b14748c96937a"
+    }
+  },
+  "archive_sha256": "6d634fbb8667859c885e079478910be611fe1f33051e6bdae44b74bbe738dca5",
+  "full_line_notes_removed": 5,
+  "third_party_license_comments_preserved": true
+}
