@@ -9,6 +9,8 @@ It adds explanation and figures without new outcomes. The five-page
 anonymous OpenReview attachment and the September 30 source archive described
 below are preserved historical baselines. No external submission has been
 updated with the expanded preprint.
+Its revised title is **Beyond Aggregate Success: Paired Statewise Evaluation
+of VLA Policy Updates**; the existing workshop title below remains unchanged.
 
 Updated 2026-09-30 after the paired statistical correction.
 Historical receipts are preserved in

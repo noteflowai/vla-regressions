@@ -1,5 +1,5 @@
 {
-  "archive_sha256": "66aef92e2d137553b8c79b3e76af56f78ab01665bb3fc432f20e66446edc13db",
+  "archive_sha256": "031ca8faae47520794c055bf8463c06039061796e9c247b926949c104799ef5c",
   "files": {
     "results/pilot/libero_10-bf16.jsonl": "9a68a6b96610b49eeaf284b54a915409cc40ca057515bfec8fc4983eca4f77f4",
     "results/pilot/libero_10-fp32-scene2000.jsonl": "c3b5e880736c93da20e53fb7e446af3b8dc55043b07d0d1d83afb64435427405",
@@ -16,9 +16,9 @@
     "analyze.py": "07567b8c487644d382eabaedd8e131340cb1c032e2831363e689f6c693a17810",
     "reanalyze_vqb.py": "b2e3aaf2abadf54e84e31014bb9179c3ad1a1bb29357f7a1addc9c60b59e3bff",
     "tests/test_paired_analysis.py": "e2634fd258ba394e31151eabcc2453fd42106eea1cd422fe3a837ab40f070f4a",
-    "paper/revision-20261001/build_figures.py": "63eacc48d52542f4d019488a197d23394ee1135c65546a2aee02dea2383045df",
-    "paper/revision-20261001/figure-provenance.json": "94aac79c240db89ac65f8e8942150b5aa83e863841964bbf3d33a33bcb837937",
-    "paper/revision-20261001/README.md": "5f053f8930519ebccc54f05942e89bc535f3d69eaa7f06dcd0510c46c35b4eaf"
+    "paper/revision-20261001/build_figures.py": "8a9e1af507fc953859b809be8156d4d92d84389af401c23fd2b80f3f08d50b53",
+    "paper/revision-20261001/figure-provenance.json": "48eb5e0003d6db1f1dd7267b3f5775ce6201d37812ddd1abbf299ebf85458376",
+    "paper/revision-20261001/README.md": "b6605bd9798ac15b0fc331933b8fbcd196d554dd3378818436dab592e41ef984"
   },
   "own_episode_rows": 4040,
   "new_episode_rows": 0,

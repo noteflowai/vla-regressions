@@ -9,7 +9,7 @@
   "archived_data_unchanged": true,
   "source_clean_room_passed": true,
   "reproducibility_rows": 4040,
-  "pdf_sha256": "c1828f95385b7be4657621d368bde0d7117987774fd1626cdbebf6f79222ade0",
-  "archive_sha256": "62b72a630e19bf4005121ecc53eff1346a85095e3d92dfe2174e7632a3947619",
+  "pdf_sha256": "595465deacf7751323d95fc449acc8d6bcf621ceba5a6de80008f7b43fcc9796",
+  "archive_sha256": "b8f84d5b3419feb5dbfab6c7999ee4cc9e28523d17af25087556af2664752a31",
   "visual_review": "required separately; renders are not inferred from these checks"
 }

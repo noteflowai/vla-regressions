@@ -1,8 +1,8 @@
 {
   "files": {
     "main.tex": {
-      "bytes": 25778,
-      "sha256": "f2e85d010e0713df9bfe8ee980acf575c765537cf8b64244de9b1710709629cc"
+      "bytes": 25761,
+      "sha256": "3d0becec2fcd7629c80f865555c349285a64a018a355f61f88bdf61c1df79868"
     },
     "main.bbl": {
       "bytes": 5862,
@@ -33,8 +33,8 @@
       "sha256": "65fedc3cf6928e885fc0b3e7f69ef4b5653ed62a4605d7709fbffd6fe47bda7d"
     }
   },
-  "archive_sha256": "62b72a630e19bf4005121ecc53eff1346a85095e3d92dfe2174e7632a3947619",
-  "reviewed_pdf_sha256": "c1828f95385b7be4657621d368bde0d7117987774fd1626cdbebf6f79222ade0",
+  "archive_sha256": "b8f84d5b3419feb5dbfab6c7999ee4cc9e28523d17af25087556af2664752a31",
+  "reviewed_pdf_sha256": "595465deacf7751323d95fc449acc8d6bcf621ceba5a6de80008f7b43fcc9796",
   "clean_room_compile_passed": true,
   "text_matches_reviewed_pdf": true,
   "third_party_license_comments_preserved": true,

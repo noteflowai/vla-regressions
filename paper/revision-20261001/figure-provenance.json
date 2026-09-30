@@ -69,7 +69,8 @@
           3
         ]
       ],
-      "pilot_policy_seeds_excluded": true
+      "pilot_policy_seeds_excluded": true,
+      "scene_matches_selected_pilot": true
     },
     "public_data": {
       "repeated_configurations": 20,
@@ -94,5 +95,5 @@
     "bf16_changed_episode_lengths": 422
   },
   "new_rollouts_in_manuscript": 0,
-  "builder_sha256": "63eacc48d52542f4d019488a197d23394ee1135c65546a2aee02dea2383045df"
+  "builder_sha256": "8a9e1af507fc953859b809be8156d4d92d84389af401c23fd2b80f3f08d50b53"
 }

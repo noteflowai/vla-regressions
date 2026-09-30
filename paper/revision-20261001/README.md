@@ -1,8 +1,9 @@
 # Expanded preprint revision, 2026-10-01
 
-This is a signed revision of **Higher Success, New Failures: Measuring Per-State
-Regressions in VLA Policy Updates**, using the same archived outcomes as the
-workshop submission. It is not a second paper or a new external submission.
+**Beyond Aggregate Success: Paired Statewise Evaluation of VLA Policy Updates**
+is a signed revision of the workshop submission **Higher Success, New Failures:
+Measuring Per-State Regressions in VLA Policy Updates**, using the same archived
+outcomes. It is not a second paper or a new external submission.
 
 - Reviewed PDF: `output/pdf/higher-success-new-failures.pdf`.
 - Upload sources: `arxiv.tar.gz`; identities and clean-room result:
@@ -19,6 +20,11 @@ pages, one references page and one reproducibility appendix. It has five figures
 and two tables. External arXiv/OpenReview records have not been updated with it.
 
 ## What improved
+
+The preprint title reflects the strongest result: one independently confirmed
+BF16 loss when aggregate success changes little. The higher-success two-step
+variant has only an unconfirmed naive new failure, so the preprint title does
+not imply a confirmed loss for a demonstrably higher-success update.
 
 The manuscript separates pilot candidates from fresh confirmation, shows all
 100 states and all 20 fresh pairs, and explains why **no possible five-repeat

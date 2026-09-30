@@ -10,10 +10,10 @@
 
 \newcommand{\pizero}{$\pi_0$\xspace}
 \newcommand{\pizerofive}{$\pi_{0.5}$\xspace}
-\title{Higher Success, New Failures:\\Measuring Per-State Regressions in VLA Policy Updates}
+\title{Beyond Aggregate Success:\\Paired Statewise Evaluation of VLA Policy Updates}
 \author{Qiang Guo\\Independent Researcher\\\texttt{glay.guo@foxmail.com}}
 \hypersetup{
-  pdftitle={Higher Success, New Failures: Measuring Per-State Regressions in VLA Policy Updates},
+  pdftitle={Beyond Aggregate Success: Paired Statewise Evaluation of VLA Policy Updates},
   pdfauthor={Qiang Guo},
   pdfsubject={Research preprint; expanded manuscript, October 2026},
   pdfkeywords={Vision-language-action models, paired evaluation, regression testing, LIBERO}
@@ -33,8 +33,8 @@ quarter of the initial states. We define a state as a LIBERO initial state toget
 seed, repeat each state under both policies with shared policy-seed plans, and use exact paired
 tests with false-discovery control. On X-VLA in LIBERO-10, the first-rollout old-versus-old floor
 is 2--3 flips per 100 states. Three-bit weight rounding concentrates a 20-point aggregate drop
-on a few tasks; seven states change from 5/5 to 0/5 successes, but the five-repeat screen is
-underpowered after multiplicity correction. Four-bit rounding and fewer denoising steps produce
+on a few tasks; seven states change from 5/5 to 0/5 successes, but the five-repeat screen cannot
+yield a corrected statewise discovery. Four-bit rounding and fewer denoising steps produce
 no detected statewise regression, which does not certify their absence. BF16 leaves the
 aggregate nearly flat but identifies one candidate state; 20 fresh paired rollouts confirm its
 loss (18/20 against 4/20, exact $p=2.59\times10^{-4}$). This is evidence about one independently

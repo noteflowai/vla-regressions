@@ -115,6 +115,8 @@ a = load(DATA / "followup/libero_10-t3s3-fp32.jsonl")
 b = load(DATA / "followup/libero_10-t3s3-bf16.jsonl")
 assert a.keys() == b.keys() and len(a) == 20
 keys = sorted(a)
+assert {k[:3] for k in a} == {k[:3] for k in old if k[:2] == (3, 3)}
+assert len({k[:3] for k in a}) == 1
 assert all(a[k]["seed"] == b[k]["seed"] for k in keys)
 assert not {r["seed"] for r in old.values()} & {r["seed"] for r in a.values()}
 assert all(r["steps"] == 520 for rows in (a, b) for r in rows.values() if not r["success"])
@@ -127,7 +129,7 @@ pvalue = float(binom.sf(harm-1, harm+gain, .5))
 assert (harm, gain) == (15, 1) and pairs.sum(axis=0).tolist() == [18, 4]
 facts["followup"] = dict(pairs=20, fp32_success=18, bf16_success=4, harm=harm,
                         gain=gain, exact_p=pvalue, table=table.tolist(),
-                        pilot_policy_seeds_excluded=True)
+                        pilot_policy_seeds_excluded=True, scene_matches_selected_pilot=True)
 fig = plt.figure(figsize=(5.5, 3.0))
 gs = fig.add_gridspec(2, 2, height_ratios=[.65, 1.5], width_ratios=[1.45, 1],
                      left=.16, right=.95, bottom=.18, top=.90, hspace=.78, wspace=.9)

@@ -14,7 +14,7 @@ assert pages == 9
 assert re.search(r"Author:\s+Qiang Guo\n", info)
 assert "Research preprint; expanded manuscript" in info
 assert "Anonymous Submission" not in info
-assert "Title:           Higher Success, New Failures:" in info
+assert "Title:           Beyond Aggregate Success:" in info
 fonts = subprocess.check_output(["pdffonts", str(pdf)], text=True)
 assert "Type 3" not in fonts
 for line in fonts.splitlines()[2:]:
