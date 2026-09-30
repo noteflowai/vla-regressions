@@ -1,5 +1,15 @@
 # Current submission kit
 
+**2026-10-01 local preprint revision:** the recommended signed preprint is now
+[`revision-20261001/output/pdf/higher-success-new-failures.pdf`](revision-20261001/output/pdf/higher-success-new-failures.pdf),
+with nine pages, five figures and two tables. Use
+`revision-20261001/arxiv.tar.gz` and its manifest, together with the updated
+metadata in `../../artifacts/paper-revision-2026-10-01/`.
+It adds explanation and figures without new outcomes. The five-page
+anonymous OpenReview attachment and the September 30 source archive described
+below are preserved historical baselines. No external submission has been
+updated with the expanded preprint.
+
 Updated 2026-09-30 after the paired statistical correction.
 Historical receipts are preserved in
 `../../artifacts/submission-recovery-2026-09-30/`; current correction and

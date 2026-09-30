@@ -1,0 +1,98 @@
+{
+  "sources": {
+    "results/pilot/libero_10-fp32.jsonl": "1d469289eb28d7dd4adbe5b382c69e821b61c9b2b65a297c153ae93f22ed59ad",
+    "results/pilot/libero_10-w4.jsonl": "4f4cd2a7cafc72f6c826fef61575288e4f48e2729be74a4685ea7808780d4eea",
+    "results/pilot/libero_10-w3.jsonl": "5d1b1b26a33536994267878e8a0abc2d3e79bd29bcb0368db7f4050e656589d4",
+    "results/pilot/libero_10-steps2.jsonl": "f37b14ff78583c45342daa31322ddbbc5e24dc283840c13beac26ad4a5dc8568",
+    "results/pilot/libero_10-bf16.jsonl": "9a68a6b96610b49eeaf284b54a915409cc40ca057515bfec8fc4983eca4f77f4",
+    "results/followup/libero_10-t3s3-fp32.jsonl": "ae1f02af9db2ba8b4b9d58e836714bc3baafe486ce607f8376b0f0994492ec0b",
+    "results/followup/libero_10-t3s3-bf16.jsonl": "dcdfbfba706fd5fc54199fd3252bf304bab878fb0cc34ddf97a8d584bf6208b9",
+    "results/vqb/reanalysis.json": "71e91244caf89dfc98ab299ea069790da58acf68207d5849439e80a7f8d82351",
+    "results/pilot/libero_10-fp32-seed2000.jsonl": "611f217e2e5d60485ded39b7d0dfcbf6880ec382fcd8c93a268938417742d577",
+    "results/pilot/libero_10-w3-seed2000.jsonl": "a7aec23e38277cda3f826a60cdb8679ae22ba9d38fa666383779407986432926"
+  },
+  "facts": {
+    "pilot": {
+      "states": 100,
+      "repeats": 5,
+      "variants": [
+        "w4",
+        "w3",
+        "steps2",
+        "bf16"
+      ],
+      "delta_pp": [
+        -0.8,
+        -20.0,
+        0.6,
+        -1.0
+      ],
+      "descriptive_ci95_pp": [
+        [
+          -3.2,
+          1.2000000000000002
+        ],
+        [
+          -26.8,
+          -13.4
+        ],
+        [
+          -0.6000000000000001,
+          2.0
+        ],
+        [
+          -4.6,
+          2.2
+        ]
+      ],
+      "by_discoveries": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "followup": {
+      "pairs": 20,
+      "fp32_success": 18,
+      "bf16_success": 4,
+      "harm": 15,
+      "gain": 1,
+      "exact_p": 0.0002593994140625,
+      "table": [
+        [
+          1,
+          1
+        ],
+        [
+          15,
+          3
+        ]
+      ],
+      "pilot_policy_seeds_excluded": true
+    },
+    "public_data": {
+      "repeated_configurations": 20,
+      "own_controls": [
+        [
+          0.927,
+          0.03
+        ],
+        [
+          0.723,
+          0.12
+        ]
+      ]
+    },
+    "test_resolution": {
+      "min_p_n5": 0.03125,
+      "by_rank1_threshold": 0.00019277563597396006,
+      "harmonic100": 5.187377517639621,
+      "smallest_all_harmful_n_rank1": 13,
+      "is_general_power_calculation": false
+    },
+    "bf16_changed_episode_lengths": 422
+  },
+  "new_rollouts_in_manuscript": 0,
+  "builder_sha256": "63eacc48d52542f4d019488a197d23394ee1135c65546a2aee02dea2383045df"
+}

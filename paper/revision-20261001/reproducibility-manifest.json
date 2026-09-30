@@ -1,0 +1,33 @@
+{
+  "archive_sha256": "66aef92e2d137553b8c79b3e76af56f78ab01665bb3fc432f20e66446edc13db",
+  "files": {
+    "results/pilot/libero_10-bf16.jsonl": "9a68a6b96610b49eeaf284b54a915409cc40ca057515bfec8fc4983eca4f77f4",
+    "results/pilot/libero_10-fp32-scene2000.jsonl": "c3b5e880736c93da20e53fb7e446af3b8dc55043b07d0d1d83afb64435427405",
+    "results/pilot/libero_10-fp32-seed2000.jsonl": "611f217e2e5d60485ded39b7d0dfcbf6880ec382fcd8c93a268938417742d577",
+    "results/pilot/libero_10-fp32.jsonl": "1d469289eb28d7dd4adbe5b382c69e821b61c9b2b65a297c153ae93f22ed59ad",
+    "results/pilot/libero_10-steps2.jsonl": "f37b14ff78583c45342daa31322ddbbc5e24dc283840c13beac26ad4a5dc8568",
+    "results/pilot/libero_10-w3-seed2000.jsonl": "a7aec23e38277cda3f826a60cdb8679ae22ba9d38fa666383779407986432926",
+    "results/pilot/libero_10-w3.jsonl": "5d1b1b26a33536994267878e8a0abc2d3e79bd29bcb0368db7f4050e656589d4",
+    "results/pilot/libero_10-w4.jsonl": "4f4cd2a7cafc72f6c826fef61575288e4f48e2729be74a4685ea7808780d4eea",
+    "results/followup/libero_10-t3s3-bf16.jsonl": "dcdfbfba706fd5fc54199fd3252bf304bab878fb0cc34ddf97a8d584bf6208b9",
+    "results/followup/libero_10-t3s3-fp32.jsonl": "ae1f02af9db2ba8b4b9d58e836714bc3baafe486ce607f8376b0f0994492ec0b",
+    "results/vqb/reanalysis.json": "71e91244caf89dfc98ab299ea069790da58acf68207d5849439e80a7f8d82351",
+    "results/vqb/reanalysis.txt": "9f0ca6202061e7a8d837624aad2edd9f9cde8a55988713085c60312c2e8127f9",
+    "analyze.py": "07567b8c487644d382eabaedd8e131340cb1c032e2831363e689f6c693a17810",
+    "reanalyze_vqb.py": "b2e3aaf2abadf54e84e31014bb9179c3ad1a1bb29357f7a1addc9c60b59e3bff",
+    "tests/test_paired_analysis.py": "e2634fd258ba394e31151eabcc2453fd42106eea1cd422fe3a837ab40f070f4a",
+    "paper/revision-20261001/build_figures.py": "63eacc48d52542f4d019488a197d23394ee1135c65546a2aee02dea2383045df",
+    "paper/revision-20261001/figure-provenance.json": "94aac79c240db89ac65f8e8942150b5aa83e863841964bbf3d33a33bcb837937",
+    "paper/revision-20261001/README.md": "5f053f8930519ebccc54f05942e89bc535f3d69eaa7f06dcd0510c46c35b4eaf"
+  },
+  "own_episode_rows": 4040,
+  "new_episode_rows": 0,
+  "public_data_origin": "https://github.com/jiuyixu25/VLAQuantBench",
+  "public_data_commit": "4a2cb7c",
+  "public_data_license": "MIT",
+  "public_data_material": "derived reanalysis, not upstream source or model weights",
+  "runtime": {
+    "python": "3.12.3"
+  },
+  "scope": "Outcome reanalysis and figures; not a bit-exact simulator replay. Local package; no public upload."
+}

@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.tex": {
+      "bytes": 25778,
+      "sha256": "f2e85d010e0713df9bfe8ee980acf575c765537cf8b64244de9b1710709629cc"
+    },
+    "main.bbl": {
+      "bytes": 5862,
+      "sha256": "c70c1fb9cb5ccfafa3b54032f35d9582aba2ed697291e6a8ab9b6d34d8895654"
+    },
+    "corl_2026.sty": {
+      "bytes": 14861,
+      "sha256": "62f38cd8df7ad718796617595c8230da136fc83ea1d7e1ba80084113409ec957"
+    },
+    "paired-protocol.pdf": {
+      "bytes": 22803,
+      "sha256": "9100861dfe5cde83df0487d73723c60d3c8bcd1f151eb1faf8e1c713f6f95ea9"
+    },
+    "test-resolution.pdf": {
+      "bytes": 18154,
+      "sha256": "45e70d88f4a6453ab2ed1d8c37334ec9f1d9a6ab105c7dc83a5d10bf3ca6f97d"
+    },
+    "noise-floor.pdf": {
+      "bytes": 22229,
+      "sha256": "a5a7223f1e039567037303dd784df503d7070ad6d4aa4efd176b7bcf7f2f633a"
+    },
+    "statewise-pilot.pdf": {
+      "bytes": 16084,
+      "sha256": "fb973ef2d6da691ffd5ae0c793e32e7f3e76bdab99710e7475dd698237287a5c"
+    },
+    "fresh-confirmation.pdf": {
+      "bytes": 12772,
+      "sha256": "65fedc3cf6928e885fc0b3e7f69ef4b5653ed62a4605d7709fbffd6fe47bda7d"
+    }
+  },
+  "archive_sha256": "62b72a630e19bf4005121ecc53eff1346a85095e3d92dfe2174e7632a3947619",
+  "reviewed_pdf_sha256": "c1828f95385b7be4657621d368bde0d7117987774fd1626cdbebf6f79222ade0",
+  "clean_room_compile_passed": true,
+  "text_matches_reviewed_pdf": true,
+  "third_party_license_comments_preserved": true,
+  "new_rollouts_added": 0,
+  "external_submission_changed": false
+}

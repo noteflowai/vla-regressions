@@ -1,0 +1,5 @@
+.build/
+previews/
+figures/*.png
+figures/*.svg
+figure-build-summary.txt
