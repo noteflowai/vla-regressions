@@ -236,6 +236,7 @@ class SerialProducerTests(unittest.TestCase):
                         "environment_truncated": False, "collector_truncated": False,
                         "reset_state_exact": True, "reset_inputs_exact": True,
                         "initial_state_sha256": digest, "initial_input_sha256": digest,
+                        "elapsed_seconds": .001,
                         "pipeline_sha256": digest, "evaluator_sha256": digest}
             def close(self):
                 pass
@@ -262,7 +263,7 @@ class SerialProducerTests(unittest.TestCase):
             receipt_path = launch / "receipt.json"
             self.paired.atomic_json(receipt_path, receipt)
             verified = runner.verified_control(folder, primary)
-            self.assertEqual(verified["estimated_primary_wall_seconds"], 361)
+            self.assertEqual(verified["estimated_primary_wall_seconds"], 486)
             for bad_exit in (True, 1, None):
                 broken = json.loads(json.dumps(receipt))
                 broken["execution"]["worker_exit_code"] = bad_exit

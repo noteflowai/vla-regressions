@@ -67,14 +67,15 @@ def freeze(args):
         evaluator["sources"][inventory[path_key]] = inventory[hash_key]
     evaluator.update(environment_lanes=1, reload_every_pair=True,
                      cudnn_benchmark=False, cudnn_deterministic=True,
-                     phase_profiling=args.profile_episodes)
+                     phase_profiling=args.profile_episodes,
+                     cpu_allocator_release="glibc_malloc_trim_after_model_close")
     pipeline = {**base["old_pipeline"], "precision": "float32", "n_obs_steps": 1}
     from tokenizer_assets import freeze_tokenizer_assets
     pipeline["tokenizer"] = freeze_tokenizer_assets(Path(pipeline["checkpoint"]))
     pipeline["assets"] = {**pipeline["assets"], **pipeline["tokenizer"]["assets"]}
     new = {**pipeline, "update": "bf16", "precision": "bfloat16"} if args.mode == "primary" else pipeline
     protocol = {
-        "id": "selected-xvla-bf16-serial-confirmation-20261001-v4",
+        "id": "selected-xvla-bf16-serial-confirmation-20261001-v5",
         "mode": args.mode, "alpha": ALPHA, "primary_pairs": PRIMARY_PAIRS,
         "required_pairs": PRIMARY_PAIRS if args.mode == "primary" else CONTROL_PAIRS,
         "state": {**STATE, "task_name": inventory["name"]},
@@ -201,20 +202,23 @@ def verified_control(folder, primary_context):
             or len(result["pair_elapsed_seconds"]) != CONTROL_PAIRS):
         raise ValueError("Complete exact-match engineering control is required")
     cache = NativePairCache(folder / "pairs", context)
-    observed_diagnostics = []
+    observed_diagnostics, episodes = [], []
     for repeat in range(CONTROL_PAIRS):
         if not cache.path(0, repeat).is_file():
             raise ValueError("Missing control pair")
         cache.get(0, repeat, producer=None)
-        observed_diagnostics.append(compare_control_pair(json.loads(cache.path(0, repeat).read_text())))
+        record = json.loads(cache.path(0, repeat).read_text())
+        observed_diagnostics.append(compare_control_pair(record))
+        episodes.append([record["old"], record["new"]])
     if result.get("off_cadence_camera_diagnostics") != observed_diagnostics:
         raise ValueError("Control rendering diagnostics differ from retained raw evidence")
     durations = result["pair_elapsed_seconds"]
     if any(type(t) not in (float, int) or not math.isfinite(t) or not 0 < t <= 43200
            for t in durations):
         raise ValueError("Invalid engineering control timing")
+    from feasibility import primary_forecast
     return {"context_sha256": object_digest(context), "summary_sha256": digest_file(summary_path),
-            "estimated_primary_wall_seconds": int(max(durations) * PRIMARY_PAIRS * 1.5 + 1)}
+            **primary_forecast(durations, episodes, PRIMARY_PAIRS)}
 
 
 def worker(args, context):

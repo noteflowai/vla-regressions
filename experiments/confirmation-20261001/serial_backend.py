@@ -19,6 +19,11 @@ from tokenizer_assets import verify_tokenizer_assets, verify_loaded_tokenizer
 
 
 class SerialPrecisionBackend(LiberoNativeBackend):
+    def close(self):
+        super().close()
+        from memory_hygiene import trim_own_cpu_allocator
+        self.cpu_release_report = trim_own_cpu_allocator()
+
     def run_episode(self, side, identity, folder, deadline):
         run = lambda: super(SerialPrecisionBackend, self).run_episode(
             side, identity, folder, deadline)
@@ -177,7 +182,8 @@ class SerialPairProducer(NativeBatchProducer):
                                    success=episode["success"], steps=episode["steps"])
                 finally:
                     self.backend.close()
-                    self.event("pipeline_released", side=side, batch=batch_id)
+                    self.event("pipeline_released", side=side, batch=batch_id,
+                               cpu_release_report=getattr(self.backend, "cpu_release_report", None))
             for record, identity in zip(records, expected, strict=True):
                 PairCache.validate(record, identity)
             atomic_json(batch_path, {"status": "completed", "identities": expected,

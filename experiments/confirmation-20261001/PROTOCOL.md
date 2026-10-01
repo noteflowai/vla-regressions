@@ -4,9 +4,9 @@ This is an additional experiment for *Beyond Aggregate Success*, separately
 prepared on October 1, 2026. It is not part of the regression-budget paper.
 The original v1 document and executable design were published before control
 collection. **The v2 revision followed a failed v1 engineering control and
-preceded v2 collection. The v3 added optional phase timing. This v4 also freezes
-the tokenizer assets for future distinct cohorts; the original v2 control keeps
-its original source, partial evidence and failed lifecycle.**
+preceded v2 collection. The v3 added phase timing, and v4 froze tokenizer assets.
+This v5 adds owned CPU-allocator cleanup and full-horizon feasibility planning.
+Previous cohorts keep their original sources, evidence and failed lifecycles.**
 Preparation and CPU tests are not
 native efficacy evidence. The fixed state, 80-pair sample size, alpha, analysis
 and primary seed stream are unchanged.
@@ -29,6 +29,19 @@ explicit local snapshot. Its actual loaded path is checked. Missing or changed
 assets fail closed without downloading. This does not retroactively establish
 historical tokenizer identity; the new pipeline requires a fresh complete
 engineering control.
+
+After each model release, v5 runs glibc `malloc_trim(0)` in the same process,
+after the inherited gc/CUDA synchronization/cache release, recording process
+RSS and host available memory before and after. It releases unused allocator
+pages and does not relax the 18 GiB host or 28 GiB GPU admission gates. Repeated
+post-reload resource failures motivate this prospective diagnostic; retained
+allocator memory has not yet been established as their cause.
+
+Primary feasibility separates the maximum observed pair overhead from episode
+time. It scales the maximum observed episode seconds per step to 520 steps
+for both sides, then applies the existing 50% margin and fixed 80 pairs.
+Earlier successful episodes do not establish full-horizon runtime. This is
+sample-based planning, not a guarantee under future precision or host-load changes.
 
 ## Question, fixed state, and interpretation
 

@@ -45,8 +45,8 @@ the remaining shared physical budget.
 
 ## Next decision
 
-Complete the clean v2 independent-reload control, then use its actual maximum
-pair time and the frozen 50% margin to make the primary admission forecast.
+Complete a fresh clean independent-reload control, then use the v5 full-horizon
+forecast and the frozen 50% margin to make the primary admission forecast.
 Keep all 80 pairs, the single environment lane, both precision pipelines, the
 520-step horizon, reset/scoring checks and complete evidence.
 
@@ -65,14 +65,14 @@ RNG use, model inputs, actions, physics and scoring. Qualify any adopted writer
 with the same native control and independently verify complete retained arrays.
 Do not reuse a failed cohort or reinterpret the replay as a clean native control.
 
-The v3 introduced `--profile-episodes` for a new control cohort; the current
-v4 also binds the cached text tokenizer's immutable snapshot and file inventory.
+The v3 introduced `--profile-episodes` for a new control cohort; v4 also
+binds the cached text tokenizer's immutable snapshot and file inventory.
 Its `phase-profile.json` records every call, inclusive wall/CPU time, count and
 error flag. A completed episode requires the expected snapshot, prediction-call,
 processor, reset, step and close counts with no failed timed call. CPU checks
 verify return and argument identity, exception identity, exact call order and
 restoration of both inherited and own attributes on success and error.
-No instrumented native episode has been collected for this revision yet.
+The separate v4 attempt collected two instrumented episodes, as recorded below.
 
 ## New v2 control and host observation
 
@@ -83,7 +83,8 @@ intermediate camera frames. The second pair's first load was denied when host
 available memory fell to 15,283,400,704 bytes, below the fixed 18 GiB threshold.
 The worker exited 1. The full two-pair clean-lifecycle control remains unqualified,
 and the primary gate rejects it. Actual charged time is 920.179 seconds; the
-canonical 12-hour ledger was finalized, not reset, and has 10.412 hours remaining.
+canonical 12-hour ledger was finalized, not reset. Its remaining balance at that
+point was 10.412 hours.
 No BF16 or primary pair was collected.
 
 The host has four logical CPUs. Read-only samples during collection found
@@ -100,7 +101,7 @@ v2; `tokenizer-assets-audit-001.json` compares the current cached and explicit
 snapshot tokenizers on CPU, not historical tokenizers. Vocabulary, parsed backend
 and all encoded fields for five strings (including the selected task prompt)
 match. This audit constructs no policy and initializes no CUDA context. Future
-v4 loads the explicit snapshot and rejects changed files or optional-file inventory.
+v4 and later load the explicit snapshot and reject changed files or optional-file inventory.
 
 The latest official LeRobot release checked on October 1 is still v0.6.1:
 https://github.com/huggingface/lerobot/releases/tag/v0.6.1.
@@ -109,6 +110,41 @@ code, but the pinned X-VLA override constructs its instance and loads a CPU stat
 dictionary before moving it. General release notes do not establish that this
 specific loader is already optimized. Any alternate loader needs a separate
 prospective design, tensor verification and native control.
+
+## Instrumented v4 result and prospective v5 cleanup
+
+The v4 attempt (`6ef051b`) completed one exact FP32/FP32 pair: both episodes
+succeeded at step 287, with all retained observations, actions and transitions
+equal and no off-cadence camera differences. Both phase profiles passed their
+call-count and error guards. Episode kernel times were 282.162 and 292.689 s.
+The next load was denied at 18,586,587,136 available host bytes, below 18 GiB;
+worker exit 1 means the full two-pair control remains unqualified.
+Charged time was 908.193 s. The finalized ledger then retained 36,575.908 s.
+See `engineering-control-v4-001.json`; no BF16 or primary data were collected.
+
+For the second episode, snapshot persistence took 69.702 s inclusive wall time
+and 9.060 s process CPU time; simulator steps took 56.575 / 7.553 s, action
+selection 50.596 / 8.302 s, and observation conversion 34.607 / 8.249 s.
+These are inclusive, partly overlapping timers without added CUDA
+synchronization. Their CPU/wall gaps do not isolate scheduler, disk or GPU waits.
+They do not establish an end-to-end speedup or justify summing phases as GPU time.
+
+V5 prospectively calls glibc `malloc_trim(0)` in the collector's own process
+after model references, garbage collection and the inherited CUDA cleanup.
+It records own RSS and global host availability before and after the call.
+The API releases unused allocator pages; it does not free live tensors or alter
+other processes. Retained allocator pages are a hypothesis, not an established
+cause of the resource failures. A fresh-process API check and CPU adapter tests
+do not validate cleanup after an actual model reload. A distinct native cohort
+is required. The original 18 GiB host and 28 GiB free GPU gates remain fixed.
+API reference: https://man7.org/linux/man-pages/man3/malloc_trim.3.html.
+
+V5 also separates the largest observed pair overhead from episode time, scales
+the largest observed episode seconds per step to 520 steps on both sides, then
+applies 80 pairs and the existing 50% margin. Successful early termination at
+287 steps must not understate a possible full-horizon study. This sample-based
+forecast is not a worst-case guarantee: precision behavior and shared host load
+can differ. Infeasible admission stops collection without shrinking the sample.
 
 ## Reproduce the CPU replay
 
