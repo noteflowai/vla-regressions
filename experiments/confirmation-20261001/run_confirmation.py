@@ -275,7 +275,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--mode", choices=("control", "primary"), required=True)
     parser.add_argument("--control", type=Path)
-    parser.add_argument("--wall-budget", type=int, default=1800)
+    parser.add_argument("--wall-budget", type=int, default=2400)
     parser.add_argument("--prepare-only", action="store_true")
     parser.add_argument("--worker", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--launch", type=Path, help=argparse.SUPPRESS)

@@ -174,7 +174,10 @@ Prepare a distinct control or primary cohort without importing a model:
   --output /path/to/new/control --mode control --prepare-only
 ```
 
-Remove `--prepare-only` for a bounded control; default wall time is 1,800 seconds.
+Remove `--prepare-only` for a bounded control; default wall time is 2,400 seconds.
+This accommodates four 520-step episodes at the observed recording/physics
+cost plus independent model loading; the full reservation is still charged
+against the same shared ledger, and actual elapsed time is finalized.
 For primary use `--mode primary --control /path/to/completed/control` and a
 distinct `--output`. The runner determines its wall reservation from the
 verified control's recorded pair timing. Preparation records readiness but
