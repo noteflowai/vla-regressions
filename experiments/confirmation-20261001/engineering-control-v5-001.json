@@ -1,0 +1,207 @@
+{
+  "checked_at": "2026-10-01T06:39:20.679540+00:00",
+  "control_source_commit": "7c338044f835755306f4ce970e54a52296578a47",
+  "context_sha256": "f771f22c2b8e88fadcf65625d7fb057f3b92e394dc1fa7e3c0d969a2e6c998b3",
+  "summary_sha256": "f66e4bc05fe1f89c48512d4ace0ae7dc3e5a580b774967ee8bf20eb84fa94d83",
+  "receipt_sha256": "563cb05d019cfd0ac1a8a86d997cb742ff0cfaabf3bbc6c9f0e8cb1504d01cd1",
+  "native_cache_complete_pairs_verified": 0,
+  "engineering_pairs_compared": 0,
+  "native_episodes_completed": 1,
+  "complete_episode_raw_inventory_and_hashes_verified": true,
+  "episode_successes": [
+    true
+  ],
+  "episode_steps": [
+    287
+  ],
+  "episode_elapsed_seconds": [
+    276.02381498599425
+  ],
+  "off_cadence_camera_diagnostics": [],
+  "phase_summaries": {
+    "episode-0-0-new": {
+      "action_postprocessor": {
+        "calls": 287,
+        "failed_calls": 0,
+        "median_wall_seconds": 0.00018343492411077023,
+        "total_inclusive_wall_seconds": 0.24238118762150407,
+        "total_process_cpu_seconds": 0.05525200100004213
+      },
+      "canonical_reset": {
+        "calls": 2,
+        "failed_calls": 0,
+        "median_wall_seconds": 12.326586688519455,
+        "total_inclusive_wall_seconds": 24.65317337703891,
+        "total_process_cpu_seconds": 6.697334131000005
+      },
+      "environment_close": {
+        "calls": 1,
+        "failed_calls": 0,
+        "median_wall_seconds": 4.62308367411606,
+        "total_inclusive_wall_seconds": 4.62308367411606,
+        "total_process_cpu_seconds": 0.341651629999987
+      },
+      "environment_construction": {
+        "calls": 1,
+        "failed_calls": 0,
+        "median_wall_seconds": 0.09979471494443715,
+        "total_inclusive_wall_seconds": 0.09979471494443715,
+        "total_process_cpu_seconds": 0.025919869999995626
+      },
+      "environment_postprocessor": {
+        "calls": 287,
+        "failed_calls": 0,
+        "median_wall_seconds": 0.0005043388810008764,
+        "total_inclusive_wall_seconds": 0.7162713306024671,
+        "total_process_cpu_seconds": 0.16762152099998673
+      },
+      "environment_preprocessor": {
+        "calls": 287,
+        "failed_calls": 0,
+        "median_wall_seconds": 0.06844683294184506,
+        "total_inclusive_wall_seconds": 30.95141621050425,
+        "total_process_cpu_seconds": 6.667217204000018
+      },
+      "metadata_persistence": {
+        "calls": 290,
+        "failed_calls": 0,
+        "median_wall_seconds": 0.01413059642072767,
+        "total_inclusive_wall_seconds": 5.4238833906129,
+        "total_process_cpu_seconds": 0.29927699300000654
+      },
+      "observation_conversion": {
+        "calls": 287,
+        "failed_calls": 0,
+        "median_wall_seconds": 0.08019022597000003,
+        "total_inclusive_wall_seconds": 33.6062403190881,
+        "total_process_cpu_seconds": 6.953929182000074
+      },
+      "policy_processor": {
+        "calls": 287,
+        "failed_calls": 0,
+        "median_wall_seconds": 0.0021326569840312004,
+        "total_inclusive_wall_seconds": 2.2722875063773245,
+        "total_process_cpu_seconds": 0.6490075020000461
+      },
+      "policy_select_action": {
+        "calls": 287,
+        "failed_calls": 0,
+        "median_wall_seconds": 0.026224733097478747,
+        "total_inclusive_wall_seconds": 46.29546000692062,
+        "total_process_cpu_seconds": 8.419839169999868
+      },
+      "simulator_state_capture": {
+        "calls": 577,
+        "failed_calls": 0,
+        "median_wall_seconds": 2.811197191476822e-05,
+        "total_inclusive_wall_seconds": 0.0561861963942647,
+        "total_process_cpu_seconds": 0.02389742000011097
+      },
+      "simulator_step": {
+        "calls": 287,
+        "failed_calls": 0,
+        "median_wall_seconds": 0.14232230698689818,
+        "total_inclusive_wall_seconds": 57.86182461003773,
+        "total_process_cpu_seconds": 7.668318332000027
+      },
+      "snapshot_persistence": {
+        "calls": 288,
+        "failed_calls": 0,
+        "median_wall_seconds": 0.15846910746768117,
+        "total_inclusive_wall_seconds": 66.98671729816124,
+        "total_process_cpu_seconds": 9.17453679600009
+      }
+    }
+  },
+  "cpu_release_events": [
+    {
+      "side": "new",
+      "batch": "72ef1bd05721a001f6f4cb94b65e9fa8b4705566a43cd3efca347b923f8931a9",
+      "report": {
+        "checked_at": "2026-10-01T06:37:38.814199+00:00",
+        "implementation": "glibc_malloc_trim_0",
+        "returned": 1,
+        "elapsed_seconds": 0.36514552496373653,
+        "before": {
+          "process_rss_bytes": 3906662400,
+          "anonymous_rss_bytes": 3239837696,
+          "file_rss_bytes": 647258112,
+          "locked_bytes": 0,
+          "pinned_bytes": 0,
+          "host_available_bytes": 17716830208
+        },
+        "after": {
+          "process_rss_bytes": 2813960192,
+          "anonymous_rss_bytes": 2147135488,
+          "file_rss_bytes": 647258112,
+          "locked_bytes": 0,
+          "pinned_bytes": 0,
+          "host_available_bytes": 18753150976
+        },
+        "scope": "After model close, gc, CUDA synchronization and cache release. Only this process's unused allocator pages; no live tensor, other process or budget is modified. Host-memory delta can include concurrent external activity."
+      }
+    },
+    {
+      "side": "old",
+      "batch": "72ef1bd05721a001f6f4cb94b65e9fa8b4705566a43cd3efca347b923f8931a9",
+      "report": {
+        "checked_at": "2026-10-01T06:37:42.837904+00:00",
+        "implementation": "glibc_malloc_trim_0",
+        "returned": 1,
+        "elapsed_seconds": 0.08369771810248494,
+        "before": {
+          "process_rss_bytes": 2813960192,
+          "anonymous_rss_bytes": 2147135488,
+          "file_rss_bytes": 647258112,
+          "locked_bytes": 0,
+          "pinned_bytes": 0,
+          "host_available_bytes": 18835353600
+        },
+        "after": {
+          "process_rss_bytes": 2813960192,
+          "anonymous_rss_bytes": 2147135488,
+          "file_rss_bytes": 647258112,
+          "locked_bytes": 0,
+          "pinned_bytes": 0,
+          "host_available_bytes": 18809335808
+        },
+        "scope": "After model close, gc, CUDA synchronization and cache release. Only this process's unused allocator pages; no live tensor, other process or budget is modified. Host-memory delta can include concurrent external activity."
+      }
+    }
+  ],
+  "complete_control_qualified": false,
+  "qualification_and_forecast": null,
+  "primary_gate_rejection": "Control requires unchanged summary and clean process lifecycle",
+  "lifecycle": {
+    "clean_process_exit": false,
+    "collection_wall_budget_seconds": 3600,
+    "elapsed_seconds": 645.9669124600478,
+    "episode_gate_passed": null,
+    "episode_health_verdict": "not_assessed",
+    "parent_death_guard_enabled": true,
+    "recorded_at": "2026-10-01T06:38:25.240742+00:00",
+    "scope": "Episode verdict and process lifecycle are separate. No forced successful exit.",
+    "status": "worker_error",
+    "summary_sha256": "f66e4bc05fe1f89c48512d4ace0ae7dc3e5a580b774967ee8bf20eb84fa94d83",
+    "supervisor_interrupted_signal": null,
+    "teardown_budget_seconds": 120,
+    "timeout_phase": null,
+    "worker_exit_code": 1,
+    "worker_pid": 3541627
+  },
+  "physical_budget_entry": {
+    "status": "finalized",
+    "charged_seconds": 645.9669124600478
+  },
+  "remaining_shared_budget_seconds": 35929.94121478591,
+  "open_reservations": 0,
+  "primary_budget_admissible": false,
+  "new_primary_pairs": 0,
+  "new_bf16_episodes": 0,
+  "raw_data_public": false,
+  "native_data_retried": false,
+  "scope": "One complete FP32 engineering episode with verified raw inventory/hashes and native phase counts. Its model-release RSS fell by 1,092,702,208 bytes, but the next load failed fixed RAM admission. No complete pair, no clean two-pair control and no efficacy conclusion. Global host-memory changes may include concurrent work.",
+  "worker_error": "RuntimeError: Native pipeline loading requires current resource headroom: {\"allowed\": false, \"checked_at\": \"2026-10-01T06:37:39.011864+00:00\", \"gpu_free_bytes\": 37198233600, \"gpu_name\": \"NVIDIA L40S\", \"gpu_required_free_bytes\": 30064771072, \"gpu_used_bytes\": 10471079936, \"host_available_bytes\": 18750988288, \"host_required_bytes\": 19327352832}",
+  "status": "single_episode_resource_failure",
+  "phase_profiles_complete": true
+}

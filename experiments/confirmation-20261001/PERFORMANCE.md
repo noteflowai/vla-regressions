@@ -146,6 +146,53 @@ applies 80 pairs and the existing 50% margin. Successful early termination at
 forecast is not a worst-case guarantee: precision behavior and shared host load
 can differ. Infeasible admission stops collection without shrinking the sample.
 
+## Actual v5 result
+
+The distinct v5 attempt used published source `7c33804`, after its 31 CPU
+checks and remote archive/analysis reproduction passed. One FP32 episode
+succeeded at step 287, with 276.024 s inside the episode kernel. Its complete
+raw file inventory and hashes, attempt/episode binding and phase counts were
+independently reread. This is a single episode, not a matched pair.
+
+After model close and inherited gc/CUDA cleanup, the first `malloc_trim(0)`
+call took 0.365 s. Process RSS fell from 3,906,662,400 to 2,813,960,192 bytes:
+1,092,702,208 bytes, or approximately 1.018 GiB. Host availability at the
+two snapshots increased from 17,716,830,208 to 18,753,150,976 bytes; concurrent
+activity can contribute to that global change. At the next load's admission
+probe, host availability was 18,750,988,288 bytes, still below 18 GiB. GPU
+headroom passed. The worker exited 1, with zero complete pairs and no timeout.
+
+The cleanup after the denied load returned 1 but did not reduce measured RSS.
+The libc return value alone must not be reported as a measured memory saving.
+The observed first cleanup released unused pages, but did not solve resource
+admission on this shared host. No matched-output equivalence or stable repeated
+reload result is established for v5.
+
+![Measured allocator release and the unchanged host admission gate](cpu-release-v5-001.svg)
+
+Actual physical charge was 645.967 s; all canonical ledger entries were finalized,
+with 35,929.941 s (9.981 h) remaining and no open reservation. The original
+control gate independently rejected this cohort. No primary forecast can be
+qualified from it, and no new BF16 or primary pair was collected.
+See `engineering-control-v5-001.json`. Complete raw data remain local.
+
+Do not retry this cohort or continue successive native attempts under the same
+resource pressure. Retain v5 as a measured operational improvement with an
+unqualified control. A future attempt needs a stable resource window or a
+separately published and controlled lifecycle redesign, such as an owned worker
+per model side. That redesign is not implemented or validated here. Keep the
+fixed sample size, evidence and admission gates; leave unrelated jobs unchanged.
+The published r2 paper and its historical conclusions remain unchanged.
+
+Rebuild the engineering figure from the public measurements, without loading a
+policy or reading raw images:
+
+```sh
+python tools/plot_cpu_release.py \
+  experiments/confirmation-20261001/engineering-control-v5-001.json \
+  /path/to/figure-output/cpu-release-v5-001
+```
+
 ## Reproduce the CPU replay
 
 ```sh
