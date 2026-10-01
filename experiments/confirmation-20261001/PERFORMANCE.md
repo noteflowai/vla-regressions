@@ -193,6 +193,36 @@ python tools/plot_cpu_release.py \
   /path/to/figure-output/cpu-release-v5-001
 ```
 
+## Prospective v6 model lifecycle
+
+The v5 worker retained 2.620 GiB RSS after the measured trim. V6 instead uses a
+new supervised Python exec process for each model side. Its controller neither
+constructs a policy nor imports Torch. A side must save matching native evidence
+and exit cleanly before its outcome is adopted or another worker can start.
+The controller probes resources before spawning; the unchanged native backend
+also probes after imports and immediately before model construction.
+
+The request, original native episode, worker summary and process receipt are
+included in each adopted episode's hashed inventory. Later control qualification
+rereads their identities, summaries and clean integer exits. One retained
+success with a nonzero exit or timeout is still a failed attempt. Linux
+parent-death protection terminates a side if its controller is hard-killed.
+The outer canonical reservation covers all children and their cleanup, rather
+than starting a new ledger or independent budget for each side.
+
+CPU checks use clearly labelled synthetic records and actual subprocesses.
+They exercise distinct side PIDs, ordering, cache revalidation, nonzero exits,
+collection/teardown deadlines, pre-spawn resource denial and hard parent death.
+They load no policy or simulator and provide no native output-equivalence,
+memory-stability or speedup result. A new published cohort must qualify all
+four FP32 episodes before any primary forecast or launch.
+
+Fresh startup and checkpoint hashing can increase overhead. V6 preserves
+`nice 10`, source/assets/package guards, rendering, evidence format, the 520-step
+horizon and the fixed 80 pairs. Changing process state changes the evaluator:
+previous partial controls cannot qualify it. No new control has been run for
+this revision yet.
+
 ## Reproduce the CPU replay
 
 ```sh

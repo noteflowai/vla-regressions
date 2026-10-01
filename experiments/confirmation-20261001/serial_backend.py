@@ -115,6 +115,50 @@ class SerialPrecisionBackend(LiberoNativeBackend):
                 "report_path": str(folder / f"pipeline-{batch_id}-{side}.json")}
 
 class SerialPairProducer(NativeBatchProducer):
+    def run_side(self, side, identity, batch_id, deadline):
+        if time.monotonic() >= deadline:
+            raise TimeoutError("Declared native physical budget exhausted")
+        self.event("pipeline_loading", side=side, batch=batch_id)
+        try:
+            report = self.backend.load(side, deepcopy(self.context), self.folder, batch_id)
+            self.event("pipeline_ready", side=side, batch=batch_id, report=report)
+            if time.monotonic() >= deadline:
+                raise TimeoutError("Declared native physical budget exhausted")
+            path = self.folder / f"episode-{identity['state_index']}-{identity['repeat']}-{side}"
+            path.mkdir()
+            claim = {"status": "started", "identity": identity, "side": side,
+                     "pipeline_sha256": identity[f"{side}_pipeline_sha256"]}
+            atomic_json(path / "attempt.json", claim)
+            self.event("episode_started", side=side, identity=identity, raw_folder=str(path))
+            try:
+                episode = self.backend.run_episode(side, deepcopy(identity), path, deadline)
+                opposite = "new" if side == "old" else "old"
+                mirror = {**episode, "pipeline_sha256": identity[f"{opposite}_pipeline_sha256"]}
+                PairCache.validate({"identity": identity, side: episode, opposite: mirror}, identity)
+                bind_state_reset(self.folder / "state-resets", identity, episode)
+                evidence = {str(p.relative_to(path)): digest_file(p)
+                            for p in sorted(path.rglob("*"))
+                            if p.is_file() and p.name not in ("attempt.json", "episode.json")}
+                if not evidence:
+                    raise ValueError("Native episode has no durable raw evidence")
+                episode = {**episode, "raw_folder": str(path), "raw_evidence": evidence}
+                atomic_json(path / "episode.json", episode)
+                atomic_json(path / "attempt.json", {**claim, "status": "completed",
+                            "episode_sha256": digest_file(path / "episode.json")})
+            except BaseException as error:
+                atomic_json(path / "attempt.json", {**claim, "status": "error",
+                            "error": type(error).__name__ + ": " + str(error)})
+                self.event("episode_error", side=side, identity=identity,
+                           error=type(error).__name__ + ": " + str(error))
+                raise
+            self.event("episode_completed", side=side, identity=identity,
+                       success=episode["success"], steps=episode["steps"])
+            return episode
+        finally:
+            self.backend.close()
+            self.event("pipeline_released", side=side, batch=batch_id,
+                       cpu_release_report=getattr(self.backend, "cpu_release_report", None))
+
     def produce_many(self, identities):
         expected = deepcopy(identities)
         if len(expected) != 1:
@@ -136,54 +180,9 @@ class SerialPairProducer(NativeBatchProducer):
         records = [{"identity": i} for i in expected]
         try:
             for side in side_order:
-                if time.monotonic() - self.started >= self.wall_budget:
-                    raise TimeoutError("Declared native physical budget exhausted")
-                self.event("pipeline_loading", side=side, batch=batch_id)
-                try:
-                    report = self.backend.load(side, deepcopy(self.context), self.folder, batch_id)
-                    self.event("pipeline_ready", side=side, batch=batch_id, report=report)
-                    for identity, record in zip(expected, records, strict=True):
-                        if time.monotonic() - self.started >= self.wall_budget:
-                            raise TimeoutError("Declared native physical budget exhausted")
-                        path = self.folder / f"episode-{identity['state_index']}-{identity['repeat']}-{side}"
-                        path.mkdir()
-                        claim = {"status": "started", "identity": identity, "side": side,
-                                 "pipeline_sha256": identity[f"{side}_pipeline_sha256"]}
-                        atomic_json(path / "attempt.json", claim)
-                        self.event("episode_started", side=side, identity=identity, raw_folder=str(path))
-                        try:
-                            episode = self.backend.run_episode(
-                                side, deepcopy(identity), path,
-                                self.started + self.wall_budget)
-                            # Use the existing strict episode validator before accepting a side.
-                            mirror = {**episode, "pipeline_sha256":
-                                      identity[f"{'new' if side == 'old' else 'old'}_pipeline_sha256"]}
-                            PairCache.validate({"identity": identity, side: episode,
-                                                ("new" if side == "old" else "old"): mirror}, identity)
-                            bind_state_reset(self.folder / "state-resets", identity, episode)
-                            evidence = {str(p.relative_to(path)): digest_file(p)
-                                        for p in sorted(path.rglob("*"))
-                                        if p.is_file() and p.name not in ("attempt.json", "episode.json")}
-                            if not evidence:
-                                raise ValueError("Native episode has no durable raw evidence")
-                            episode = {**episode, "raw_folder": str(path),
-                                       "raw_evidence": evidence}
-                            atomic_json(path / "episode.json", episode)
-                            atomic_json(path / "attempt.json", {**claim, "status": "completed",
-                                        "episode_sha256": digest_file(path / "episode.json")})
-                        except BaseException as error:
-                            atomic_json(path / "attempt.json", {**claim, "status": "error",
-                                        "error": type(error).__name__ + ": " + str(error)})
-                            self.event("episode_error", side=side, identity=identity,
-                                       error=type(error).__name__ + ": " + str(error))
-                            raise
-                        record[side] = episode
-                        self.event("episode_completed", side=side, identity=identity,
-                                   success=episode["success"], steps=episode["steps"])
-                finally:
-                    self.backend.close()
-                    self.event("pipeline_released", side=side, batch=batch_id,
-                               cpu_release_report=getattr(self.backend, "cpu_release_report", None))
+                identity = expected[0]
+                records[0][side] = self.run_side(side, identity, batch_id,
+                                                self.started + self.wall_budget)
             for record, identity in zip(records, expected, strict=True):
                 PairCache.validate(record, identity)
             atomic_json(batch_path, {"status": "completed", "identities": expected,

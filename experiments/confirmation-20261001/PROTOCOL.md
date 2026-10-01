@@ -5,7 +5,8 @@ prepared on October 1, 2026. It is not part of the regression-budget paper.
 The original v1 document and executable design were published before control
 collection. **The v2 revision followed a failed v1 engineering control and
 preceded v2 collection. The v3 added phase timing, and v4 froze tokenizer assets.
-This v5 adds owned CPU-allocator cleanup and full-horizon feasibility planning.
+V5 added owned CPU-allocator cleanup and full-horizon feasibility planning.
+This v6 uses a new exec-created, supervised worker for each model side.
 Previous cohorts keep their original sources, evidence and failed lifecycles.**
 Preparation and CPU tests are not
 native efficacy evidence. The fixed state, 80-pair sample size, alpha, analysis
@@ -22,7 +23,7 @@ GPU kernel latency. Snapshot format, compression, physics and scoring are unchan
 
 The saved processor config names `facebook/bart-large`, but v1–v3 did not
 separately bind its cached files. That is a provenance gap, not evidence that the
-tokenizer changed during a run. This v4 requires cached immutable revision
+tokenizer changed during a run. V4 and later require cached immutable revision
 `cb48c1365bd826bd521f650dc2e0940aee54720c`, hashes config/vocabulary/merge/fast
 tokenizer files, binds optional-file presence and loads the processor from the
 explicit local snapshot. Its actual loaded path is checked. Missing or changed
@@ -30,12 +31,27 @@ assets fail closed without downloading. This does not retroactively establish
 historical tokenizer identity; the new pipeline requires a fresh complete
 engineering control.
 
-After each model release, v5 runs glibc `malloc_trim(0)` in the same process,
+After each model release, v5 and later run glibc `malloc_trim(0)` in the model process,
 after the inherited gc/CUDA synchronization/cache release, recording process
 RSS and host available memory before and after. It releases unused allocator
 pages and does not relax the 18 GiB host or 28 GiB GPU admission gates. Repeated
 post-reload resource failures motivate this prospective diagnostic; retained
 allocator memory has not yet been established as their cause.
+
+V5 measured approximately 1.018 GiB RSS release but still failed the next RAM
+admission. V6 never loads a model or imports Torch in its controller. Each side
+uses a fresh Python exec process, the same official loader and episode kernel,
+and Linux parent-death protection. Only one side runs at a time. The controller
+waits for that exact worker to exit before provisioning the next side; neither a
+saved success nor a saved summary overrides a nonzero exit, timeout or signal.
+Request, original native episode, side summary and process receipt are copied
+into the side's hashed raw evidence and reread before control qualification.
+Failed side workers and their partial data are preserved. No side is retried.
+Startup, checkpoint hashing, collection and teardown count toward the same
+outer physical reservation. Resource gates, priority (`nice 10`), full evidence,
+precision pipelines and fixed seeds are unchanged. Fresh process state changes
+the operational evaluator and needs a new complete control; memory stability,
+output equivalence and throughput are not yet established for v6.
 
 Primary feasibility separates the maximum observed pair overhead from episode
 time. It scales the maximum observed episode seconds per step to 520 steps

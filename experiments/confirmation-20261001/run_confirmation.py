@@ -68,14 +68,15 @@ def freeze(args):
     evaluator.update(environment_lanes=1, reload_every_pair=True,
                      cudnn_benchmark=False, cudnn_deterministic=True,
                      phase_profiling=args.profile_episodes,
-                     cpu_allocator_release="glibc_malloc_trim_after_model_close")
+                     cpu_allocator_release="glibc_malloc_trim_after_model_close",
+                     model_lifecycle="exec_owned_worker_per_side")
     pipeline = {**base["old_pipeline"], "precision": "float32", "n_obs_steps": 1}
     from tokenizer_assets import freeze_tokenizer_assets
     pipeline["tokenizer"] = freeze_tokenizer_assets(Path(pipeline["checkpoint"]))
     pipeline["assets"] = {**pipeline["assets"], **pipeline["tokenizer"]["assets"]}
     new = {**pipeline, "update": "bf16", "precision": "bfloat16"} if args.mode == "primary" else pipeline
     protocol = {
-        "id": "selected-xvla-bf16-serial-confirmation-20261001-v5",
+        "id": "selected-xvla-bf16-serial-confirmation-20261001-v6",
         "mode": args.mode, "alpha": ALPHA, "primary_pairs": PRIMARY_PAIRS,
         "required_pairs": PRIMARY_PAIRS if args.mode == "primary" else CONTROL_PAIRS,
         "state": {**STATE, "task_name": inventory["name"]},
@@ -201,6 +202,9 @@ def verified_control(folder, primary_context):
             or result["completed_pairs"] != CONTROL_PAIRS
             or len(result["pair_elapsed_seconds"]) != CONTROL_PAIRS):
         raise ValueError("Complete exact-match engineering control is required")
+    if (context["evaluator"].get("model_lifecycle") == "exec_owned_worker_per_side"
+            and result.get("parent_torch_imported") is not False):
+        raise ValueError("Isolated-side control requires a model-free controller")
     cache = NativePairCache(folder / "pairs", context)
     observed_diagnostics, episodes = [], []
     for repeat in range(CONTROL_PAIRS):
@@ -208,6 +212,9 @@ def verified_control(folder, primary_context):
             raise ValueError("Missing control pair")
         cache.get(0, repeat, producer=None)
         record = json.loads(cache.path(0, repeat).read_text())
+        if context["evaluator"].get("model_lifecycle") == "exec_owned_worker_per_side":
+            from isolated_sides import verify_isolated_pair
+            verify_isolated_pair(record)
         observed_diagnostics.append(compare_control_pair(record))
         episodes.append([record["old"], record["new"]])
     if result.get("off_cadence_camera_diagnostics") != observed_diagnostics:
@@ -224,7 +231,7 @@ def verified_control(folder, primary_context):
 def worker(args, context):
     from native_collection import NativePairCache, object_digest
     from paired_collection import atomic_json
-    from serial_backend import SerialPairProducer, SerialPrecisionBackend
+    from isolated_sides import IsolatedSideProducer, verify_isolated_pair
     try:
         Path("/proc/self/oom_score_adj").write_text("1000")
     except OSError:
@@ -237,8 +244,10 @@ def worker(args, context):
     started = time.monotonic()
     values, durations, camera_diagnostics = [], [], []
     try:
-        producer = SerialPairProducer(args.output / "raw", context, SerialPrecisionBackend(),
-                                      wall_budget=args.wall_budget)
+        if "torch" in sys.modules:
+            raise RuntimeError("The isolated-side controller must not import Torch")
+        producer = IsolatedSideProducer(args.output / "raw", context, args.runtime_root,
+                                        wall_budget=args.wall_budget)
         cache = NativePairCache(args.output / "pairs", context)
         for planned in context["protocol"]["pair_plan"]:
             if shutil.disk_usage(args.output).free < 2 * 1024 ** 3:
@@ -248,6 +257,7 @@ def worker(args, context):
             if cache.identity(0, repeat)["policy_seed"] != planned["policy_seed"]:
                 raise ValueError("Actual policy seed differs from published pair plan")
             pair = cache.get_many([(0, repeat)], producer.produce_many)[0]
+            verify_isolated_pair(json.loads(cache.path(0, repeat).read_text()))
             durations.append(time.monotonic() - before)
             if args.mode == "control":
                 camera_diagnostics.append(compare_control_pair(
@@ -261,6 +271,7 @@ def worker(args, context):
             "analysis": final_analysis(values) if args.mode == "primary" else None,
             "context_sha256": object_digest(context),
             "worker_elapsed_seconds": time.monotonic() - started,
+            "parent_torch_imported": "torch" in sys.modules,
         }
         atomic_json(args.launch / "summary.json", result)
     except BaseException as error:
@@ -271,7 +282,7 @@ def worker(args, context):
             "worker_elapsed_seconds": time.monotonic() - started, "analysis": None})
         raise
     finally:
-        if producer is not None:
+        if producer is not None and producer.backend is not None:
             producer.backend.close()
 
 
