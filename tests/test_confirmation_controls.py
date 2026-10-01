@@ -19,13 +19,13 @@ runner = importlib.import_module("run_confirmation")
 class ConfirmationControlsTests(unittest.TestCase):
     def test_precision_is_configured_before_load_and_preserves_cadence(self):
         cfg = SimpleNamespace(type="xvla", dtype="float32", num_denoising_steps=10,
-                              chunk_size=30, n_action_steps=30, compile_model=True)
+                              chunk_size=30, n_action_steps=30, n_obs_steps=1, compile_model=True)
         pipeline = {"family": "xvla", "update": "bf16", "precision": "bfloat16"}
         changed = precision.configure_precision(cfg, pipeline)
         self.assertEqual(changed.dtype, "bfloat16")
         self.assertFalse(changed.compile_model)
         self.assertEqual(cfg.dtype, "float32")
-        for field in ("num_denoising_steps", "chunk_size", "n_action_steps"):
+        for field in ("num_denoising_steps", "chunk_size", "n_action_steps", "n_obs_steps"):
             bad = SimpleNamespace(**vars(cfg))
             setattr(bad, field, 2)
             with self.assertRaises(ValueError):
@@ -87,6 +87,49 @@ class ConfirmationControlsTests(unittest.TestCase):
                                 camera=np.zeros((2, 4, 4, 3)), simulator_state=np.ones(7))
             (folders[1] / "action-000.json").write_text(json.dumps({"action": [[.2] * 7]}))
             with self.assertRaisesRegex(ValueError, "actions"):
+                runner.compare_control_pair(record)
+
+    def test_camera_rounding_is_bounded_and_excluded_from_prediction_inputs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folders = [Path(tmp) / side for side in ("old", "new")]
+            record = {}
+            camera = np.zeros((1, 360, 360, 3), dtype=np.uint8)
+            for side, folder in zip(("old", "new"), folders):
+                folder.mkdir()
+                record[side] = dict(success=True, steps=2, terminated=True, truncated=False,
+                                    environment_terminated=True, environment_truncated=False,
+                                    collector_truncated=False, raw_folder=str(folder))
+                (folder / "transitions.jsonl").write_text('{"step":0}\n{"step":1}\n')
+                for step in range(2):
+                    (folder / f"action-{step:03d}.json").write_text(
+                        json.dumps({"action": [[.1] * 7]}))
+                for name in ("input-000.npz", "input-001.npz", "terminal.npz"):
+                    np.savez_compressed(folder / name, **{
+                        "observation/pixels/image2": camera, "simulator_state": np.ones(7)})
+            # A one-level difference between predictions is retained as a diagnostic.
+            changed = camera.copy()
+            changed[0, 0, 0, 0] = 1
+            np.savez_compressed(folders[1] / "input-001.npz", **{
+                "observation/pixels/image2": changed, "simulator_state": np.ones(7)})
+            diagnostics = runner.compare_control_pair(record)
+            self.assertEqual(diagnostics[0]["different_channels"], 1)
+            # The identical perturbation at a prediction or terminal frame is forbidden.
+            for name in ("input-000.npz", "terminal.npz"):
+                np.savez_compressed(folders[1] / name, **{
+                    "observation/pixels/image2": changed, "simulator_state": np.ones(7)})
+                with self.assertRaisesRegex(ValueError, "observations"):
+                    runner.compare_control_pair(record)
+                np.savez_compressed(folders[1] / name, **{
+                    "observation/pixels/image2": camera, "simulator_state": np.ones(7)})
+            # Off-cadence magnitude and changed-channel fraction both remain bounded.
+            for bad in (np.full_like(camera, 1), np.full_like(camera, 2)):
+                np.savez_compressed(folders[1] / "input-001.npz", **{
+                    "observation/pixels/image2": bad, "simulator_state": np.ones(7)})
+                with self.assertRaisesRegex(ValueError, "rounding bound"):
+                    runner.compare_control_pair(record)
+            np.savez_compressed(folders[1] / "input-001.npz", **{
+                "observation/pixels/image2": camera, "simulator_state": np.ones(7) + 1e-12})
+            with self.assertRaisesRegex(ValueError, "simulator states"):
                 runner.compare_control_pair(record)
 
 
@@ -207,7 +250,8 @@ class SerialProducerTests(unittest.TestCase):
             launch.mkdir(parents=True)
             summary_path = launch / "summary.json"
             self.paired.atomic_json(summary_path, {
-                "status": "control_completed", "control_exact_match": True,
+                "status": "control_completed", "control_prediction_and_physics_exact_match": True,
+                "off_cadence_camera_diagnostics": [[], []],
                 "completed_pairs": 2, "pair_elapsed_seconds": [2, 3],
                 "context_sha256": self.native.object_digest(context)})
             receipt = {

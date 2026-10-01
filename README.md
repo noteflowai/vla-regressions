@@ -65,6 +65,12 @@ randomized order and a separate exact-trajectory FP32 engineering control.
 Its paired-test power planner, durable native adapter and CPU controls are
 development artifacts, not completed native findings. The reviewed r2
 manuscript and its archived outcomes remain the published evidence.
+The [first engineering attempt](experiments/confirmation-20261001/engineering-control-001.json)
+failed its original all-frame equality rule: two off-prediction camera channel
+values differed by one intensity level, while actions, physics and outcomes
+matched. The v2 protocol preserves that failure and defines a bounded,
+reported exception for intermediate camera rounding; a fresh clean control
+is still required before primary collection.
 
 ## Reproduce the analysis
 

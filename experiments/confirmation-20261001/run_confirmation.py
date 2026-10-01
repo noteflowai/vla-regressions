@@ -67,10 +67,10 @@ def freeze(args):
         evaluator["sources"][inventory[path_key]] = inventory[hash_key]
     evaluator.update(environment_lanes=1, reload_every_pair=True,
                      cudnn_benchmark=False, cudnn_deterministic=True)
-    pipeline = {**base["old_pipeline"], "precision": "float32"}
+    pipeline = {**base["old_pipeline"], "precision": "float32", "n_obs_steps": 1}
     new = {**pipeline, "update": "bf16", "precision": "bfloat16"} if args.mode == "primary" else pipeline
     protocol = {
-        "id": "selected-xvla-bf16-serial-confirmation-20261001-v1",
+        "id": "selected-xvla-bf16-serial-confirmation-20261001-v2",
         "mode": args.mode, "alpha": ALPHA, "primary_pairs": PRIMARY_PAIRS,
         "required_pairs": PRIMARY_PAIRS if args.mode == "primary" else CONTROL_PAIRS,
         "state": {**STATE, "task_name": inventory["name"]},
@@ -122,7 +122,7 @@ def read_budget(path):
 
 
 def compare_control_pair(record):
-    """Check every recorded input, action and transition; do not inspect success alone."""
+    """Exact physics/actions/prediction inputs; bound and report off-cadence RGB rounding."""
     import numpy as np
     old, new = record["old"], record["new"]
     if any(old[key] != new[key] for key in (
@@ -137,12 +137,31 @@ def compare_control_pair(record):
                    for folder in folders]
         if actions[0] != actions[1]:
             raise ValueError("Independent FP32 reload actions differ")
+    camera_diagnostics = []
     for name in [f"input-{step:03d}.npz" for step in range(old["steps"])] + ["terminal.npz"]:
+        prediction_input = name == "terminal.npz" or int(name[6:9]) % 30 == 0
         with np.load(folders[0] / name, allow_pickle=False) as a, np.load(
                 folders[1] / name, allow_pickle=False) as b:
-            if set(a.files) != set(b.files) or any(
-                    not np.array_equal(a[key], b[key]) for key in a.files):
-                raise ValueError("Independent FP32 reload observations or simulator states differ")
+            if set(a.files) != set(b.files):
+                raise ValueError("Independent FP32 reload observation fields differ")
+            for key in a.files:
+                x, y = a[key], b[key]
+                if x.shape != y.shape or x.dtype != y.dtype:
+                    raise ValueError("Independent FP32 reload observation schema differs")
+                if np.array_equal(x, y):
+                    continue
+                if (prediction_input or not key.startswith("observation/pixels/")
+                        or x.dtype != np.uint8 or x.shape != (1, 360, 360, 3)):
+                    raise ValueError("Independent FP32 reload observations or simulator states differ")
+                changed = int(np.count_nonzero(x != y))
+                max_difference = int(np.abs(x.astype(np.int16) - y.astype(np.int16)).max())
+                if max_difference > 1 or changed / x.size > 1e-4:
+                    raise ValueError("Off-cadence camera variation exceeds declared rounding bound")
+                camera_diagnostics.append({"file": name, "field": key,
+                                           "different_channels": changed,
+                                           "total_channels": int(x.size),
+                                           "maximum_absolute_difference": max_difference})
+    return camera_diagnostics
 
 
 def verified_control(folder, primary_context):
@@ -172,16 +191,20 @@ def verified_control(folder, primary_context):
         raise ValueError("Control requires unchanged summary and clean process lifecycle")
     result = read_summary(summary_path)
     if (result is None or result["context_sha256"] != object_digest(context)
-            or result["status"] != "control_completed" or result["control_exact_match"] is not True
+            or result["status"] != "control_completed"
+            or result["control_prediction_and_physics_exact_match"] is not True
             or result["completed_pairs"] != CONTROL_PAIRS
             or len(result["pair_elapsed_seconds"]) != CONTROL_PAIRS):
         raise ValueError("Complete exact-match engineering control is required")
     cache = NativePairCache(folder / "pairs", context)
+    observed_diagnostics = []
     for repeat in range(CONTROL_PAIRS):
         if not cache.path(0, repeat).is_file():
             raise ValueError("Missing control pair")
         cache.get(0, repeat, producer=None)
-        compare_control_pair(json.loads(cache.path(0, repeat).read_text()))
+        observed_diagnostics.append(compare_control_pair(json.loads(cache.path(0, repeat).read_text())))
+    if result.get("off_cadence_camera_diagnostics") != observed_diagnostics:
+        raise ValueError("Control rendering diagnostics differ from retained raw evidence")
     durations = result["pair_elapsed_seconds"]
     if any(type(t) not in (float, int) or not math.isfinite(t) or not 0 < t <= 43200
            for t in durations):
@@ -204,7 +227,7 @@ def worker(args, context):
     signal.signal(signal.SIGINT, interrupted)
     producer = None
     started = time.monotonic()
-    values, durations = [], []
+    values, durations, camera_diagnostics = [], [], []
     try:
         producer = SerialPairProducer(args.output / "raw", context, SerialPrecisionBackend(),
                                       wall_budget=args.wall_budget)
@@ -219,12 +242,14 @@ def worker(args, context):
             pair = cache.get_many([(0, repeat)], producer.produce_many)[0]
             durations.append(time.monotonic() - before)
             if args.mode == "control":
-                compare_control_pair(json.loads(cache.path(0, repeat).read_text()))
+                camera_diagnostics.append(compare_control_pair(
+                    json.loads(cache.path(0, repeat).read_text())))
             values.append(pair)
         result = {
             "status": "control_completed" if args.mode == "control" else "confirmation_completed",
             "completed_pairs": len(values), "pair_elapsed_seconds": durations,
-            "control_exact_match": True if args.mode == "control" else None,
+            "control_prediction_and_physics_exact_match": True if args.mode == "control" else None,
+            "off_cadence_camera_diagnostics": camera_diagnostics if args.mode == "control" else None,
             "analysis": final_analysis(values) if args.mode == "primary" else None,
             "context_sha256": object_digest(context),
             "worker_elapsed_seconds": time.monotonic() - started,

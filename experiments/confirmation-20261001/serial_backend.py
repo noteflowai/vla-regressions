@@ -67,7 +67,7 @@ class SerialPrecisionBackend(LiberoNativeBackend):
         cfg.pretrained_path, cfg.device = str(checkpoint), "cuda"
         cfg, variant = configure_variant(cfg, context["family"], "baseline_reload")
         cfg = configure_precision(cfg, pipeline)
-        variant.update(update=pipeline["update"], precision=cfg.dtype)
+        variant.update(update=pipeline["update"], precision=cfg.dtype, n_obs_steps=cfg.n_obs_steps)
         if (variant["flow_steps"] != pipeline["flow_steps"]
                 or cfg.n_action_steps != pipeline["n_action_steps"]
                 or cfg.chunk_size != pipeline["chunk_size"]):

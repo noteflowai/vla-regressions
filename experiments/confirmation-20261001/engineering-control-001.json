@@ -1,0 +1,67 @@
+{
+  "audited_at": "2026-10-01T05:01:14.721446+00:00",
+  "protocol_revision": "v1",
+  "source_commit": "c213b95c3890e1df375dadf1bae3dd25506d408e",
+  "status": "failed_engineering_control",
+  "worker_exit_code": 1,
+  "error": "ValueError: Independent FP32 reload observations or simulator states differ",
+  "retained_native_pairs": 1,
+  "engineering_accepted_pairs": 0,
+  "completed_native_policy_episodes": 2,
+  "planned_control_policy_episodes": 4,
+  "fp32_outcomes": [
+    {
+      "side": "old",
+      "success": true,
+      "steps": 287
+    },
+    {
+      "side": "new",
+      "success": true,
+      "steps": 287
+    }
+  ],
+  "full_action_and_transition_equality": true,
+  "compared_snapshots_per_side": 288,
+  "observational_differences": [
+    {
+      "file": "input-055.npz",
+      "key": "observation/pixels/image2",
+      "shape": [
+        1,
+        360,
+        360,
+        3
+      ],
+      "dtype": "uint8",
+      "different_elements": 2,
+      "elements": 388800,
+      "max_absolute_difference": 1.0,
+      "nonfinite_old": 0,
+      "nonfinite_new": 0
+    }
+  ],
+  "differing_field_summary": {
+    "observation/pixels/image2": {
+      "different_frames": 1,
+      "different_elements": 2,
+      "max_absolute_difference": 1.0
+    }
+  },
+  "all_other_recorded_array_values_equal": true,
+  "n_obs_steps": 1,
+  "n_action_steps": 30,
+  "difference_on_prediction_refresh": false,
+  "rendering_difference_cause": "not_established",
+  "physical_seconds_charged": 800.5152078210376,
+  "shared_budget_remaining_seconds": 38404.27985855099,
+  "retained_pair_sha256": "631879b6f094ca17b78f7365ad5311461e69a1b7ff935b6cdceb0d4bb7716c86",
+  "retained_summary_sha256": "b19fc401bb43497a0d7d7a296be4bff2d140c9645c121b9e357874dabd53b857",
+  "diagnostic_sha256": "9af6a3a6e6873ade902269362ef35180d368d5feccc9a133e4995ce7ad319fe1",
+  "v2_cohort_collected": false,
+  "v1_cohort_promoted_to_passed": false,
+  "bf16_episodes_collected": 0,
+  "primary_inference": null,
+  "existing_preprint_changed": false,
+  "scope": "Engineering audit of an unsuccessful v1 readiness check. Archived raw records remain local. A new v2 cohort and clean lifecycle are mandatory; no precision-efficacy claim."
+}

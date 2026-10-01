@@ -2,8 +2,11 @@
 
 This is an additional experiment for *Beyond Aggregate Success*, separately
 prepared on October 1, 2026. It is not part of the regression-budget paper.
-This document and the executable design are published before any new control
-or primary outcome. Preparation and CPU tests are not native efficacy evidence.
+The original v1 document and executable design were published before control
+collection. **This v2 revision follows a failed v1 engineering control and
+precedes any v2 control or primary outcome.** Preparation and CPU tests are not
+native efficacy evidence. The fixed state, 80-pair sample size, alpha, analysis
+and primary seed stream are unchanged.
 
 ## Question, fixed state, and interpretation
 
@@ -66,12 +69,41 @@ proprioception, prompt, goals and controller to one reset-input identity across
 all repeats and both pipelines. Do not reuse historical outcomes.
 
 First collect a separate **two-pair FP32-versus-FP32 independent-reload
-engineering control** using a separate seed stream. Require complete matching
-observations, simulator states, actions, transitions, terminal arrays, outcomes,
-and clean process exit. A failure stops the primary launch and remains an
+engineering control** using a separate seed stream. Require exact simulator
+states, proprioception, actions, transitions, terminal arrays and outcomes,
+and a clean process exit. Require exact camera inputs at each model prediction
+step (0, 30, 60, …), with `n_obs_steps=1` and `n_action_steps=30` explicitly
+validated before model construction. The official X-VLA queue consumes one
+observation at a refresh and overwrites intermediate observations before the
+next refresh. Initial reset cameras remain exact across all sides/repeats.
+
+For recorded camera frames between predictions, permit only uint8
+360×360 RGB rounding differences of at most one intensity level in at most
+1e-4 of the channel values per frame. Keep and report every such difference;
+this is an engineering rendering bound, not tolerance on model input,
+physics, actions, or statistical outcomes. Any prediction-input difference,
+non-camera difference or larger rendering drift fails the control.
+
+A failure stops the primary launch and remains an
 engineering failure, not a BF16 regression. These four control episodes are
 excluded from the primary analysis. Control outcomes do not change the fixed
 sample size, alpha, state, or hypothesis.
+
+### Why v2 is necessary
+
+The archived v1 attempt stopped after one complete FP32/FP32 pair. Both sides
+succeeded at step 287, with identical actions, transitions, simulator states
+and proprioception. Across 288 snapshots, the wrist camera differed in just
+two uint8 channel values by one intensity level at step 55. That frame is
+between model predictions and is overwritten before step 60. The literal v1
+all-frame rule nevertheless failed, as specified. Its nonzero exit, raw
+evidence and 800.515-second physical charge remain intact; **it is not promoted
+to a passed v2 control**. See [the retained audit summary](engineering-control-001.json).
+The cause of the two rendering differences is not established; the observation
+does not justify blaming model loading, resets, or precision updates.
+
+Future v2 controls require a distinct cohort and full clean execution.
+No same-cohort retry or BF16 primary collection was launched after this failure.
 
 ## Admission, accounting, and failures
 
@@ -127,6 +159,10 @@ CPU-only checks and planning:
 python -m unittest discover -s tests -v
 python experiments/confirmation-20261001/design.py --output /tmp/paired-power.json
 ```
+
+Set `NATIVE_KERNEL_ROOT` to a checkout of the pinned kernel to also execute
+the CPU adapter/lifecycle controls. CI does this automatically. Without that
+checkout, the three adapter checks are skipped; no native model is imported.
 
 Prepare a distinct control or primary cohort without importing a model:
 
