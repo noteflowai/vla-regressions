@@ -3,10 +3,21 @@
 This is an additional experiment for *Beyond Aggregate Success*, separately
 prepared on October 1, 2026. It is not part of the regression-budget paper.
 The original v1 document and executable design were published before control
-collection. **This v2 revision follows a failed v1 engineering control and
-precedes any v2 control or primary outcome.** Preparation and CPU tests are not
+collection. **The v2 revision followed a failed v1 engineering control and
+preceded v2 collection. This v3 adds optional phase timing for future distinct
+cohorts; the original v2 control keeps its original source and context.**
+Preparation and CPU tests are not
 native efficacy evidence. The fixed state, 80-pair sample size, alpha, analysis
 and primary seed stream are unchanged.
+
+`--profile-episodes` freezes inclusive host wall/process CPU timers in the
+evaluator identity. It observes existing calls without adding model predictions,
+state reads, RNG draws or CUDA synchronizations. All timed functions are restored
+even when the episode fails. Complete per-call timing records are retained and
+hashed with each episode's raw evidence. Timed and untimed evaluators require
+their own matched engineering controls; source or timing configuration changes
+cannot reuse the v2 control. Phase timings overlap and do not isolate asynchronous
+GPU kernel latency. Snapshot format, compression, physics and scoring are unchanged.
 
 ## Question, fixed state, and interpretation
 

@@ -18,6 +18,14 @@ from precision import configure_precision, verify_precision
 
 
 class SerialPrecisionBackend(LiberoNativeBackend):
+    def run_episode(self, side, identity, folder, deadline):
+        run = lambda: super(SerialPrecisionBackend, self).run_episode(
+            side, identity, folder, deadline)
+        if self.context["evaluator"].get("phase_profiling", False):
+            from phase_profiling import profile_episode
+            return profile_episode(self, run, folder)
+        return run()
+
     def load(self, side, context, folder, batch_id):
         if self.policy is not None:
             raise RuntimeError("Release the previous policy before provisioning a side")

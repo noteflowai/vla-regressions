@@ -1,0 +1,147 @@
+{
+  "status": "completed",
+  "started_at": "2026-10-01T05:27:56.546131+00:00",
+  "finished_at": "2026-10-01T05:28:02.809727+00:00",
+  "benchmark_source_sha256": "b995e427d67ba6fd5422903950eea64ca22d6f5a4a3dad4b7c2dcfd0c5d676e6",
+  "native_writer_source_sha256": "8395afb993f8c553e7a68f33cd3ccd283cd556b319de86c52f1bbf5de4fcddd2",
+  "numpy_version": "2.2.6",
+  "seed": 2026100113,
+  "concurrent_native_collection": true,
+  "summary": {
+    "native_compressed": {
+      "writes": 48,
+      "median_wall_seconds": 0.05086994543671608,
+      "maximum_wall_seconds": 0.09114324697293341,
+      "median_process_cpu_seconds": 0.031518920000000006,
+      "mean_output_bytes": 216589.625,
+      "all_array_round_trips_verified": true,
+      "sample_based_80_pair_520_step_npz_bytes": 18054911140
+    },
+    "deflate_level_1": {
+      "writes": 48,
+      "median_wall_seconds": 0.024405205971561372,
+      "maximum_wall_seconds": 0.041810974944382906,
+      "median_process_cpu_seconds": 0.012397139499999987,
+      "mean_output_bytes": 253919.875,
+      "all_array_round_trips_verified": true,
+      "sample_based_80_pair_520_step_npz_bytes": 21166760780
+    },
+    "stored": {
+      "writes": 48,
+      "median_wall_seconds": 0.011003567022271454,
+      "maximum_wall_seconds": 0.021939068101346493,
+      "median_process_cpu_seconds": 0.0018332505000000499,
+      "mean_output_bytes": 781218,
+      "all_array_round_trips_verified": true,
+      "sample_based_80_pair_520_step_npz_bytes": 65122332480
+    }
+  },
+  "scope": "CPU-only replay of retained observations; no policy, simulation or native episode. Timing excludes input reading and verification. Warm page cache, sampled frames and concurrent jobs limit extrapolation. Candidate formats are not adopted by the frozen collector. Storage projection includes NPZ only and is a sample mean, not an admission bound.",
+  "saved_episode_snapshot_count": 16,
+  "original_raw_data_public": false,
+  "retained_snapshot_hashes": [
+    {
+      "episode": "episode-0-0-old",
+      "file": "input-000.npz",
+      "sha256": "2646909fb8b1f3e2b7a9b8ee9459c3d1d3dfd519f1b617e1099aa51d949e530e"
+    },
+    {
+      "episode": "episode-0-0-old",
+      "file": "input-041.npz",
+      "sha256": "6d865605dd28f0409e8ac9a08a75210f51137b280faa45a4181b850845d07d46"
+    },
+    {
+      "episode": "episode-0-0-old",
+      "file": "input-082.npz",
+      "sha256": "93afe692e3ee45eb1f0133280cd29db7fa3be3ba99138fc23992d98fd13d2302"
+    },
+    {
+      "episode": "episode-0-0-old",
+      "file": "input-123.npz",
+      "sha256": "488f6c378a8f52d4df63341e5f1e51804fc3d7f0bbf29ca70eb66a36d99c151a"
+    },
+    {
+      "episode": "episode-0-0-old",
+      "file": "input-164.npz",
+      "sha256": "c54566b9c433b34a70c3525e15528cb22a797efb0a47753c3026f2196d9575d8"
+    },
+    {
+      "episode": "episode-0-0-old",
+      "file": "input-205.npz",
+      "sha256": "e426644a5791a545390294c45c440f6918f638c73060ad1b75de20ca251a5c0d"
+    },
+    {
+      "episode": "episode-0-0-old",
+      "file": "input-246.npz",
+      "sha256": "c06fa5b0cc8a73f3ac14828fa44d80295916f17bece25e1ee0f1e3ce92a5204b"
+    },
+    {
+      "episode": "episode-0-0-old",
+      "file": "terminal.npz",
+      "sha256": "344e1dfde3561500380d535d73eea655d0e16c9a70656218fe2ce33df7b90098"
+    },
+    {
+      "episode": "episode-0-0-new",
+      "file": "input-000.npz",
+      "sha256": "2646909fb8b1f3e2b7a9b8ee9459c3d1d3dfd519f1b617e1099aa51d949e530e"
+    },
+    {
+      "episode": "episode-0-0-new",
+      "file": "input-041.npz",
+      "sha256": "6d865605dd28f0409e8ac9a08a75210f51137b280faa45a4181b850845d07d46"
+    },
+    {
+      "episode": "episode-0-0-new",
+      "file": "input-082.npz",
+      "sha256": "93afe692e3ee45eb1f0133280cd29db7fa3be3ba99138fc23992d98fd13d2302"
+    },
+    {
+      "episode": "episode-0-0-new",
+      "file": "input-123.npz",
+      "sha256": "488f6c378a8f52d4df63341e5f1e51804fc3d7f0bbf29ca70eb66a36d99c151a"
+    },
+    {
+      "episode": "episode-0-0-new",
+      "file": "input-164.npz",
+      "sha256": "c54566b9c433b34a70c3525e15528cb22a797efb0a47753c3026f2196d9575d8"
+    },
+    {
+      "episode": "episode-0-0-new",
+      "file": "input-205.npz",
+      "sha256": "e426644a5791a545390294c45c440f6918f638c73060ad1b75de20ca251a5c0d"
+    },
+    {
+      "episode": "episode-0-0-new",
+      "file": "input-246.npz",
+      "sha256": "c06fa5b0cc8a73f3ac14828fa44d80295916f17bece25e1ee0f1e3ce92a5204b"
+    },
+    {
+      "episode": "episode-0-0-new",
+      "file": "terminal.npz",
+      "sha256": "344e1dfde3561500380d535d73eea655d0e16c9a70656218fe2ce33df7b90098"
+    }
+  ],
+  "historical_control_action_timestamp_intervals": {
+    "action_refresh": {
+      "count": 18,
+      "median_seconds": 2.2070476923836395
+    },
+    "cached_action": {
+      "count": 554,
+      "median_seconds": 0.6196007864782587
+    }
+  },
+  "candidate_phase_medians": {
+    "deflate_level_1": {
+      "encode_write_seconds": 0.01591261860448867,
+      "file_flush_fsync_seconds": 0.005671571590937674,
+      "replace_directory_fsync_seconds": 0.0024474505335092545
+    },
+    "stored": {
+      "encode_write_seconds": 0.0017833934398368,
+      "file_flush_fsync_seconds": 0.005902364500798285,
+      "replace_directory_fsync_seconds": 0.0027702106162905693
+    }
+  },
+  "local_full_measurement_sha256": "31d3fe983f1455c941e2192208e2c8ba6195842d7f7ef4f36b5b9e6aced39c87"
+}

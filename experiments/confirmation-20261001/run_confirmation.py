@@ -66,11 +66,12 @@ def freeze(args):
     for path_key, hash_key in (("init_file", "init_file_sha256"), ("bddl_file", "bddl_sha256")):
         evaluator["sources"][inventory[path_key]] = inventory[hash_key]
     evaluator.update(environment_lanes=1, reload_every_pair=True,
-                     cudnn_benchmark=False, cudnn_deterministic=True)
+                     cudnn_benchmark=False, cudnn_deterministic=True,
+                     phase_profiling=args.profile_episodes)
     pipeline = {**base["old_pipeline"], "precision": "float32", "n_obs_steps": 1}
     new = {**pipeline, "update": "bf16", "precision": "bfloat16"} if args.mode == "primary" else pipeline
     protocol = {
-        "id": "selected-xvla-bf16-serial-confirmation-20261001-v2",
+        "id": "selected-xvla-bf16-serial-confirmation-20261001-v3",
         "mode": args.mode, "alpha": ALPHA, "primary_pairs": PRIMARY_PAIRS,
         "required_pairs": PRIMARY_PAIRS if args.mode == "primary" else CONTROL_PAIRS,
         "state": {**STATE, "task_name": inventory["name"]},
@@ -277,6 +278,8 @@ def main():
     parser.add_argument("--control", type=Path)
     parser.add_argument("--wall-budget", type=int, default=2400)
     parser.add_argument("--prepare-only", action="store_true")
+    parser.add_argument("--profile-episodes", action="store_true",
+                        help="Freeze opt-in inclusive phase timings; requires a new control context")
     parser.add_argument("--worker", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--launch", type=Path, help=argparse.SUPPRESS)
     args = parser.parse_args()
@@ -351,6 +354,8 @@ def main():
             "--budget-ledger", str(args.budget_ledger), "--output", str(args.output),
             "--mode", args.mode, "--wall-budget", str(args.wall_budget),
             "--worker", "--launch", str(launch)]
+        if args.profile_episodes:
+            command.append("--profile-episodes")
         result = supervise(command, launch / "summary.json", launch / "worker.log",
                            args.wall_budget, 120, on_started=record_started,
                            summary_reader=read_summary)
