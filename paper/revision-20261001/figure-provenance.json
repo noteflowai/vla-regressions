@@ -69,8 +69,57 @@
           3
         ]
       ],
+      "observed_loss_pp": 70.0,
       "pilot_policy_seeds_excluded": true,
-      "scene_matches_selected_pilot": true
+      "scene_matches_selected_pilot": true,
+      "reconstructed_five_lane_batches": [
+        {
+          "repeat_indices": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fp32_success": 4,
+          "bf16_success": 1
+        },
+        {
+          "repeat_indices": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "fp32_success": 4,
+          "bf16_success": 1
+        },
+        {
+          "repeat_indices": [
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "fp32_success": 5,
+          "bf16_success": 1
+        },
+        {
+          "repeat_indices": [
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "fp32_success": 5,
+          "bf16_success": 1
+        }
+      ],
+      "batch_sign_sensitivity_p": 0.0625,
+      "batch_sensitivity_null": "Independent batch differences with balanced signs; not the episode discordance null"
     },
     "public_data": {
       "repeated_configurations": 20,
@@ -95,5 +144,5 @@
     "bf16_changed_episode_lengths": 422
   },
   "new_rollouts_in_manuscript": 0,
-  "builder_sha256": "8a9e1af507fc953859b809be8156d4d92d84389af401c23fd2b80f3f08d50b53"
+  "builder_sha256": "73971e2bd724164285e288da11293bfc060b04a44f6574111e7590ad74166fc8"
 }

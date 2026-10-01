@@ -1,7 +1,8 @@
 # Expanded preprint revision, 2026-10-01
 
 **Beyond Aggregate Success: Paired Statewise Evaluation of VLA Policy Updates**
-is a signed revision of the workshop submission **Higher Success, New Failures:
+is a signed, expanded revision of the same workshop study, originally titled
+**Higher Success, New Failures:
 Measuring Per-State Regressions in VLA Policy Updates**, using the same archived
 outcomes. It is not a second paper or a new external submission.
 
@@ -11,18 +12,21 @@ outcomes. It is not a second paper or a new external submission.
 - Figures: five vector PDFs in `figures/`, rebuilt by `build_figures.py`.
 - Data identities and computed figure values: `figure-provenance.json`.
 - Outcome/analysis companion: `reproducibility.tar.gz`; verify using
-  `reproducibility-manifest.json`. This separate local package is not a claim
-  that the data have already been publicly uploaded.
+  `reproducibility-manifest.json`. Versioned releases publish the reviewed
+  artifacts and checksums; each manifest identifies its own build snapshot.
 
-The submitted anonymous five-page baseline under `../latex/` remains the
-historical OpenReview attachment. This revision has nine pages: seven main-text
-pages, one references page and one reproducibility appendix. It has five figures
-and two tables. External arXiv/OpenReview records have not been updated with it.
+The anonymous five-page manuscript under `../latex/` remains the workshop
+version. The existing OpenReview note was updated on October 1 with its aligned
+title and evidence limits, as documented in the repository's submission kit.
+This expanded preprint has five figures and three tables; `verification.json`
+records the current page count. It is public through GitHub releases and has
+not been announced on arXiv.
 
 ## What improved
 
-The preprint title reflects the strongest result: one independently confirmed
-BF16 loss when aggregate success changes little. The higher-success two-step
+The preprint title reflects the targeted BF16 follow-up when aggregate success
+changes little; its paired inference is conditional on the stated assumptions.
+The higher-success two-step
 variant has only an unconfirmed naive new failure, so the preprint title does
 not imply a confirmed loss for a demonstrably higher-success update.
 
@@ -41,6 +45,21 @@ The original numerical conclusions remain: all pilot BY counts are zero; the
 fresh BF16 state has 18/20 versus 4/20 successes, 15 harmful versus one beneficial
 discordance, and exact one-sided p=.0002593994140625.
 
+The readiness revision adds a related-work comparison and the primary McNemar
+reference, public artifact links, and an explicit audit of the public-data
+matching. Fresh reanalysis from VLAQuantBench's immutable release commit exactly
+matches the published derived results: 354 LIBERO files, 70,194 episode rows,
+309 baseline/update comparisons and 20 repeated configurations. Two X-VLA files
+have extra state labels; their comparisons retain all 190 baseline states and
+exclude four additional rows. See `evidence-audit.json`.
+
+The follow-up used four planned batches of five repeats. All four show lower
+BF16 success (FP32/BF16: 4/1, 4/1, 5/1, 5/1), but a coarser independent-batch
+sign sensitivity test gives p=.0625 under a different null. The episode-level
+paired result is conditional on pair independence; it is not a finding robust
+to arbitrary within-batch dependence. Batch grouping is reconstructed from the
+retained historical scripts, not independently archived execution receipts.
+
 ## Rebuild
 
 From the repository root:
@@ -50,6 +69,7 @@ python3 paper/revision-20261001/build_figures.py
 python3 -m unittest discover -s tests -p test_paired_analysis.py
 make -C paper/revision-20261001 all
 python3 paper/revision-20261001/prepare_reproducibility.py
+python3 paper/revision-20261001/verify_reproducibility.py
 ```
 
 Figure generation requires Python, NumPy, SciPy and Matplotlib. The PDF build
@@ -59,7 +79,14 @@ output and figures; it compiles without Python, raw data or network access.
 The source-pack builder extracts and compiles the archive, then requires text
 equality with the reviewed PDF.
 The companion archive supports outcome reanalysis and figure regeneration.
-The separate TeX archive supplies the manuscript build.
+It includes pinned numerical dependencies, licence notices, the evidence audit
+and the historical scripts needed to inspect the batch/seed plan. Those native
+scripts retain historical environment paths and are not supported fresh-rollout
+commands. The separate TeX archive supplies the manuscript build.
+The extracted-archive check validates every file identity, runs the packaged
+analysis tests and regenerates all figure facts without using the original
+repository's outcome files. GitHub CI runs this check with pinned numerical
+dependencies; it does not load a model or execute native rollouts.
 
 VLAQuantBench reanalysis derives from its MIT-licensed public release
 <https://github.com/jiuyixu25/VLAQuantBench>, commit `4a2cb7c`. Cite Xu et al.,

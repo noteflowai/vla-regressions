@@ -9,12 +9,13 @@ peer-review acceptance or a completed arXiv announcement.
 
 ## Manuscripts and evidence
 
-- [Verified public release](https://github.com/noteflowai/vla-regressions/releases/tag/preprint-2026-10-01):
+- [Reviewed preprint revision](https://github.com/noteflowai/vla-regressions/releases/tag/preprint-2026-10-01-r2):
   signed preprint, anonymous workshop PDF, TeX and reproducibility archives,
-  with SHA-256 checksums. All five attachments were downloaded anonymously
-  and matched their published digests.
+  with SHA-256 checksums. The
+  [initial release](https://github.com/noteflowai/vla-regressions/releases/tag/preprint-2026-10-01)
+  retains its original attachments.
 - [Signed expanded preprint](paper/revision-20261001/output/pdf/higher-success-new-failures.pdf):
-  nine pages, five vector figures and two tables.
+  ten pages, five vector figures and three tables.
 - [Preprint TeX source archive](paper/revision-20261001/arxiv.tar.gz) and
   [source manifest](paper/revision-20261001/arxiv-manifest.json).
 - [Outcome/analysis reproducibility archive](paper/revision-20261001/reproducibility.tar.gz)
@@ -39,9 +40,18 @@ that correction. Seven W3 5/5-to-0/5 changes are descriptive candidates.
 
 One pilot-selected BF16 state was tested on 20 fresh pairs: FP32 succeeded in
 18/20 and BF16 in 4/20, with 15 harmful and one beneficial discordance
-(one-sided exact p=.0002593994140625). This supports the selected hypothesis
-under the stated evaluator assumptions; it does not estimate suite-wide
-regression incidence. Non-detection does not certify preservation.
+(one-sided exact p=.0002593994140625). That episode-level result assumes
+independent paired repeats. The follow-up plan contains four five-lane batches;
+all four show lower BF16 success, but a coarser independent-batch sign sensitivity
+test gives p=.0625 under a different null. The result is conditional on the
+evaluator assumptions and is not robust to arbitrary within-batch dependence.
+It does not estimate suite-wide regression incidence. Non-detection does not
+certify preservation.
+
+Independent reanalysis of VLAQuantBench's immutable release commit matches the
+archived summaries exactly: 354 LIBERO run files, 70,194 episodes, 309
+baseline/update comparisons and 20 repeated configurations. The preprint
+discloses the common-state matching for two files with additional state labels.
 
 Historical logs lack complete checkpoint provenance and reset/camera snapshots.
 Later corrected-pipeline audits cannot retrospectively establish those inputs.
@@ -60,9 +70,16 @@ python -m unittest discover -s tests -v
 ```
 
 The reproducibility archive includes the 4,040 own episode outcomes, public-data
-derived summaries, analysis and figure sources with SHA-256 identities. Its
-manifests preserve the pre-publication snapshot and therefore still describe the
-package as local. Publication does not change those archived bytes.
+derived summaries, analysis and figure sources with SHA-256 identities, pinned
+dependencies and licence notices. The archive's extracted analysis tests and
+figure facts can be independently rebuilt:
+
+```bash
+python paper/revision-20261001/verify_reproducibility.py
+```
+
+Publication state is recorded by the versioned release; manifests identify the
+bytes of their build snapshots. Earlier release attachments remain unchanged.
 
 This is outcome reanalysis, not a bit-exact simulator replay. Archived native
 scripts are retained for provenance; a fresh rollout study needs its own pinned

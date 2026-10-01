@@ -1,0 +1,311 @@
+{
+  "checked_at": "2026-10-01T04:09:45.911932+00:00",
+  "scope": "Independent CPU-only audit; no new rollouts. Public source was read from the immutable local upstream git object and reanalyzed without modifying it.",
+  "public_data": {
+    "immutable_commit": "4a2cb7c1bf9160ae683fe598ec583d7c9b9c13c9",
+    "jsonl_run_files": 354,
+    "episode_rows": 70194,
+    "states_per_file": {
+      "200": 293,
+      "190": 59,
+      "191": 1,
+      "193": 1
+    },
+    "duplicate_or_nonboolean_files": [],
+    "inventory_mismatches": [
+      "results/libero/libero_spatial/xvla/rtn-W2-ve.jsonl",
+      "results/libero/libero_spatial/xvla/ablate-W4A4-ah-only_fc2.jsonl"
+    ],
+    "fresh_reanalysis_equals_published": true,
+    "repeated_configurations": 20,
+    "baseline_update_comparisons": 309,
+    "archived_reanalysis_sha256": "71e91244caf89dfc98ab299ea069790da58acf68207d5849439e80a7f8d82351",
+    "matching_details": [
+      {
+        "configuration": "libero_spatial/xvla/rtn-W2-ve",
+        "baseline_states": 190,
+        "update_states": 193,
+        "common_states": 190,
+        "excluded_update_only_labels": [
+          [
+            0,
+            19
+          ],
+          [
+            1,
+            19
+          ],
+          [
+            2,
+            19
+          ]
+        ]
+      },
+      {
+        "configuration": "libero_spatial/xvla/ablate-W4A4-ah-only_fc2",
+        "baseline_states": 190,
+        "update_states": 191,
+        "common_states": 190,
+        "excluded_update_only_labels": [
+          [
+            6,
+            19
+          ]
+        ]
+      }
+    ]
+  },
+  "own_data": {
+    "own_rows": 4040,
+    "all_identity_checks_passed": true,
+    "pilot": {
+      "w4": {
+        "rows": 500,
+        "success_old": 0.926,
+        "success_new": 0.918,
+        "harmful_pairs": 12,
+        "beneficial_pairs": 8,
+        "naive_harm": 4,
+        "naive_gain": 2,
+        "failures": 41,
+        "failure_step_counts": {
+          "520": 41
+        },
+        "task_success": {
+          "0": 0.94,
+          "1": 0.6,
+          "2": 1.0,
+          "3": 0.92,
+          "4": 0.98,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 0.8,
+          "8": 0.96,
+          "9": 0.98
+        }
+      },
+      "w3": {
+        "rows": 500,
+        "success_old": 0.926,
+        "success_new": 0.726,
+        "harmful_pairs": 104,
+        "beneficial_pairs": 4,
+        "naive_harm": 23,
+        "naive_gain": 2,
+        "failures": 137,
+        "failure_step_counts": {
+          "520": 137
+        },
+        "task_success": {
+          "0": 0.56,
+          "1": 0.24,
+          "2": 0.92,
+          "3": 0.88,
+          "4": 0.46,
+          "5": 1.0,
+          "6": 0.72,
+          "7": 0.52,
+          "8": 0.96,
+          "9": 1.0
+        }
+      },
+      "steps2": {
+        "rows": 500,
+        "success_old": 0.926,
+        "success_new": 0.932,
+        "harmful_pairs": 5,
+        "beneficial_pairs": 8,
+        "naive_harm": 1,
+        "naive_gain": 3,
+        "failures": 34,
+        "failure_step_counts": {
+          "520": 34
+        },
+        "task_success": {
+          "0": 0.96,
+          "1": 0.6,
+          "2": 1.0,
+          "3": 0.9,
+          "4": 0.98,
+          "5": 1.0,
+          "6": 0.98,
+          "7": 0.92,
+          "8": 0.98,
+          "9": 1.0
+        }
+      },
+      "bf16": {
+        "rows": 500,
+        "success_old": 0.926,
+        "success_new": 0.916,
+        "harmful_pairs": 19,
+        "beneficial_pairs": 14,
+        "naive_harm": 4,
+        "naive_gain": 3,
+        "failures": 42,
+        "failure_step_counts": {
+          "520": 42
+        },
+        "task_success": {
+          "0": 0.98,
+          "1": 0.6,
+          "2": 1.0,
+          "3": 0.86,
+          "4": 0.9,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 0.96,
+          "8": 0.92,
+          "9": 0.94
+        }
+      },
+      "fp32-seed2000": {
+        "rows": 500,
+        "success_old": 0.926,
+        "success_new": 0.928,
+        "harmful_pairs": 6,
+        "beneficial_pairs": 7,
+        "naive_harm": 0,
+        "naive_gain": 3,
+        "failures": 36,
+        "failure_step_counts": {
+          "520": 36
+        },
+        "task_success": {
+          "0": 0.96,
+          "1": 0.52,
+          "2": 1.0,
+          "3": 0.9,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 0.92,
+          "8": 0.98,
+          "9": 1.0
+        }
+      },
+      "fp32-scene2000": {
+        "rows": 500,
+        "success_old": 0.926,
+        "success_new": 0.93,
+        "harmful_pairs": 3,
+        "beneficial_pairs": 5,
+        "naive_harm": 0,
+        "naive_gain": 2,
+        "failures": 35,
+        "failure_step_counts": {
+          "520": 35
+        },
+        "task_success": {
+          "0": 0.96,
+          "1": 0.56,
+          "2": 1.0,
+          "3": 0.92,
+          "4": 0.98,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 0.9,
+          "8": 1.0,
+          "9": 0.98
+        }
+      },
+      "w3-seed2000": {
+        "rows": 500,
+        "success_old": 0.726,
+        "success_new": 0.72,
+        "harmful_pairs": 38,
+        "beneficial_pairs": 35,
+        "naive_harm": 3,
+        "naive_gain": 9,
+        "failures": 140,
+        "failure_step_counts": {
+          "520": 140
+        },
+        "task_success": {
+          "0": 0.54,
+          "1": 0.26,
+          "2": 0.88,
+          "3": 0.86,
+          "4": 0.5,
+          "5": 1.0,
+          "6": 0.8,
+          "7": 0.44,
+          "8": 0.92,
+          "9": 1.0
+        }
+      }
+    },
+    "followup": {
+      "fp32_success": 18,
+      "bf16_success": 4,
+      "paired_table": {
+        "old_1_new_0": 15,
+        "old_0_new_1": 1,
+        "old_0_new_0": 1,
+        "old_1_new_1": 3
+      },
+      "harm": 15,
+      "gain": 1,
+      "exact_p": 0.0002593994140625,
+      "observed_loss_pp": 70.0,
+      "planned_batches": [
+        {
+          "planned_batch": 0,
+          "repeats": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fp32_success": 4,
+          "bf16_success": 1
+        },
+        {
+          "planned_batch": 1,
+          "repeats": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "fp32_success": 4,
+          "bf16_success": 1
+        },
+        {
+          "planned_batch": 2,
+          "repeats": [
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "fp32_success": 5,
+          "bf16_success": 1
+        },
+        {
+          "planned_batch": 3,
+          "repeats": [
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "fp32_success": 5,
+          "bf16_success": 1
+        }
+      ],
+      "batch_grouping_source": "run_followup.sh and perstate_eval.plan; grouping reconstructed, not independently archived batch receipts"
+    }
+  },
+  "literature_sources": [
+    "https://arxiv.org/abs/2609.15940",
+    "https://arxiv.org/abs/2609.10873",
+    "https://arxiv.org/abs/2609.28838",
+    "https://doi.org/10.1007/BF02295996"
+  ],
+  "pair_independence_validated": false
+}

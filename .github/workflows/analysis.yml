@@ -28,4 +28,8 @@ jobs:
           ):
               expected = json.loads((root / manifest).read_text())[field]
               assert hashlib.sha256((root / archive).read_bytes()).hexdigest() == expected
+          source = json.loads((root / "arxiv-manifest.json").read_text())
+          assert hashlib.sha256((root / "output/pdf/higher-success-new-failures.pdf").read_bytes()).hexdigest() == source["reviewed_pdf_sha256"]
           PY
+      - name: Reproduce analysis and figures from the extracted outcome archive
+        run: python paper/revision-20261001/verify_reproducibility.py

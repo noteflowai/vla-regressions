@@ -14,7 +14,10 @@ assert len(records) == 10, "Do not silently expand the released dataset"
 assert sum(len(p.read_text().splitlines()) for p in records) == 4040
 paths = records + [REPO/"results/vqb/reanalysis.json", REPO/"results/vqb/reanalysis.txt",
                    REPO/"analyze.py", REPO/"reanalyze_vqb.py", REPO/"tests/test_paired_analysis.py",
-                   HERE/"build_figures.py", HERE/"figure-provenance.json", HERE/"README.md"]
+                   REPO/"requirements-analysis.txt", REPO/"LICENSE", REPO/"NOTICE.md",
+                   REPO/"perstate_eval.py", REPO/"run_followup.sh",
+                   HERE/"build_figures.py", HERE/"figure-provenance.json", HERE/"README.md",
+                   HERE/"evidence-audit.json"]
 assert all(p.is_file() for p in paths)
 archive = HERE/"reproducibility.tar.gz"
 identities = {str(p.relative_to(REPO)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
@@ -38,6 +41,8 @@ with tarfile.open(archive) as tar:
     "public_data_commit": "4a2cb7c", "public_data_license": "MIT",
     "public_data_material": "derived reanalysis, not upstream source or model weights",
     "runtime": {"python": sys.version.split()[0]},
-    "scope": "Outcome reanalysis and figures; not a bit-exact simulator replay. Local package; no public upload.",
+    "scope": "Outcome reanalysis and figures; not a bit-exact simulator replay. Publication status is recorded by the versioned release, not by this build manifest.",
+    "historical_native_scripts": "Retained for inspection of the original batch/seed plan; not portable fresh-rollout commands.",
+    "numerical_dependencies": "requirements-analysis.txt",
 }, indent=2)+"\n")
 print(f"Reproducibility archive verified: {len(paths)} files, 4,040 unchanged own outcomes.")

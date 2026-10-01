@@ -1,0 +1,10 @@
+{
+  "baseline_commit": "3924d5bdf729621eed6a3fca3b0380a6dbf8c1e9",
+  "scope": "Retain the existing workshop sources while refining the expanded signed preprint. Ignored local PDFs are not required in a clean checkout.",
+  "files": {
+    "paper/latex/main.tex": "b920223d527ef0f21649dee6890ef885798784a2902d0147441c2587095a2b10",
+    "paper/latex/references.bib": "2fb72a1889b1aceb478be1430e668898462a7cccc4c5573466c93ae297735a70",
+    "paper/latex/corl_2026.sty": "62f38cd8df7ad718796617595c8230da136fc83ea1d7e1ba80084113409ec957",
+    "paper/fig_noise_floor.pdf": "8c4634910aafc63c489fd9ad17b972e05af833c2c52ab590c60b14748c96937a"
+  }
+}

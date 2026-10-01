@@ -14,10 +14,10 @@ output/pdf/higher-success-new-failures.pdf: main.tex references.bib corl_2026.st
 arxiv.tar.gz: output/pdf/higher-success-new-failures.pdf prepare_sources.py
 	python3 prepare_sources.py
 
-reproducibility.tar.gz: prepare_reproducibility.py build_figures.py figure-provenance.json README.md ../../analyze.py ../../reanalyze_vqb.py ../../tests/test_paired_analysis.py ../../results/pilot/*.jsonl ../../results/followup/*.jsonl ../../results/vqb/reanalysis.*
+reproducibility.tar.gz: prepare_reproducibility.py build_figures.py figure-provenance.json README.md evidence-audit.json ../../requirements-analysis.txt ../../LICENSE ../../NOTICE.md ../../perstate_eval.py ../../run_followup.sh ../../analyze.py ../../reanalyze_vqb.py ../../tests/test_paired_analysis.py ../../results/pilot/*.jsonl ../../results/followup/*.jsonl ../../results/vqb/reanalysis.*
 	python3 prepare_reproducibility.py
 
-verification.json: arxiv.tar.gz reproducibility.tar.gz verify_artifacts.py
+verification.json: arxiv.tar.gz reproducibility.tar.gz verify_artifacts.py workshop-source-snapshot.json evidence-audit.json
 	python3 verify_artifacts.py
 
 .PHONY: all

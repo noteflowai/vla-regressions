@@ -1,12 +1,12 @@
 {
   "files": {
     "main.tex": {
-      "bytes": 25761,
-      "sha256": "3d0becec2fcd7629c80f865555c349285a64a018a355f61f88bdf61c1df79868"
+      "bytes": 29414,
+      "sha256": "46c8de12deff1efe4cbc96c13bc549a984a50f59561a3c0570fdee2c09f117a2"
     },
     "main.bbl": {
-      "bytes": 5862,
-      "sha256": "c70c1fb9cb5ccfafa3b54032f35d9582aba2ed697291e6a8ab9b6d34d8895654"
+      "bytes": 6134,
+      "sha256": "9da34855f81756b02957e5c9a346c5b4579bef5497dc18d5af2d35ab1844cc8a"
     },
     "corl_2026.sty": {
       "bytes": 14861,
@@ -14,27 +14,27 @@
     },
     "paired-protocol.pdf": {
       "bytes": 22803,
-      "sha256": "9100861dfe5cde83df0487d73723c60d3c8bcd1f151eb1faf8e1c713f6f95ea9"
+      "sha256": "ecb779c92416fddf16d17eeb01edbf6605be2cd9b9e7cb7b9a709d414a5d5ba3"
     },
     "test-resolution.pdf": {
       "bytes": 18154,
-      "sha256": "45e70d88f4a6453ab2ed1d8c37334ec9f1d9a6ab105c7dc83a5d10bf3ca6f97d"
+      "sha256": "8f0186298441c5e78443f79b6693044008596d890581eea66f15eaf03adffdcb"
     },
     "noise-floor.pdf": {
       "bytes": 22229,
-      "sha256": "a5a7223f1e039567037303dd784df503d7070ad6d4aa4efd176b7bcf7f2f633a"
+      "sha256": "4d6f40822c02a484b63d96f6ee04265688053061269f064e44155729dcfd94d1"
     },
     "statewise-pilot.pdf": {
       "bytes": 16084,
-      "sha256": "fb973ef2d6da691ffd5ae0c793e32e7f3e76bdab99710e7475dd698237287a5c"
+      "sha256": "4c75f8a84b4b1a5b155cb061b96c2d0d3485a4d1c4fa15f24054172ec3fab4bc"
     },
     "fresh-confirmation.pdf": {
       "bytes": 12772,
-      "sha256": "65fedc3cf6928e885fc0b3e7f69ef4b5653ed62a4605d7709fbffd6fe47bda7d"
+      "sha256": "e5871d02af733bed23bd81a640be0492334e6c1dcae96106e72361412e4d9f80"
     }
   },
-  "archive_sha256": "b8f84d5b3419feb5dbfab6c7999ee4cc9e28523d17af25087556af2664752a31",
-  "reviewed_pdf_sha256": "595465deacf7751323d95fc449acc8d6bcf621ceba5a6de80008f7b43fcc9796",
+  "archive_sha256": "76eeb360b1cd4a1bfba4a668664207c93f815f955d27165c54c4fc247bc258c5",
+  "reviewed_pdf_sha256": "8b7c484a054903d392ca81d39d48fab21f2177d4c01bdb329341398cdf8d1b2c",
   "clean_room_compile_passed": true,
   "text_matches_reviewed_pdf": true,
   "third_party_license_comments_preserved": true,

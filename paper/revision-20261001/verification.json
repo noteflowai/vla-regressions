@@ -1,15 +1,17 @@
 {
-  "pages": 9,
+  "pages": 10,
   "figures": 5,
-  "tables": 2,
+  "tables": 3,
   "metadata_correct": true,
   "all_fonts_embedded": true,
   "no_overfull_or_unresolved_references": true,
-  "old_submission_preserved": true,
+  "workshop_sources_preserved": true,
   "archived_data_unchanged": true,
   "source_clean_room_passed": true,
   "reproducibility_rows": 4040,
-  "pdf_sha256": "595465deacf7751323d95fc449acc8d6bcf621ceba5a6de80008f7b43fcc9796",
-  "archive_sha256": "b8f84d5b3419feb5dbfab6c7999ee4cc9e28523d17af25087556af2664752a31",
+  "pdf_sha256": "8b7c484a054903d392ca81d39d48fab21f2177d4c01bdb329341398cdf8d1b2c",
+  "archive_sha256": "76eeb360b1cd4a1bfba4a668664207c93f815f955d27165c54c4fc247bc258c5",
+  "pair_independence_validated": false,
+  "batch_sign_sensitivity_p": 0.0625,
   "visual_review": "required separately; renders are not inferred from these checks"
 }

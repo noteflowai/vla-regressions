@@ -34,11 +34,12 @@ seed, repeat each state under both policies with shared policy-seed plans, and u
 tests with false-discovery control. On X-VLA in LIBERO-10, the first-rollout old-versus-old floor
 is 2--3 flips per 100 states. Three-bit weight rounding concentrates a 20-point aggregate drop
 on a few tasks; seven states change from 5/5 to 0/5 successes, but the five-repeat screen cannot
-yield a corrected statewise discovery. Four-bit rounding and fewer denoising steps produce
-no detected statewise regression, which does not certify their absence. BF16 leaves the
-aggregate nearly flat but identifies one candidate state; 20 fresh paired rollouts confirm its
-loss (18/20 against 4/20, exact $p=2.59\times10^{-4}$). This is evidence about one independently
-retested state, rather than an estimate of regression prevalence or a physical safety certificate.
+yield a corrected statewise discovery. All four update pilots remain unresolved by the
+corrected statewise tests. BF16 leaves the aggregate nearly flat but identifies a candidate
+state; 20 fresh paired rollouts support a loss there (18/20 against 4/20, exact
+$p=2.59\times10^{-4}$), conditional on independent paired repeats. This is evidence
+about one retested state, rather than an estimate of regression prevalence or a physical
+safety certificate.
 \end{abstract}
 \keywords{Vision-language-action models, quantization, evaluation, regression testing}
 
@@ -58,10 +59,13 @@ not distinguish them, even when aggregate success rises.
 
 Our contributions are an empirical noise baseline from four models and four suites
 (Section~\ref{sec:floor}), a paired statewise protocol with repeat controls
-(Section~\ref{sec:method}), and one fresh confirmation of a BF16 loss in
+(Section~\ref{sec:method}), and a fresh follow-up of one BF16 candidate in
 X-VLA~\citep{zheng2025xvla} (Section~\ref{sec:xvla}). We distinguish single-rollout
 flips, repeated-state candidates and fresh confirmation, using established
-statistical tools rather than proposing a new test.
+statistical tools rather than proposing a new test. The contribution is an empirical
+evaluation audit and a targeted numerical-update case study. Archived outcomes,
+analysis and manuscript sources are available in the
+\href{https://github.com/noteflowai/vla-regressions}{public research repository}.
 
 \begin{figure}[t]
   \centering
@@ -102,7 +106,7 @@ $b_s+c_s$ discordant repeats,
  \label{eq:paired}
 \end{equation}
 Set $p_s=1$ when there is no discordance. This is the conditional exact paired
-McNemar/binomial test, rather than an unpaired comparison of success counts.
+McNemar/binomial test~\citep{mcnemar1947sampling}, rather than an unpaired comparison of success counts.
 Validity assumes independent paired repeats from a stable evaluation process; dependence
 within each old/new pair is allowed. Pseudorandom seed matching alone does not establish
 these assumptions.
@@ -155,12 +159,14 @@ sample-size or power recommendation.
 
 \section{How noisy is one rollout per state?}
 \label{sec:floor}
-VLAQuantBench~\citep{xu2026vlaquantbench} released episode records from its 409 closed-loop
-runs under an MIT licence. Its LIBERO configurations cover four models and four suites.
-Each configuration uses 200 states (20 initial states for each of 10 tasks), except
-X-VLA, which uses 190. Twenty configurations are repeated with additional seeds.
-We reanalyze release commit \texttt{4a2cb7c}; these are public benchmark outcomes,
-separate from our X-VLA experiments.
+VLAQuantBench~\citep{xu2026vlaquantbench} released episode records under an MIT licence.
+At release commit \texttt{4a2cb7c}, its LIBERO records comprise 354 run files and
+70,194 episodes across four models and four suites. Non-X-VLA files contain 200 states
+(20 initial states for each of 10 tasks); most X-VLA files contain 190.
+Two X-VLA files contain additional labels (Appendix~\ref{app:reproducibility}).
+We analyze 309 baseline-versus-update comparisons on their common state inventories;
+20 configurations also have additional-seed reruns. These public benchmark outcomes
+are separate from our X-VLA experiments.
 
 \paragraph{Unchanged configurations flip many states.}
 Table~\ref{tab:floor} and Figure~\ref{fig:floor} show outcome changes between seeds
@@ -310,7 +316,7 @@ to 93.2\%. The first repeat still shows one new failure; that state changes from
 to 4/5. This is compatible with the observed repeat floor and is not a corrected
 statewise discovery. The descriptive aggregate interval also includes zero.
 
-\paragraph{BF16: one candidate confirmed with fresh pairs.}
+\paragraph{BF16: fresh follow-up at one candidate state.}
 BF16 changes the aggregate by $-1.0$ points, with a descriptive interval including zero.
 Recorded episode lengths differ in 422 of 500 pairs; these logs do not provide a full
 trajectory-distance measure. One state changes from 5/5 to 0/5
@@ -320,7 +326,8 @@ We selected this state (task 3, initial state 3) for a targeted follow-up with 2
 pairs and a new policy-seed plan. The pilot outcomes are excluded from the test.
 FP32 succeeds in 18/20 and BF16 in 4/20. The paired table contains three joint
 successes, 15 harmful discordances, one beneficial discordance and one joint timeout
-(Figure~\ref{fig:confirmation}). The one-sided exact probability is
+(Figure~\ref{fig:confirmation}), an observed success loss of 70 percentage points.
+The one-sided exact probability is
 \begin{equation}
  p=\Pr\{\mathrm{Binomial}(16,1/2)\ge15\}
    =\frac{{16\choose15}+{16\choose16}}{2^{16}}
@@ -331,10 +338,20 @@ conditional on the paired-test assumptions and the evaluation protocol. All 16 B
 failures are timeouts. It does not estimate how common such losses are across the
 100 states, other updates, different horizons or physical robots.
 
+The follow-up plan groups the 20 repeats into four vector batches of five.
+FP32/BF16 success counts are 4/1, 4/1, 5/1 and 5/1 across those batches.
+The episode-level exact test assumes independent paired repeats, including within
+a batch. As a sensitivity check under a different null, treating each batch as
+one independent unit with equally likely positive and negative signs gives
+$p=2^{-4}=0.0625$ for four negative batch differences. This coarser test does not
+establish a loss at the 5\% level and does not test the episode-level discordance null.
+The reported confirmation therefore remains conditional on pair-level independence,
+which the archived seed labels alone cannot validate.
+
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{fresh-confirmation.pdf}
-  \caption{Fresh BF16 confirmation at one selected state. (a) All 20 paired binary
+  \caption{Fresh BF16 follow-up at one selected state. (a) All 20 paired binary
   outcomes in repeat order; light grey denotes timeout. (b) The full paired table.
   (c) Fifteen harmful versus one beneficial discordance yield exact one-sided
   $p=0.0002593994$. The state was selected from the pilot, but only new outcomes
@@ -349,7 +366,7 @@ outcomes depend on action sampling and the evolving environment; therefore a bin
 flip needs repeat controls before it can be interpreted as a persistent local loss.
 VLAQuantBench~\citep{xu2026vlaquantbench} measures post-training quantization across
 models and suites. We reuse its released records to measure repeat variability and
-add a repeated-state X-VLA study with independent candidate confirmation.
+add a repeated-state X-VLA study with a fresh candidate follow-up.
 
 Compound robustness evaluation~\citep{sawada2026paired} tests perturbation sensitivity;
 online-RL task collapse~\citep{yardimci2026collapse} concerns changes during adaptation.
@@ -360,6 +377,35 @@ candidate loss in a real closed-loop simulation benchmark.
 Sequential policy comparison~\citep{snyder2025step} suggests allocating additional
 rollouts to uncertain comparisons. We do not claim a new sequential stopping rule,
 nor reuse fixed-sample $p$-values after unrestricted outcome-dependent stopping.
+
+\newpage
+\begin{table}[!ht]
+  \centering
+  \small
+  \caption{Closest evaluation work and the scope of this study. Paired outcomes and
+  aggregate cancellation are established ideas; the present evidence concerns
+  numerical updates, repeat variability and a targeted state-level follow-up.}
+  \label{tab:scope}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{p{.23\linewidth}p{.33\linewidth}p{.36\linewidth}}
+    \toprule
+    Work & Evaluation question & Difference in the present study\\
+    \midrule
+    LIBERO-CTRL~\citep{sawada2026paired}
+      & How do single-axis and compound input perturbations change matched outcomes?
+      & Precision and inference-step updates; repeated-state screening and fresh follow-up.\\
+    VLAQuantBench~\citep{xu2026vlaquantbench}
+      & How does post-training quantization affect closed-loop task success?
+      & Reanalysis of rerun disagreement plus a separate repeated-state X-VLA case study.\\
+    STEP~\citep{snyder2025step}
+      & When can policy comparison stop with sufficient statistical evidence?
+      & Fixed-size statewise comparisons; no new adaptive stopping method.\\
+    Update admission~\citep{ma2026admission}
+      & How do validation gates trade error control for retained learning opportunities?
+      & Local outcome changes in a VLA simulation benchmark, without an admission guarantee.\\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \section{Discussion and limitations}
 Report paired outcomes and old-versus-old controls alongside aggregate success,
@@ -377,7 +423,9 @@ Exact tests require stable independent paired repeats. BY permits dependence acr
 valid state tests; it cannot repair invalid within-state sampling, systematic
 reset differences or corrupted outcomes. Historical records omit some provenance
 needed for a fully audited replay. The BF16 follow-up measures a numerical update
-under this protocol without identifying its internal failure mechanism.
+under this protocol without identifying its internal failure mechanism. Its
+batch-level sensitivity check is not significant at 5\%; the finer paired result
+should not be read as robust to arbitrary dependence within a vector batch.
 
 A prospective study should freeze state inventories and update families, validate
 reset equality, record immutable model/simulator identities, and budget multiplicity
@@ -386,7 +434,10 @@ uncertain decisions. These are future improvements, not assertions that unrecord
 historical checks were performed.
 
 \clearpage
+{
+\small
 \bibliography{references}
+}
 \clearpage
 \appendix
 \section{Reproducibility and evidence boundaries}
@@ -401,6 +452,17 @@ The figure builder checks paired identities, rederives all plotted differences,
 confirms the follow-up seed separation, and records SHA-256 identities of its inputs.
 These hashes identify the archived files; they do not prove that missing historical
 metadata was captured at collection time.
+
+\paragraph{Public-data inventory audit.}
+We independently regenerated the public reanalysis from immutable commit
+\texttt{4a2cb7c1bf9160ae683fe598ec583d7c9b9c13c9}.
+All 354 LIBERO files have unique task/initial-state labels and boolean outcomes.
+The X-VLA Spatial configurations \texttt{rtn-W2-ve} and
+\texttt{ablate-W4A4-ah-only\_fc2} contain 193 and 191 states, respectively,
+against 190 in their baseline. Their one-sided extra labels total four rows;
+both comparisons retain all 190 baseline states and exclude only those extra rows.
+No public baseline label is missing from an update comparison. These intersections
+are descriptive matching, not proof of identical simulator inputs.
 
 \paragraph{Numerical reanalysis.}
 For a same-scene update, paired rows match
@@ -419,6 +481,10 @@ Torch TF32 is disabled and deterministic settings are requested with warnings
 rather than guaranteed deterministic execution. New vector environments are created
 for each historical batch. Batch composition can affect the consumption of random
 numbers; changing it is not a documented equivalent replay.
+In the follow-up, repeats 0--4, 5--9, 10--14 and 15--19 share their respective
+five-lane batch. The recorded \texttt{seed} is the plan's base, not a separate
+random-generator receipt for each lane. Batch grouping is reconstructed from the
+archived evaluator and follow-up script, rather than independent execution receipts.
 
 \paragraph{Provenance gaps.}
 The historical episode files do not include immutable checkpoint revisions,
@@ -430,17 +496,14 @@ and any stronger causal claim based on hidden simulator-state equality.
 Later prospective reset audits and health checks are separate work and do not
 constitute new evidence in this manuscript.
 
-\paragraph{Interpretation checklist.}
-The public-data flips estimate observed repeat disagreement; they are not a
-statewise significance result. The pilot heatmap and posterior identify candidates;
-none is a BY-corrected discovery. The fresh BF16 test confirms one selected
-candidate under its assumptions; it is not an estimate of population prevalence.
-Non-detection is not equivalence, and simulated weight rounding is not a
-hardware acceleration measurement.
-
-\paragraph{Local reproducibility.}
-Run \texttt{python3 build\_figures.py} from this revision directory, then
-\texttt{make all}. The figure builder reads the repository's archived results.
+\paragraph{Public artifacts and rebuilding.}
+The \href{https://github.com/noteflowai/vla-regressions/releases}{versioned public releases}
+provide the signed PDF, TeX upload archive, outcome/analysis archive and SHA-256
+checksums. Install the pinned numerical dependencies in
+\texttt{requirements-analysis.txt}, then run the analysis tests and
+\texttt{make all} from this revision directory. The figure builder reads the
+repository's archived results. The outcome archive includes the dependency file,
+licence notices and reanalysis sources; it does not contain model weights.
 The arXiv upload archive is a flat allowlist of TeX, bibliography output, the
 unmodified third-party style and the five vector figure PDFs. Its clean-room
 build does not require the raw data, Python environment or a network connection.

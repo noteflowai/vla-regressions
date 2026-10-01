@@ -127,9 +127,23 @@ for x, y in pairs:
 harm, gain = int(table[1, 0]), int(table[0, 1])
 pvalue = float(binom.sf(harm-1, harm+gain, .5))
 assert (harm, gain) == (15, 1) and pairs.sum(axis=0).tolist() == [18, 4]
+planned_batches = []
+for batch in range(4):
+    batch_keys = [k for k in keys if k[-1] // 5 == batch]
+    assert len(batch_keys) == 5
+    planned_batches.append({
+        "repeat_indices": [k[-1] for k in batch_keys],
+        "fp32_success": sum(a[k]["success"] for k in batch_keys),
+        "bf16_success": sum(b[k]["success"] for k in batch_keys),
+    })
+assert all(r["fp32_success"] > r["bf16_success"] for r in planned_batches)
 facts["followup"] = dict(pairs=20, fp32_success=18, bf16_success=4, harm=harm,
                         gain=gain, exact_p=pvalue, table=table.tolist(),
-                        pilot_policy_seeds_excluded=True, scene_matches_selected_pilot=True)
+                        observed_loss_pp=70.0,
+                        pilot_policy_seeds_excluded=True, scene_matches_selected_pilot=True,
+                        reconstructed_five_lane_batches=planned_batches,
+                        batch_sign_sensitivity_p=float(binom.sf(3, 4, .5)),
+                        batch_sensitivity_null="Independent batch differences with balanced signs; not the episode discordance null")
 fig = plt.figure(figsize=(5.5, 3.0))
 gs = fig.add_gridspec(2, 2, height_ratios=[.65, 1.5], width_ratios=[1.45, 1],
                      left=.16, right=.95, bottom=.18, top=.90, hspace=.78, wspace=.9)

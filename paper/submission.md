@@ -1,105 +1,77 @@
 # Current submission kit
 
-**2026-10-01 local preprint revision:** the recommended signed preprint is now
-[`revision-20261001/output/pdf/higher-success-new-failures.pdf`](revision-20261001/output/pdf/higher-success-new-failures.pdf),
-with nine pages, five figures and two tables. Use
-`revision-20261001/arxiv.tar.gz` and its manifest, together with the updated
-metadata in `../../artifacts/paper-revision-2026-10-01/`.
-It adds explanation and figures without new outcomes. The five-page
-anonymous OpenReview attachment and the September 30 source archive described
-below are preserved historical baselines. No external submission has been
-updated with the expanded preprint.
-Its revised title is **Beyond Aggregate Success: Paired Statewise Evaluation
-of VLA Policy Updates**; the existing workshop title below remains unchanged.
+Updated 2026-10-01 after the pre-invitation manuscript audit.
 
-Updated 2026-09-30 after the paired statistical correction.
-Historical receipts are preserved in
-`../../artifacts/submission-recovery-2026-09-30/`; current correction and
-arXiv preflight evidence are in `../../artifacts/arxiv-acceleration-2026-09-30/`.
+Title: **Beyond Aggregate Success: Paired Statewise Evaluation of VLA Policy Updates**
 
-## OpenReview
+Author: Qiang Guo, Independent Researcher.
 
-Profile `~Qiang_Guo10` is active, with confirmed preferred address
-`qiangu@amazon.com`. The confirmed personal address is `glay.guo@foxmail.com`;
-Homepage is <https://github.com/glayyiyi>. The profile records the author's
-confirmed Amazon/AWS employment. The personal-research manuscript and arXiv
-account retain the existing Independent Researcher attribution.
+## Signed preprint
 
-**Existing submission #2:** <https://openreview.net/forum?id=VUuO0hceYF>.
-The author previously approved CC BY 4.0, sharing author emails with Program
-Chairs, and public release upon acceptance under the venue's stated terms.
-There is no duplicate submission.
+- Recommended PDF: [expanded preprint](revision-20261001/output/pdf/higher-success-new-failures.pdf).
+- Current dimensions: **10 pages, 5 figures, 3 tables**; eight main-text pages,
+  one references page and one reproducibility appendix.
+- Upload sources: `revision-20261001/arxiv.tar.gz`, identified by
+  `revision-20261001/arxiv-manifest.json`.
+- Outcome/analysis companion: `revision-20261001/reproducibility.tar.gz`,
+  identified by `revision-20261001/reproducibility-manifest.json`.
+- [Current public revision](https://github.com/noteflowai/vla-regressions/releases/tag/preprint-2026-10-01-r2)
+  and [original release](https://github.com/noteflowai/vla-regressions/releases/tag/preprint-2026-10-01).
 
-The initial PDF was submitted September 30. At **13:05 Singapore time** the
-same note was revised with the paired-test correction. Downloading its
-attachment through that note reproduced the corrected anonymous PDF exactly:
+The main TeX abstract is authoritative for this expanded version. The manuscript
+is a revision of the same workshop study, formerly titled *Higher Success,
+New Failures*, not a separate publication. It adds exposition, independent
+reanalysis checks and a batch-level sensitivity analysis without new rollouts.
+One state has a fresh follow-up, not two. Its exact paired result is conditional
+on independent paired repeats; the four-batch sign sensitivity gives p=.0625
+under a different null. It does not establish suite-wide incidence or physical
+safety.
 
-`5f883d848058efee8f5502c86677aab3a274da80e9f4128845a8b6baf121e54c`
+Use the current dimensions and source manifest for arXiv metadata. Do not
+reuse historical five-page or nine-page source identities. Inspect arXiv's
+generated PDF against the reviewed revision before final submission.
 
-The revised PDF has five total pages: four body pages and one references page.
-The current abstract matches `latex/main.tex`. License and restricted readers
-were preserved. The live note does **not** establish acceptance, peer-review
-approval or public publication.
+## Existing OpenReview record
 
-Use `latex/main.pdf` for any further permitted workshop revision.
-Keep the existing note ID; do not submit a new note.
+[Submission #2](https://openreview.net/forum?id=VUuO0hceYF) is the existing
+restricted workshop note. It was revised on October 1 with the aligned title
+and explicit historical-provenance limits. Its anonymous five-page attachment
+has four body pages and one references page, and is separate from this expanded
+signed preprint. This manuscript audit does not alter that external note.
 
-- Title: Higher Success, New Failures: Measuring Per-State Regressions in VLA Policy Updates
-- Author: Qiang Guo
-- Keywords: vision-language-action models; quantization; evaluation; regression testing; LIBERO
-- Abstract: current `latex/main.tex` or `abstract.md`
+Keep the existing note ID for any permitted later revision. The workshop
+requires anonymity and has its own page limit; do not upload the signed
+expanded preprint to it. CC BY 4.0 and restricted readers remain as previously
+authorized. No acceptance or public workshop publication has been verified.
 
 The [venue](https://openreview.net/group?id=robot-learning.org/CoRL/2026/Workshop/EEAI)
 and [website](https://efficient-embodied-ai.github.io/) describe a double-blind,
-nonarchival workshop. The website lists October 12 AoE; the live OpenReview
-invitation instead ends October 12 at 11:59 UTC / 19:59 Singapore. Observe the
-earlier live cutoff unless it changes.
+nonarchival workshop. The earlier live deadline check reported October 12 at
+11:59 UTC / 19:59 Singapore; check the invitation before a later revision rather
+than relying on the website's later AoE date.
 
-## arXiv
+## Existing arXiv draft
 
-Account `qiangguo-vla`, Qiang Guo, `glay.guo@foxmail.com`, Independent Researcher.
-**Existing draft 8144759** remains incomplete, expires October 12, and resumes
-at Start. A correctly completed Start attempt on September 30 returned:
+Account: `qiangguo-vla`. Existing draft: **8144759**, incomplete and expiring
+October 12. The October 1, 02:32 UTC authenticated check returned:
 
 > You are not endorsed for this archive.
 
-The primary category is cs.RO. The prepared optional cross-list is cs.LG.
-The existing selected license is arXiv perpetual, non-exclusive distribution;
-verify that selection again once endorsement permits proceeding.
+Resume that draft once an eligible cs.RO endorser supplies a positive
+endorsement; do not create a duplicate or change categories to evade the gate.
+The intended primary category is cs.RO, with optional cs.LG cross-list.
+The previously selected arXiv perpetual, non-exclusive licence should be
+checked when the draft permits proceeding. No arXiv upload or announcement is
+claimed by the public GitHub release.
 
-Prepared metadata:
-`../../artifacts/arxiv-acceleration-2026-09-30/arxiv-prepared-metadata.json`.
+A personal endorsement request to David Snyder was previously sent on
+September 29. Its current response has not been checked in this manuscript
+audit. LIBERO and X-VLA authors are relevant individual backups, but their
+current cs.RO eligibility and willingness remain unverified; qualification-page
+errors do not determine either. No new endorsement invitation was sent.
 
-Prepared source archive: `latex/arxiv.tar.gz`.
-It contains only named `main.tex`, `main.bbl`, `corl_2026.sty`, and
-`fig_noise_floor.pdf`. Authoring notes were removed; the third-party style's
-license comments were preserved. A clean-room two-pass compile produces the
-same five-page preprint text as `latex/main-preprint.pdf`.
-
-Archive SHA-256:
-`6d634fbb8667859c885e079478910be611fe1f33051e6bdae44b74bbe738dca5`.
-
-Comments: **5 pages (4 body pages plus references), 1 figure, 2 tables**.
-No acceptance or proceedings citation should be added before it exists.
-
-One personal request was sent from foxmail to David Snyder on September 29
-at 00:17 Singapore, with the named preprint and arXiv's private request.
-Actual current eligibility and willingness remain unverified. Do not interpret
-“You can't endorse yourself” as his response. This correction did not read a
-new inbox response or send another message. Keep the endorsement code and
-passwords outside the repository.
-
-## How the OpenReview paper helps endorsement
-
-An eligible endorser can use the manuscript to assess whether the author's
-work belongs in cs.RO. A workshop URL, acceptance or non-arXiv publication
-does not itself execute arXiv endorsement. This particular URL is restricted,
-so the current named PDF is the useful review material for someone outside
-the venue. Describe it as **submitted**, not published or accepted.
-
-[arXiv's official policy](https://info.arxiv.org/help/endorsement.html) explains
-personal endorsement and its separate institutional-email/claimed-authorship
-route. Do not claim another person's paper, change category to evade the gate,
-or create a second draft. Once the gate clears, resume this draft, upload
-the corrected sources, inspect arXiv's generated PDF, then complete metadata
-and final submission.
+For an individual request, use the current signed public PDF and briefly state
+the subject and evidence boundaries. Keep the private arXiv request link out
+of public artifacts. The [official policy](https://info.arxiv.org/help/endorsement.html)
+requires at least one positive endorsement per endorsement category, discourages
+bulk or repeated requests, and distinguishes endorsement from peer review.
