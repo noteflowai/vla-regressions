@@ -9,6 +9,10 @@ peer-review acceptance or a completed arXiv announcement.
 
 ## Manuscripts and evidence
 
+- [Verified public release](https://github.com/noteflowai/vla-regressions/releases/tag/preprint-2026-10-01):
+  signed preprint, anonymous workshop PDF, TeX and reproducibility archives,
+  with SHA-256 checksums. All five attachments were downloaded anonymously
+  and matched their published digests.
 - [Signed expanded preprint](paper/revision-20261001/output/pdf/higher-success-new-failures.pdf):
   nine pages, five vector figures and two tables.
 - [Preprint TeX source archive](paper/revision-20261001/arxiv.tar.gz) and
@@ -22,8 +26,10 @@ peer-review acceptance or a completed arXiv announcement.
 
 The signed preprint is a revision of the same workshop study, previously titled
 *Higher Success, New Failures*. It is not a second paper. The separately
-developed regression-budget study has its own prospective protocol and must not
-be combined with these archived outcomes.
+developed [regression-budget study](https://github.com/noteflowai/vla-update-certification)
+has its own prospective protocol and is published as development material,
+without completed native update-efficacy claims. It must not be combined with
+these archived outcomes.
 
 ## What the evidence supports
 
