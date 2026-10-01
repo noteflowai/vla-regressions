@@ -70,7 +70,14 @@ failed its original all-frame equality rule: two off-prediction camera channel
 values differed by one intensity level, while actions, physics and outcomes
 matched. The v2 protocol preserves that failure and defines a bounded,
 reported exception for intermediate camera rounding; a fresh clean control
-is still required before primary collection.
+was required before primary collection. The distinct
+[v6 engineering control](experiments/confirmation-20261001/engineering-control-v6-001.json)
+now qualifies: two complete FP32/FP32 pairs, verified native evidence and four
+clean owned-worker exits. The controller imports no Torch. The fixed full-horizon
+80-pair forecast is 107,281 seconds (29.80 h), exceeding the remaining shared
+budget of 34,913.532 seconds (9.70 h). No new BF16 or primary pair was collected.
+See the [measurements and limits](experiments/confirmation-20261001/PERFORMANCE.md);
+this engineering qualification does not add policy-update efficacy evidence.
 
 ## Reproduce the analysis
 

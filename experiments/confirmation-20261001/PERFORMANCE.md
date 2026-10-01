@@ -45,8 +45,9 @@ the remaining shared physical budget.
 
 ## Next decision
 
-Complete a fresh clean independent-reload control, then use the v5 full-horizon
-forecast and the frozen 50% margin to make the primary admission forecast.
+The completed v6 independent-reload control below qualifies the frozen collector.
+Use its full-horizon forecast and the frozen 50% margin for primary admission.
+Any further collector change still requires a distinct published control.
 Keep all 80 pairs, the single environment lane, both precision pipelines, the
 520-step horizon, reset/scoring checks and complete evidence.
 
@@ -180,7 +181,8 @@ Do not retry this cohort or continue successive native attempts under the same
 resource pressure. Retain v5 as a measured operational improvement with an
 unqualified control. A future attempt needs a stable resource window or a
 separately published and controlled lifecycle redesign, such as an owned worker
-per model side. That redesign is not implemented or validated here. Keep the
+per model side. That redesign had not been implemented at the v5 decision;
+its subsequent prospective v6 implementation and separate control are below. Keep the
 fixed sample size, evidence and admission gates; leave unrelated jobs unchanged.
 The published r2 paper and its historical conclusions remain unchanged.
 
@@ -222,6 +224,58 @@ Fresh startup and checkpoint hashing can increase overhead. V6 preserves
 horizon and the fixed 80 pairs. Changing process state changes the evaluator:
 previous partial controls cannot qualify it. No new control has been run for
 this revision yet.
+
+## Actual v6 isolated-side control
+
+The distinct v6 control used source `12085c60586fe8ca93a754500480be15a6466fac`,
+published before launch after 39 CPU checks and remote archive/analysis
+reproduction passed. Two independently seeded FP32/FP32 pairs completed.
+The first pair succeeded at step 287 on both sides; the second at step 292.
+Actions, physics, transitions and retained observations passed the frozen
+comparator. Both off-cadence camera diagnostic lists are empty.
+
+All four exec-created model workers exited normally with integer code 0.
+Their identities, request/summary hashes and original native episode payloads
+were independently reread, alongside complete raw inventories and phase guards.
+The outer controller also exited 0 and recorded `parent_torch_imported=false`.
+The actual `verified_control` function accepted the completed cohort. These
+measurements qualify this frozen control; they do not establish a failure rate
+for all future reloads or efficacy for FP32/BF16 updates.
+
+![Owned worker lifecycle probes and measured wall time](isolated-control-v6-001.svg)
+
+The plot reports global host availability immediately before each child exec
+and after its clean exit. Changes include concurrent external activity and
+cannot be attributed wholly to worker isolation. The wall-time bars separate
+the recorded episode kernel from the remaining measured child lifecycle,
+including imports, checkpoint verification, loading and cleanup. They do not
+claim causal acceleration or isolate GPU time.
+
+Pair collection times were 575.397 and 412.416 s. Actual canonical physical
+charge was 1,016.409 s, including the outer lifecycle. All reservations are
+finalized, with 34,913.532 s (9.698 h) remaining; the 12-hour ledger was not reset.
+
+The frozen forecast uses maximum observed pair fixed overhead 352.713 s and
+maximum episode rate 0.520460 s/step. Scaling both sides to 520 steps, retaining
+80 pairs and applying the existing 50% margin yields **107,281 s (29.800 h)**,
+before the additional 135 s lifecycle reservation. This exceeds both remaining
+physical budget and the current single-launch bound. Primary collection was
+not admitted. No new primary pair or BF16 episode was produced.
+
+Source, contexts and failed older controls are preserved. Timing varied on the
+shared host, so this sample-based forecast is not a worst-case guarantee.
+Further collector optimization requires its own prospective protocol and
+control; a lower sample size or new ledger cannot be used to bypass admission.
+The published r2 manuscript and historical outcomes remain unchanged.
+See `engineering-control-v6-001.json`. Complete raw evidence remains local.
+
+Rebuild the figure from the public aggregate measurements:
+
+```sh
+python tools/plot_isolated_control.py \
+  experiments/confirmation-20261001/engineering-control-v6-001.json \
+  /path/to/figure-output/isolated-control-v6-001
+```
 
 ## Reproduce the CPU replay
 
