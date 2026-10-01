@@ -69,9 +69,12 @@ def freeze(args):
                      cudnn_benchmark=False, cudnn_deterministic=True,
                      phase_profiling=args.profile_episodes)
     pipeline = {**base["old_pipeline"], "precision": "float32", "n_obs_steps": 1}
+    from tokenizer_assets import freeze_tokenizer_assets
+    pipeline["tokenizer"] = freeze_tokenizer_assets(Path(pipeline["checkpoint"]))
+    pipeline["assets"] = {**pipeline["assets"], **pipeline["tokenizer"]["assets"]}
     new = {**pipeline, "update": "bf16", "precision": "bfloat16"} if args.mode == "primary" else pipeline
     protocol = {
-        "id": "selected-xvla-bf16-serial-confirmation-20261001-v3",
+        "id": "selected-xvla-bf16-serial-confirmation-20261001-v4",
         "mode": args.mode, "alpha": ALPHA, "primary_pairs": PRIMARY_PAIRS,
         "required_pairs": PRIMARY_PAIRS if args.mode == "primary" else CONTROL_PAIRS,
         "state": {**STATE, "task_name": inventory["name"]},

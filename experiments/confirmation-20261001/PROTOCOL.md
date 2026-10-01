@@ -4,8 +4,9 @@ This is an additional experiment for *Beyond Aggregate Success*, separately
 prepared on October 1, 2026. It is not part of the regression-budget paper.
 The original v1 document and executable design were published before control
 collection. **The v2 revision followed a failed v1 engineering control and
-preceded v2 collection. This v3 adds optional phase timing for future distinct
-cohorts; the original v2 control keeps its original source and context.**
+preceded v2 collection. The v3 added optional phase timing. This v4 also freezes
+the tokenizer assets for future distinct cohorts; the original v2 control keeps
+its original source, partial evidence and failed lifecycle.**
 Preparation and CPU tests are not
 native efficacy evidence. The fixed state, 80-pair sample size, alpha, analysis
 and primary seed stream are unchanged.
@@ -18,6 +19,16 @@ hashed with each episode's raw evidence. Timed and untimed evaluators require
 their own matched engineering controls; source or timing configuration changes
 cannot reuse the v2 control. Phase timings overlap and do not isolate asynchronous
 GPU kernel latency. Snapshot format, compression, physics and scoring are unchanged.
+
+The saved processor config names `facebook/bart-large`, but v1–v3 did not
+separately bind its cached files. That is a provenance gap, not evidence that the
+tokenizer changed during a run. This v4 requires cached immutable revision
+`cb48c1365bd826bd521f650dc2e0940aee54720c`, hashes config/vocabulary/merge/fast
+tokenizer files, binds optional-file presence and loads the processor from the
+explicit local snapshot. Its actual loaded path is checked. Missing or changed
+assets fail closed without downloading. This does not retroactively establish
+historical tokenizer identity; the new pipeline requires a fresh complete
+engineering control.
 
 ## Question, fixed state, and interpretation
 

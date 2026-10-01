@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-10-01T05:37:56.963231+00:00",
+  "logical_cpus": 4,
+  "loadavg": "24.08 22.32 18.74 29/1321 3489969",
+  "cpu_pressure": "some avg10=93.57 avg60=92.99 avg300=89.32 total=164265918280\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "io_pressure": "some avg10=3.53 avg60=4.00 avg300=4.89 total=9741777192\nfull avg10=0.00 avg60=0.00 avg300=0.06 total=4671026254\n",
+  "native_worker_nice": 10,
+  "vmstat_observed_runnable_counts": [
+    24,
+    23
+  ],
+  "vmstat_observed_cpu_idle_percent": [
+    0,
+    0
+  ],
+  "scope": "Read-only host observation during v2 collection; no priority, dependency or other-job changes."
+}

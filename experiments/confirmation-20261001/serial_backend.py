@@ -15,6 +15,7 @@ from native_collection import (NativeBatchProducer, digest_file, object_digest,
 from native_rollout import LiberoNativeBackend
 from paired_collection import PairCache, atomic_json
 from precision import configure_precision, verify_precision
+from tokenizer_assets import verify_tokenizer_assets, verify_loaded_tokenizer
 
 
 class SerialPrecisionBackend(LiberoNativeBackend):
@@ -51,6 +52,7 @@ class SerialPrecisionBackend(LiberoNativeBackend):
         for name, expected in pipeline["assets"].items():
             if digest_file(name) != expected:
                 raise ValueError("Frozen processor/config asset changed: " + name)
+        verify_tokenizer_assets(pipeline["tokenizer"])
         weight_path = checkpoint / "model.safetensors"
         stat = weight_path.stat()
         signature = (str(weight_path.resolve()), stat.st_ino, stat.st_size, stat.st_mtime_ns,
@@ -83,14 +85,18 @@ class SerialPrecisionBackend(LiberoNativeBackend):
         self.env_cfg = h.LiberoEnvConfig(task="libero_10", control_mode=pipeline["control_mode"])
         self.pre, self.post = h.make_pre_post_processors(
             policy_cfg=cfg, pretrained_path=str(checkpoint),
-            preprocessor_overrides={"device_processor": {"device": "cuda"}})
+            preprocessor_overrides={
+                "device_processor": {"device": "cuda"},
+                "tokenizer_processor": {"tokenizer_name": pipeline["tokenizer"]["snapshot"]}})
+        tokenizer_report = verify_loaded_tokenizer(self.pre, pipeline["tokenizer"])
         self.env_pre, self.env_post = h.make_env_pre_post_processors(
             env_cfg=self.env_cfg, policy_cfg=cfg)
         self.policy = h.make_policy(cfg=cfg, env_cfg=self.env_cfg).eval()
         loader = {"loader": "official", "scope": "Official X-VLA strict-key loader; "
                   "not a claim of PI05-style per-tensor equality verification."}
         report = {"side": side, "resource_probe": probe, "variant": variant,
-                  "loader": loader, "pipeline_sha256": context[side + "_pipeline_sha256"],
+                  "loader": loader, "tokenizer": tokenizer_report,
+                  "pipeline_sha256": context[side + "_pipeline_sha256"],
                   "runtime": {"device_identity": device_identity(),
                               "torch_build": h.torch.__version__, "cuda": h.torch.version.cuda,
                               "cudnn": h.torch.backends.cudnn.version(),

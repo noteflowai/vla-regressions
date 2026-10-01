@@ -1,0 +1,40 @@
+{
+  "checked_at": "2026-10-01T05:48:48.864130+00:00",
+  "status": "passed",
+  "tokenizer_class": "RobertaTokenizer",
+  "vocab_size": 50265,
+  "existing_cache_and_explicit_snapshot_vocabulary_exact": true,
+  "parsed_backend_exact": true,
+  "canonical_backend_sha256": "712bb16dcf853a354160efc88feeec7c81b265b6f3957d44d37f6809689bb0ff",
+  "encoded_fields_exact": true,
+  "text_cases": 5,
+  "selected_native_prompt_included": true,
+  "torch_imported": true,
+  "cuda_initialized": false,
+  "native_episodes_started": 0,
+  "scope": "CPU-only offline tokenizer equivalence at audit time; no policy model or simulation, no reconstruction of historical unrecorded tokenizer state. Transformers indirectly imports Torch despite USE_TORCH=0; CUDA is not initialized.",
+  "tokenizer": {
+    "model_id": "facebook/bart-large",
+    "revision": "cb48c1365bd826bd521f650dc2e0940aee54720c",
+    "present_files": [
+      "config.json",
+      "tokenizer_config.json",
+      "tokenizer.json",
+      "vocab.json",
+      "merges.txt"
+    ],
+    "absent_optional_files": [
+      "special_tokens_map.json",
+      "added_tokens.json"
+    ],
+    "loading": "explicit_local_snapshot_override",
+    "assets": {
+      "config.json": "1ef73a85a141b1c46315c3c0f72c4dc678842c5d198f939510e6543ac847b17b",
+      "tokenizer_config.json": "5e04eb606e3a1583530a42e36c2a6b6615c86f34fe77e44d9ddeb43ff940931f",
+      "tokenizer.json": "847bbeab6174d66a88898f729d52fa8d355fafe1bea101cf960dd404581df70e",
+      "vocab.json": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab",
+      "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5"
+    }
+  },
+  "local_full_report_sha256": "1d95d463c78e4a14a0ef96cf35e4f9900b204082e4d2455085aed23ac66ed5a7"
+}

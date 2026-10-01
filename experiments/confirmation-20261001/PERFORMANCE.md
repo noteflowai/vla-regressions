@@ -65,14 +65,50 @@ RNG use, model inputs, actions, physics and scoring. Qualify any adopted writer
 with the same native control and independently verify complete retained arrays.
 Do not reuse a failed cohort or reinterpret the replay as a clean native control.
 
-The v3 runner now supports `--profile-episodes` for a new control cohort.
+The v3 introduced `--profile-episodes` for a new control cohort; the current
+v4 also binds the cached text tokenizer's immutable snapshot and file inventory.
 Its `phase-profile.json` records every call, inclusive wall/CPU time, count and
 error flag. A completed episode requires the expected snapshot, prediction-call,
 processor, reset, step and close counts with no failed timed call. CPU checks
 verify return and argument identity, exception identity, exact call order and
 restoration of both inherited and own attributes on success and error.
 No instrumented native episode has been collected for this revision yet.
-The v2 control in progress uses its preserved v2 worktree, not this new source.
+
+## New v2 control and host observation
+
+The separate v2 attempt used its preserved source `d58c0bc`, not the new timers.
+One complete independent FP32 pair passed the comparator: both episodes succeeded
+at step 287, with all saved arrays, actions and transitions equal, including
+intermediate camera frames. The second pair's first load was denied when host
+available memory fell to 15,283,400,704 bytes, below the fixed 18 GiB threshold.
+The worker exited 1. The full two-pair clean-lifecycle control remains unqualified,
+and the primary gate rejects it. Actual charged time is 920.179 seconds; the
+canonical 12-hour ledger was finalized, not reset, and has 10.412 hours remaining.
+No BF16 or primary pair was collected.
+
+The host has four logical CPUs. Read-only samples during collection found
+23–24 runnable tasks, zero CPU idle and approximately 93% CPU pressure. Other
+rendering/encoding tasks were active; their jobs and priorities were unchanged.
+The two identical-output episodes took 184.0 and 291.7 seconds inside the episode
+kernel. This demonstrates variable host wall time, not a measured policy speedup
+or attribution of all overhead to one phase. Collect phase timings under a stable
+resource window before adopting an optimization or forecasting the fixed study.
+
+See `engineering-control-v2-001.json` and `cpu-contention-001.json`. Full raw
+episodes remain local. The BART tokenizer snapshot was not separately bound in
+v2; `tokenizer-assets-audit-001.json` compares the current cached and explicit
+snapshot tokenizers on CPU, not historical tokenizers. Vocabulary, parsed backend
+and all encoded fields for five strings (including the selected task prompt)
+match. This audit constructs no policy and initializes no CUDA context. Future
+v4 loads the explicit snapshot and rejects changed files or optional-file inventory.
+
+The latest official LeRobot release checked on October 1 is still v0.6.1:
+https://github.com/huggingface/lerobot/releases/tag/v0.6.1.
+Its release notes describe direct-device safetensors loading in shared policy
+code, but the pinned X-VLA override constructs its instance and loads a CPU state
+dictionary before moving it. General release notes do not establish that this
+specific loader is already optimized. Any alternate loader needs a separate
+prospective design, tensor verification and native control.
 
 ## Reproduce the CPU replay
 
