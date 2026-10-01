@@ -1,0 +1,114 @@
+{
+  "method": "Exact binomial-mixture integration of one-sided paired conditional test",
+  "alpha": 0.05,
+  "fixed_primary_pairs": 80,
+  "grid_points_per_loss": 701,
+  "rows": [
+    {
+      "pairs": 20,
+      "absolute_loss": 0.1,
+      "grid_minimum_power": 0.043174495284463425,
+      "minimizing_discordance_probability": 0.1,
+      "power_at_all_discordant": 0.05533418771839051
+    },
+    {
+      "pairs": 20,
+      "absolute_loss": 0.2,
+      "grid_minimum_power": 0.12559897272303744,
+      "minimizing_discordance_probability": 1.0,
+      "power_at_all_discordant": 0.12559897272303744
+    },
+    {
+      "pairs": 20,
+      "absolute_loss": 0.3,
+      "grid_minimum_power": 0.2453957451484393,
+      "minimizing_discordance_probability": 1.0,
+      "power_at_all_discordant": 0.2453957451484393
+    },
+    {
+      "pairs": 40,
+      "absolute_loss": 0.1,
+      "grid_minimum_power": 0.11994450759429814,
+      "minimizing_discordance_probability": 0.9768571428571428,
+      "power_at_all_discordant": 0.1326023628482876
+    },
+    {
+      "pairs": 40,
+      "absolute_loss": 0.2,
+      "grid_minimum_power": 0.297430622710089,
+      "minimizing_discordance_probability": 0.9794285714285715,
+      "power_at_all_discordant": 0.317425160239034
+    },
+    {
+      "pairs": 40,
+      "absolute_loss": 0.3,
+      "grid_minimum_power": 0.5511944022161692,
+      "minimizing_discordance_probability": 0.9810000000000001,
+      "power_at_all_discordant": 0.5720821478352986
+    },
+    {
+      "pairs": 80,
+      "absolute_loss": 0.1,
+      "grid_minimum_power": 0.19503734894451896,
+      "minimizing_discordance_probability": 0.946,
+      "power_at_all_discordant": 0.2162864328092315
+    },
+    {
+      "pairs": 80,
+      "absolute_loss": 0.2,
+      "grid_minimum_power": 0.5262818598748734,
+      "minimizing_discordance_probability": 0.9691428571428573,
+      "power_at_all_discordant": 0.5483665563593849
+    },
+    {
+      "pairs": 80,
+      "absolute_loss": 0.3,
+      "grid_minimum_power": 0.8431254604550737,
+      "minimizing_discordance_probability": 0.9830000000000001,
+      "power_at_all_discordant": 0.8540286200428671
+    },
+    {
+      "pairs": 100,
+      "absolute_loss": 0.1,
+      "grid_minimum_power": 0.22407277643203677,
+      "minimizing_discordance_probability": 0.9742857142857142,
+      "power_at_all_discordant": 0.24149057549224368
+    },
+    {
+      "pairs": 100,
+      "absolute_loss": 0.2,
+      "grid_minimum_power": 0.6045215291418613,
+      "minimizing_discordance_probability": 0.9817142857142858,
+      "power_at_all_discordant": 0.6225326761221712
+    },
+    {
+      "pairs": 100,
+      "absolute_loss": 0.3,
+      "grid_minimum_power": 0.9057362305268418,
+      "minimizing_discordance_probability": 0.9870000000000001,
+      "power_at_all_discordant": 0.9123219015167059
+    },
+    {
+      "pairs": 160,
+      "absolute_loss": 0.1,
+      "grid_minimum_power": 0.32923444524372614,
+      "minimizing_discordance_probability": 0.9601428571428571,
+      "power_at_all_discordant": 0.34647322839953815
+    },
+    {
+      "pairs": 160,
+      "absolute_loss": 0.2,
+      "grid_minimum_power": 0.80341092776463,
+      "minimizing_discordance_probability": 0.9897142857142858,
+      "power_at_all_discordant": 0.8129001664096127
+    },
+    {
+      "pairs": 160,
+      "absolute_loss": 0.3,
+      "grid_minimum_power": 0.9853828942878495,
+      "minimizing_discordance_probability": 0.9930000000000001,
+      "power_at_all_discordant": 0.986456019323279
+    }
+  ],
+  "limitations": "Grid minima, not a proved continuous worst-case bound. Alternatives are planning assumptions, not estimates from historical outcomes. Power is conditional on independent paired trials."
+}

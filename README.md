@@ -59,6 +59,13 @@ The 422 changed records describe episode lengths, not complete trajectory
 differences. Weight rounding stores floating dequantized values and does not
 measure integer-kernel acceleration.
 
+A [prospective serial confirmation protocol](experiments/confirmation-20261001/PROTOCOL.md)
+fixes one selected state, 80 fresh FP32/BF16 pairs, independent reloads, balanced
+randomized order and a separate exact-trajectory FP32 engineering control.
+Its paired-test power planner, durable native adapter and CPU controls are
+development artifacts, not completed native findings. The reviewed r2
+manuscript and its archived outcomes remain the published evidence.
+
 ## Reproduce the analysis
 
 Python 3.12 is the validated environment. The numerical dependencies are pinned
