@@ -3,12 +3,14 @@ all: output/pdf/higher-success-new-failures.pdf arxiv.tar.gz reproducibility.tar
 figure-provenance.json: build_figures.py ../../analyze.py ../../results/pilot/*.jsonl ../../results/followup/*.jsonl ../../results/vqb/reanalysis.json
 	python3 build_figures.py >figure-build-summary.txt
 
-output/pdf/higher-success-new-failures.pdf: main.tex references.bib corl_2026.sty corlabbrvnat.bst figure-provenance.json figures/*.pdf
+.build/main.bbl: main.tex references.bib corl_2026.sty corlabbrvnat.bst figure-provenance.json figures/*.pdf
 	mkdir -p .build output/pdf
 	pdflatex -halt-on-error -interaction=nonstopmode -output-directory=.build main.tex >.build/pass1.txt
 	cd .build && BIBINPUTS=.. BSTINPUTS=.. bibtex main >bibtex.txt
 	pdflatex -halt-on-error -interaction=nonstopmode -output-directory=.build main.tex >.build/pass2.txt
 	pdflatex -halt-on-error -interaction=nonstopmode -output-directory=.build main.tex >.build/pass3.txt
+
+output/pdf/higher-success-new-failures.pdf: .build/main.bbl
 	cp .build/main.pdf output/pdf/higher-success-new-failures.pdf
 
 arxiv.tar.gz: output/pdf/higher-success-new-failures.pdf prepare_sources.py
