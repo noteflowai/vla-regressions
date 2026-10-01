@@ -1,6 +1,6 @@
 # Current submission kit
 
-Updated 2026-10-01 after the pre-invitation manuscript audit.
+Updated 2026-10-01 after the manuscript audit and individual endorsement request.
 
 Title: **Beyond Aggregate Success: Paired Statewise Evaluation of VLA Policy Updates**
 
@@ -53,7 +53,7 @@ than relying on the website's later AoE date.
 ## Existing arXiv draft
 
 Account: `qiangguo-vla`. Existing draft: **8144759**, incomplete and expiring
-October 12. The October 1, 02:32 UTC authenticated check returned:
+October 12. The October 1, 09:09 UTC authenticated check returned:
 
 > You are not endorsed for this archive.
 
@@ -64,11 +64,25 @@ The previously selected arXiv perpetual, non-exclusive licence should be
 checked when the draft permits proceeding. No arXiv upload or announcement is
 claimed by the public GitHub release.
 
-A personal endorsement request to David Snyder was previously sent on
-September 29. Its current response has not been checked in this manuscript
-audit. LIBERO and X-VLA authors are relevant individual backups, but their
-current cs.RO eligibility and willingness remain unverified; qualification-page
-errors do not determine either. No new endorsement invitation was sent.
+A personal endorsement request was previously sent on September 29.
+The October 1 mailbox check found that sent message and no reply.
+An initial request to a verified LIBERO endorser returned a permanent
+`550 5.1.1 User unknown` error; that address was not retried.
+
+An individual request was then sent to an X-VLA author whose cs.RO qualification
+was confirmed on the [official eligibility page](https://arxiv.org/auth/show-endorsers/2510.10274).
+The contact address came from the author's current personal homepage, linked by
+the X-VLA project. The mailbox reported successful delivery at 09:03 UTC.
+The message included the current signed r2 PDF, public code and the private
+endorsement request link, with the manuscript's inference limits stated.
+The 09:10 UTC mailbox check found the sent invitation and no reply.
+Delivery is not a positive endorsement or confirmation that the author read
+the request. No repeat request or additional invitation is scheduled.
+
+The upload archive and its eight file identities were rechecked against
+`arxiv-manifest.json`; the reviewed PDF hash is unchanged. Those bytes match
+the previously verified clean-room build. No new rollouts or manuscript changes
+were added during this check.
 
 For an individual request, use the current signed public PDF and briefly state
 the subject and evidence boundaries. Keep the private arXiv request link out
