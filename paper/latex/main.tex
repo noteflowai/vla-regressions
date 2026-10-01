@@ -24,7 +24,7 @@
 \newcommand{\pizero}{$\pi_0$\xspace}
 \newcommand{\pizerofive}{$\pi_{0.5}$\xspace}
 
-\title{Higher Success, New Failures:\\Measuring Per-State Regressions in VLA Policy Updates}
+\title{Beyond Aggregate Success:\\Paired Statewise Evaluation of VLA Policy Updates}
 
 \author{
   Qiang Guo\\
@@ -34,6 +34,9 @@
 
 \begin{document}
 \maketitle
+\hypersetup{pdfauthor={Anonymous Submission},
+  pdftitle={Beyond Aggregate Success: Paired Statewise Evaluation of VLA Policy Updates},
+  pdfsubject={Nonarchival workshop submission under review}}
 
 \begin{abstract}
 Quantized, distilled or otherwise accelerated vision-language-action (VLA) policies are judged by
@@ -235,7 +238,7 @@ rollout still shows a new failure, a state that drops from 5/5 to 4/5; at the fl
 expected, and the test does not flag it.
 
 \paragraph{BF16: flat on average, one state lost.} Casting the model to BF16 changes the
-trajectory of 422 of 500 episodes and the aggregate by $-1.0$ points, with a descriptive interval
+recorded length of 422 of 500 episodes and the aggregate by $-1.0$ points, with a descriptive interval
 that includes zero. One state goes from 5/5 to 0/5 (paired $p=0.03125$), which does not survive
 correction. We therefore rolled this selected state out 20 more times per variant with fresh
 policy seeds; since the state was picked from the first run, only the new rollouts enter the
@@ -255,10 +258,12 @@ quantization is simulated weight-only rounding. With five paired repeats the sma
 one-sided exact $p$-value is $1/32$; no state in this pilot passes correction. Candidate locations
 are therefore descriptive until independently confirmed, and non-detection is not a safety
 certificate. Multiplicity control is per update, not a claim across all searched updates.
-Allocating rollouts sequentially to uncertain
-states~\citep{snyder2025step} is the natural next step. Related paired tests on suite
-level~\citep{islam2026onnx} and update-admission gates~\citep{ma2026admission} address the
-aggregate or a synthetic setting; we target states of a real VLA benchmark.
+Historical logs lack complete checkpoint provenance and reset/camera snapshots; later
+corrected-pipeline audits cannot retrospectively validate historical input identity. The
+selected-state follow-up is conditional on the declared evaluator assumptions and does not
+estimate suite-wide incidence. Sequential allocation~\citep{snyder2025step}, paired suite
+comparisons~\citep{islam2026onnx} and admission gates~\citep{ma2026admission} remain relevant
+next-study baselines.
 
 \clearpage
 \bibliography{references}

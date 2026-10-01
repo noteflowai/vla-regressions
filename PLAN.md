@@ -1,4 +1,8 @@
-# Higher Success, New Failures: current research and submission status
+# Historical research and submission status — September 30
+
+Current publication entry point: [README.md](README.md). The record below
+preserves the September 30 status; it is not a current arXiv or OpenReview
+status check.
 
 Updated 2026-09-30. This replaces the original development plan; historical
 raw results and submission receipts remain preserved.

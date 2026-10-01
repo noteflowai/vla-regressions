@@ -1,6 +1,6 @@
-# Higher Success, New Failures: Measuring Per-State Regressions in VLA Policy Updates
+# Beyond Aggregate Success: Paired Statewise Evaluation of VLA Policy Updates
 
-Current abstract, synchronized with `latex/main.tex` on 2026-09-30.
+Current workshop abstract, synchronized with `latex/main.tex` on 2026-10-01.
 The TeX manuscript is authoritative. The earlier outline and its Fisher/BH
 claims have been superseded by the paired-analysis correction.
 
